@@ -1,0 +1,24 @@
+.payment {
+    .p-tariffs {
+        @media (min-width:0) {margin-bottom: 15px;}
+        @media (min-width:1000px) {margin-bottom: 30px;}        
+    }
+    .p-paysystems {
+        @media (min-width:0) {margin-bottom: 15px;}
+        @media (min-width:1000px) {margin-bottom: 30px;}        
+    }
+    .p-currencies {
+        @media (min-width:0) {margin-bottom: 15px;}
+        @media (min-width:1000px) {margin-bottom: 30px;}  
+        height: 40px;     
+        select, option {text-transform: uppercase;} 
+    }
+    .p-btnwrap {display: flex; justify-content: center;}
+    .p-head {
+        @media (min-width:0) {font-size: 16px;}
+        @media (min-width:1000px) {font-size: 18px;}  
+        margin-bottom: 15px; font-weight: bold; 
+    }
+    .p-note {margin-bottom: 15px;}
+    .p-error {margin-top: 3px; font-size: 12px; color: var(--color-alert1); text-align: center;}
+}

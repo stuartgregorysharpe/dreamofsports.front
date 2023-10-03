@@ -1,0 +1,21 @@
+<div class="image-picker">
+    <div class="ip-wrap">
+        <div class="ip-top">
+            <div class="ip-container" [class.error]="error" [class.empty]="!img">
+                <img smart-media *ngIf="img" [src]="imgOut | safe:'url'">
+                <div class="ip-title" [class.hiddenable]="img" (click)="onSelect()"><div class="ipt-icon"><span></span></div><div class="ipt-txt">{{words['common']?.['upload-image']?.[lang.slug]}}</div></div>            
+            </div>                 
+        </div>
+        <div class="ip-bottom">
+            <div class="ip-error">
+                <div *ngIf="innerError">{{words['errors']?.['upload-image']?.[lang.slug]}}</div>    
+                <div *ngIf="error">{{words['errors']?.[error]?.[lang.slug]}}</div>    
+            </div>
+            <div class="ip-btns">
+                <div class="roundbtn compact transparent light view" (click)="viewerActive = true" [class.disabled]="!img"><span></span></div>
+                <div class="roundbtn compact transparent light danger delete" (click)="onDelete()" [class.disabled]="!img"><span></span></div>
+            </div>            
+        </div>        
+    </div>        
+</div>
+<popup-media-viewer [url]="imgOut" type="images" [(active)]="viewerActive"></popup-media-viewer>

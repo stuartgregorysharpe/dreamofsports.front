@@ -1,0 +1,20 @@
+<div class="sa-viewport" #viewport>
+    <div class="sa-container-wrap" *ngIf="dataItems.length">
+        <div class="sa-container-wrap2">
+            <div class="sa-container" [class.dragging]="dragging" #container [style.left]="lang.dir === 'ltr' ? -offset+'px' : 'auto'" [style.right]="lang.dir === 'rtl' ? -offset+'px' : 'auto'" (mousedown)="onDragStart($event);" (touchstart)="onDragStart($event);" (transitionend)="onTransitionEnd()">
+                <div class="sa-article" *ngFor="let a of cycledItems" [style.min-width]="itemWidth+'px'" [style.width]="itemWidth+'px'">
+                    <div class="sa-imgwrap"><img src="/images/articles/{{a.img}}" [alt]="a.name[lang.slug]" loading="lazy"></div>
+                    <div class="sa-ovl"></div>
+                    <div class="sa-content-wrap">
+                        <div class="sa-content">
+                            <a routerLink="/{{lang.slug}}/articles/a/{{a.slug}}">{{a.name[lang.slug]}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+<div class="sa-dash" *ngIf="dataItems.length">
+    <div *ngFor="let a of dataItems; let i = index;" class="sa-handle" [class.active]="step === i" (click)="moveTo(i)"></div>
+</div>

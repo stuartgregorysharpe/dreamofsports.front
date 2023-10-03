@@ -1,0 +1,18 @@
+<div class="pagewrap">
+    <div class="page">
+        <div class="breadcrumbs">
+            <span><a routerLink="/{{lang.slug}}">{{words['common']?.['home']?.[lang.slug]}}</a>&nbsp;/&nbsp;</span>
+            <span *ngIf="cat"><a routerLink="/{{lang.slug}}/articles">{{page?.name[lang.slug]}}</a>&nbsp;/&nbsp;</span>
+        </div>
+        <h1 [innerHTML]="h1"></h1>
+        <div class="cats">
+            <div class="cats-title">{{page?.words['cat']?.[lang.slug]}}:</div>
+            <div class="cats-content"><list-article-cats></list-article-cats></div>
+        </div>
+        <div class="filter">
+            <div class="filter-title">{{page?.words['date']?.[lang.slug]}}:</div>
+            <div class="filter-content"><timestamp-picker [(value)]="filterDate" [useTime]="false" [beauty]="true" [resetable]="true"></timestamp-picker></div>
+        </div>
+        <list-articles [catSlug]="catSlug" [filterDate]="filterDate"></list-articles>
+    </div>
+</div>

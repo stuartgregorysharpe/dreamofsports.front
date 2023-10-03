@@ -1,0 +1,35 @@
+.resume {
+    .r-img {
+        @media (min-width:0) {width: 100%;}
+        @media (min-width:640px) {width: 300px;}
+        margin-bottom: 15px;
+        .ri-title {
+            margin-bottom: 5px;
+            &::after {color: transparent; content: "*"; display: inline-block; margin-inline-start: 3px;}
+            &.required::after {color: var(--color-accent1);}
+        }
+    }
+    .r-next {
+        @media (min-width:0) {justify-content: center;}
+        @media (min-width:640px) {justify-content: flex-end;}
+        display: flex; margin-bottom: 30px;
+    }
+    .r-finish {
+        border-top: 1px var(--color5) solid; padding-top: 30px;
+        .rf-agrees {
+            margin-bottom: 15px;
+            .rf-agree {
+                margin-bottom: 5px;
+                &:last-child {margin-bottom: 0;}
+            }
+        }
+        .rf-btnwrap {display: flex; justify-content: center;}
+    }
+    .r-langs {margin-bottom: 15px;}
+    .r-note {margin-bottom: 15px;}
+    .r-error {font-size: 12px; color: var(--color-accent1); margin-top: 3px;}
+}
+
+#drop-down .p-inputtext {
+    color: #495057 !important;
+}

@@ -1,0 +1,12 @@
+.popup-wrap {
+    .popup.image-viewer {
+        @media (min-width:0) {width: 100%;}
+        @media (min-width:1000px) {width: 600px;}
+        .popup-main {
+            .mv-container {
+                text-align: center; 
+                img, video {max-width: 100%; border: 2px var(--color5) solid;}   
+            }
+        }        
+    }
+}

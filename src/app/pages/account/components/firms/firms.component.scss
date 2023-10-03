@@ -1,0 +1,9 @@
+.firms-list {
+    .fl-search {
+        @media (min-width:0) {margin-bottom: 15px; display: block;}
+        @media (min-width:1000px) {margin-bottom: 30px; display: flex;}
+        align-items: center; width: 100%;
+        .fls-title {margin-inline-end: 15px;}
+        .fls-input {flex: 1;}
+    }
+}

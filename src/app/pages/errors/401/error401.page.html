@@ -1,0 +1,9 @@
+<div class="pagewrap">
+    <div class="page">
+        <div class="breadcrumbs">
+            <span><a routerLink="/{{lang.slug}}">{{words['common']?.['home']?.[lang.slug]}}</a>&nbsp;/&nbsp;</span>
+        </div>
+        <h1 [innerHTML]="h1"></h1>
+        <div *ngIf="content" [innerHTML]="content | safe:'html'"></div>
+    </div>
+</div>

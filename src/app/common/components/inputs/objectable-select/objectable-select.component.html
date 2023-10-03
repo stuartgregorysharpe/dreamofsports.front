@@ -1,0 +1,11 @@
+<div class="objectable-select {{skin}}">
+    <div class="os-value {{lang.dir}}" (click)="onActivate()" #btn>
+        <div class="osv-content">{{currentValue}}</div>
+    </div>
+    <div class="os-items" [class.active]="active" [style.top]="top">
+        <div *ngIf="undefinedable" class="osv-item" [class.active]="value === undefined" (click)="onSelect(undefined)">{{undefinedTitle[lang.slug]}}</div>
+        <div *ngIf="nullable" class="osv-item" [class.active]="value === null" (click)="onSelect(null)">{{nullTitle[lang.slug]}}</div>
+        <div *ngFor="let item of items" class="osv-item" [class.active]="isEqual(item[valuableField], value)" [innerHTML]="formatValue(item)" (click)="onSelect(item)"></div>
+    </div>
+    <div class="os-ovl" [class.active]="active" (click)="active = false"></div>
+</div>

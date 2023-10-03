@@ -1,0 +1,88 @@
+<div class="flex w-full rounded-md bg-[#262626] p-4" *ngIf="authorized && notFan">
+  <p-toast></p-toast>
+  <div class="flex flex-col w-full">
+    <p class="text-white font-bold ml-20">
+      {{ "post.new.comment" | translate }}
+    </p>
+    <div class="flex flex-col divide-y divide-white/30 gap-2">
+      <div class="flex gap-2">
+        <img src="" class="w-16 h-16 rounded-md flex-none object-cover" [src]="userImg" />
+        <textarea #textarea (input)="adjustTextareaHeight($event.target)" [(ngModel)]="post.content" rows="1"
+          class="text-white rounded-3xl bg-[#414141] border-white/30 focus:ring-0 focus:border-red-700/50 border-1 w-full max-h-44 no-scrol"></textarea>
+      </div>
+      <div class="flex pl-20 pt-2 justify-between">
+        <div class="flex gap-4">
+          <p class="text-white/50">{{ "post.new.attachment" | translate }}</p>
+          <div class="cursor-pointer" [pTooltip]="'post.new.attachment_image' | translate" tooltipPosition="bottom"
+            (click)="loadImages()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z"
+                stroke="#C10808" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M8.5 10C9.32843 10 10 9.32843 10 8.5C10 7.67157 9.32843 7 8.5 7C7.67157 7 7 7.67157 7 8.5C7 9.32843 7.67157 10 8.5 10Z"
+                stroke="#C10808" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M21 15L16 10L5 21" stroke="#C10808" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="cursor-pointer" [pTooltip]="'post.new.attach_youtube' | translate" tooltipPosition="bottom"
+            (click)="showYoutubeDialog()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M22.5396 6.42C22.4208 5.94541 22.1789 5.51057 21.8382 5.15941C21.4976 4.80824 21.0703 4.55318 20.5996 4.42C18.8796 4 11.9996 4 11.9996 4C11.9996 4 5.1196 4 3.3996 4.46C2.92884 4.59318 2.50157 4.84824 2.16094 5.19941C1.82031 5.55057 1.57838 5.98541 1.4596 6.46C1.14481 8.20556 0.990831 9.97631 0.999595 11.75C0.988374 13.537 1.14236 15.3213 1.4596 17.08C1.59055 17.5398 1.8379 17.9581 2.17774 18.2945C2.51758 18.6308 2.93842 18.8738 3.3996 19C5.1196 19.46 11.9996 19.46 11.9996 19.46C11.9996 19.46 18.8796 19.46 20.5996 19C21.0703 18.8668 21.4976 18.6118 21.8382 18.2606C22.1789 17.9094 22.4208 17.4746 22.5396 17C22.852 15.2676 23.0059 13.5103 22.9996 11.75C23.0108 9.96295 22.8568 8.1787 22.5396 6.42Z"
+                stroke="#C10808" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M9.75 15.02L15.5 11.75L9.75 8.48V15.02Z" stroke="#C10808" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="cursor-pointer" [pTooltip]="'post.new.attach_award' | translate" tooltipPosition="bottom"
+            (click)="loadImages()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 15C15.866 15 19 11.866 19 8C19 4.13401 15.866 1 12 1C8.13401 1 5 4.13401 5 8C5 11.866 8.13401 15 12 15Z"
+                stroke="#C10808" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M8.21 13.89L7 23L12 20L17 23L15.79 13.88" stroke="#C10808" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="cursor-pointer" [pTooltip]="'post.new.attach_video' | translate" tooltipPosition="bottom"
+            (click)="loadVideo()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M23 7L16 12L23 17V7Z" stroke="#C10808" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path
+                d="M14 5H3C1.89543 5 1 5.89543 1 7V17C1 18.1046 1.89543 19 3 19H14C15.1046 19 16 18.1046 16 17V7C16 5.89543 15.1046 5 14 5Z"
+                stroke="#C10808" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+        </div>
+        <button class="bg-[#C10808] rounded-md text-white px-10" (click)="addPost()">
+          {{ "post.new.post" | translate }}
+        </button>
+      </div>
+    </div>
+    <div class="flex gap-2">
+      <div *ngFor="let item of post.attachment; let i = index;">
+        <img [src]="getUrl(item)" *ngIf="item.type === 'image'" class="w-24 h-24 object-cover" />
+        <video [src]="getUrl(item)" *ngIf="item.type === 'video' || item.type === 'youtube'" class="w-24 h-24"></video>
+        <div class="relative right-2 bottom-2">
+          <div *ngIf="type !== 'others'" class="roundbtn compact transparent light view" (click)="previewAttachment(i)">
+            <span></span>
+          </div>
+          <div class="roundbtn compact transparent light danger delete" (click)="onDelete(i)"><span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<popup-media-viewer [url]="previewFile" [type]="previewType" [(active)]="viewerActive"></popup-media-viewer>
+<p-dialog [header]="'post.new.attachment_youtube_header' | translate" [(visible)]="youtubeDialogVisible" [modal]="true"
+  [style]="{ width: '30vw' }" [draggable]="false" [resizable]="false">
+  <div class="flex flex-col items-end">
+    <input [(ngModel)]="youtubeLink" class="border-1 rounded-md p-2 w-full" />
+    <button class="bg-main text-white rounded-md px-5 py-2 mt-2" (click)="addYoutube()">{{"post.new.youtube_add" |
+      translate}}</button>
+  </div>
+</p-dialog>

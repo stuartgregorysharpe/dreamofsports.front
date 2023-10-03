@@ -1,0 +1,19 @@
+.indicators {
+    display: flex; justify-content: space-around; flex-wrap: wrap; row-gap:15px;
+    .indicator {
+        @media (min-width:0) {width: 49%;}  
+	    @media (min-width:640px) {width: 30%;}  
+        @media (min-width:1000px) {width: 18%;}  
+        .i-digit {
+            @media (min-width:0) {font-size: 30px;}  
+	        @media (min-width:1000px) {font-size: 60px;}  
+            text-align: center; color: var(--color-accent1); font-weight: bold; transition: 0.3s; opacity: 0;
+            &.visible {opacity: 1; transition: 1s;}
+        }
+        .i-txt {
+            @media (min-width:0) {font-size: 14px;}  
+	        @media (min-width:1000px) {font-size: 18px;}  
+            text-align: center; 
+        }
+    }
+}

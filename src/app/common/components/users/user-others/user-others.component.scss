@@ -1,0 +1,8 @@
+.user-others {
+    a {
+        display: flex; align-items: center; margin-bottom: 15px; color: var(--color3); direction: ltr;
+        &:last-child {margin-bottom: 0;}
+        &::before {font-family: "fa-regular"; content: "\f15b"; display: inline-block; margin-inline-end: 10px; font-size: 22px;}
+        span {display: inline-block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+    }
+}

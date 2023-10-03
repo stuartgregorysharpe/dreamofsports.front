@@ -1,0 +1,4 @@
+<form class="is" [class.compact]="compact" (submit)="onSubmit()">
+    <input type="text" name="search" [(ngModel)]="search" [placeholder]="words['common']?.['search']?.[lang.slug]">
+    <button type="submit" class="roundbtn dark search" [class.compact]="compact"><span></span></button>
+</form>

@@ -1,0 +1,30 @@
+<div class="contacts">    
+    <div class="c-items">
+        <ng-container *ngIf="contacts.length">        
+            <div class="c-item" *ngFor="let c of contacts; let i = index;">        
+                <div class="ci-params">
+                    <div class="ci-type" *ngIf="type === 'socials'">
+                        <div class="ci-inputwrap">
+                            <div class="selectwrap wide {{lang.dir}}" [class.error]="errors?.[i]?.type">
+                                <select [(ngModel)]="c.social_id">
+                                    <option [ngValue]="null">{{words['common']?.['ph-socials-social']?.[lang.slug]}}</option>
+                                    <option *ngFor="let s of socials" [ngValue]="s.id" dir="ltr">{{s.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="ci-error" *ngIf="errors?.[i]?.type">{{words['errors']?.[errors[i].type]?.[lang.slug]}}</div>
+                    </div>
+                    <div class="ci-value">
+                        <div class="ci-inputwrap"><input type="text" maxlength="255" [(ngModel)]="c.value" [placeholder]="words['common']?.['ph-'+type+'-value']?.[lang.slug]" dir="ltr" [class.error]="errors?.[i]?.value"></div>
+                        <div class="ci-error" *ngIf="errors?.[i]?.value">{{words['errors']?.[errors[i].value]?.[lang.slug]}}</div>
+                    </div>
+                </div>                
+                <div class="ci-actions"><div class="roundbtn transparent light danger delete" (click)="onDelete(i)"><span></span></div></div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="!contacts.length">
+            <span>{{words['common']?.['none2']?.[lang.slug]}}</span>
+        </ng-container>
+    </div>    
+    <div class="c-btnwrap" *ngIf="!exhausted"><button type="button" class="btn simple" (click)="onAdd()"><span>{{words['common']?.['add']?.[lang.slug]}}</span></button></div>
+</div>

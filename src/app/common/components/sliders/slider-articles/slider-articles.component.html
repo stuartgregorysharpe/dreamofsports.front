@@ -1,0 +1,40 @@
+<div class="sa-viewport" #viewport>
+    <ng-container *ngIf="dataItems.length">
+        <!-- browser -->
+        <div *ngIf="isBrowser" class="sa-container-b" [class.dragging]="dragging" #container [style.left]="lang.dir === 'ltr' ? -offset+'px' : 'auto'" [style.right]="lang.dir === 'rtl' ? -offset+'px' : 'auto'" (mousedown)="onDragStart($event);" (touchstart)="onDragStart($event);">
+            <div class="sa-article" *ngFor="let a of dataItems" [style.min-width]="itemWidth+'px'" [style.width]="itemWidth+'px'">
+                <div class="saa-imgwrap">
+                    <a class="saa-img" routerLink="/{{lang.slug}}/articles/a/{{a.slug}}"><img src="/images/articles/{{a.img_s}}" [alt]="a.name[lang.slug]" loading="lazy"></a>
+                </div>                
+                <div class="saa-main">
+                    <a class="saa-name" routerLink="/{{lang.slug}}/articles/a/{{a.slug}}">{{a.name[lang.slug]}}</a>
+                    <div class="saa-date">{{a.formattedDate}}</div>
+                </div>
+            </div>
+        </div>
+        <!-- server -->
+        <div *ngIf="!isBrowser" class="sa-container-s">
+            <ng-container *ngFor="let i of [0,1,2]">
+                <div *ngIf="dataItems[i]" class="sa-article">
+                    <div class="saa-imgwrap">
+                        <a class="saa-img" routerLink="/{{lang.slug}}/articles/a/{{dataItems[i].slug}}"><img src="/images/articles/{{dataItems[i].img_s}}" [alt]="dataItems[i].name[lang.slug]" loading="lazy"></a>
+                    </div>                    
+                    <div class="saa-main">
+                        <a class="saa-name" routerLink="/{{lang.slug}}/articles/a/{{dataItems[i].slug}}">{{dataItems[i].name[lang.slug]}}</a>
+                        <div class="saa-date">{{dataItems[i].formattedDate}}</div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="!dataItems.length">
+        {{words['common']?.['none']?.[lang.slug]}}
+    </ng-container>
+</div>
+<div class="sa-dash" *ngIf="dataItems.length">
+    <div class="roundbtn dark" [class.left]="lang.dir === 'ltr'" [class.right]="lang.dir === 'rtl'" (click)="backward()"><span></span></div>
+    <div class="sa-indicator">
+        <div *ngFor="let a of dataItems; let i = index;" class="sai-item" [class.active]="step === i || (framesInViewport === 2 && step+1 === i) || (framesInViewport === 3 && (step+1 === i || step+2 === i))"></div>
+    </div>
+    <div class="roundbtn dark" [class.left]="lang.dir === 'rtl'" [class.right]="lang.dir === 'ltr'" (click)="forward()"><span></span></div>
+</div>

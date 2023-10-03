@@ -1,0 +1,61 @@
+<div class="pagewrap">
+    <div class="page">
+        <div class="breadcrumbs">
+            <span><a routerLink="/{{lang.slug}}">{{words['common']?.['home']?.[lang.slug]}}</a>&nbsp;/&nbsp;</span>
+        </div>
+        <h1 [innerHTML]="h1"></h1>
+        <div class="contacts">
+            <div class="c-left">
+                <div class="cl-section">
+                    <div class="cl-mark addr"><span></span></div>
+                    <div class="cl-content">
+                        <div class="cl-title">{{page?.words['addr-title']?.[lang.slug]}}</div>
+                        <div class="cl-item">{{page?.words['addr-1']?.[lang.slug]}}</div>
+                        <div class="cl-item">{{page?.words['addr-2']?.[lang.slug]}}</div>
+                    </div>
+                </div>
+                <div class="cl-section">
+                    <div class="cl-mark phone"><span></span></div>
+                    <div class="cl-content">
+                        <div class="cl-title">{{page?.words['phone-title']?.[lang.slug]}}</div>
+                        <div class="cl-item" dir="ltr" [class.ta-right]="lang.dir === 'rtl'">{{page?.words['phone-1']?.[lang.slug]}}</div>
+                        <div class="cl-item" dir="ltr" [class.ta-right]="lang.dir === 'rtl'">{{page?.words['phone-2']?.[lang.slug]}}</div>
+                    </div>
+                </div>
+                <div class="cl-section">
+                    <div class="cl-mark email"><span></span></div>
+                    <div class="cl-content">
+                        <div class="cl-title">{{page?.words['email-title']?.[lang.slug]}}</div>
+                        <div class="cl-item"><a href="mailto:{{page?.words['email']?.[lang.slug]}}">{{page?.words['email']?.[lang.slug]}}</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="c-right">
+                <h2>{{page?.words['form-title']?.[lang.slug]}}</h2>
+                <form class="gf" (submit)="onSubmit()">
+                    <div class="gf-row">
+                        <div class="gf-2cols adaptive">
+                            <div class="gf-col">
+                                <div class="gf-title">{{page?.words['form-name']?.[lang.slug]}}</div>
+                                <div class="gf-inputwrap"><input type="text" maxlength="255" name="name" [(ngModel)]="message.name" [class.error]="errors.name"></div>
+                                <div class="gf-error" *ngIf="errors.name">{{words['errors']?.[errors.name]?.[lang.slug]}}</div>
+                            </div>
+                            <div class="gf-col">
+                                <div class="gf-title">{{page?.words['form-email']?.[lang.slug]}}</div>
+                                <div class="gf-inputwrap"><input type="text" maxlength="255" name="email" [(ngModel)]="message.email" [class.error]="errors.email"></div>
+                                <div class="gf-error" *ngIf="errors.email">{{words['errors']?.[errors.email]?.[lang.slug]}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gf-row">
+                        <div class="gf-title">{{page?.words['form-content']?.[lang.slug]}}</div>
+                        <the-textarea maxlength="1000" [(value)]="message.content" [error]="errors.content"></the-textarea>
+                    </div>
+                    <div class="gf-row">
+                        <div class="gf-btnwrap right"><button type="submit" class="btn main send" [class.busy]="sending" [class.done]="sent"><span>{{page?.words['form-send']?.[lang.slug]}}</span></button></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="user-media">
+    <div class="um-item" *ngFor="let item of data; let i = index;" (click)="onClick(item)">
+        <div class="umi-content">
+            <img smart-media *ngIf="type === 'images'" src="{{supabaseUrl}}/images/users/{{item.url}}">
+            <video smart-media *ngIf="type === 'videos'" src="{{supabaseUrl}}/videos/users/{{item.url}}"></video>            
+        </div>        
+    </div>    
+</div>
+

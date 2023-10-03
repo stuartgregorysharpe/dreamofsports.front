@@ -1,0 +1,15 @@
+.popup-wrap {
+    .popup {
+        .popup-main {display: flex; align-items: center;}
+    }
+}
+
+
+.only-paid {
+    display: flex; width: 100%; flex-direction: column; align-items: center;
+    .op-icon {
+        width: 60px; height: 60px; border-radius: 30px; background-color: var(--color4); color: var(--color-alert1); display: flex; justify-content: center; align-items: center; margin-bottom: 15px;
+        span::before {font-family: "fa-regular"; content: "\f071"; font-size: 30px;}
+    }
+    .op-txt {text-align: center; font-size: 20px;}
+}

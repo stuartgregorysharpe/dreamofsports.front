@@ -1,0 +1,22 @@
+<div class="firms-list">
+    <div class="fl-search">
+        <div class="fls-title">{{words['common']?.['search-firm']?.[lang.slug]}}:</div>
+        <div class="fls-input"><input-search2 [(value)]="search" (valueChange)="initFirms()" [placeholder]="words['common']?.['search-firm-ph']?.[lang.slug]"></input-search2></div>
+    </div>
+    <div class="users compact" #container>
+        <ng-container *ngIf="firms !== null">
+            <ng-container *ngIf="firms.length">
+                <div class="u-items">
+                    <div class="u-item" *ngFor="let f of firms"><firm-short [firm]="f" (view)="onView(f.id)"></firm-short></div>                    
+                </div>
+                <div class="loading contrast padded" *ngIf="loadingMore"><span></span></div>
+            </ng-container>
+            <ng-container *ngIf="!firms.length">{{words['common']?.['none']?.[lang.slug]}}</ng-container>
+        </ng-container>
+        <ng-container *ngIf="firms === null">
+            <div class="loading contrast"><span></span></div>
+        </ng-container>
+    </div>
+</div>
+
+<popup-firm [id]="viewerFirmId" [(active)]="viewerActive"></popup-firm>

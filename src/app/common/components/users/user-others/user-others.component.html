@@ -1,0 +1,3 @@
+<div class="user-others">
+    <a *ngFor="let item of data" href="/proxy/download?fileurl={{supabaseUrl}}/others/users/{{item.url}}" [download]="item.name"><span>{{item.name}}</span></a>
+</div>

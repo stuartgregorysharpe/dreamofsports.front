@@ -1,0 +1,51 @@
+.sa-viewport {
+    width: 100%; overflow: hidden; user-select: none; color: var(--color9);
+    .sa-container-wrap {
+        @media (min-width:0) {height: auto; padding-bottom: 75%;}
+        @media (min-width:1000px) {height: calc(100vh - 140px - 30px); padding-bottom: 0;}
+        width: 100%; overflow: hidden; position: relative;
+        .sa-container-wrap2 {
+            position: absolute; left: 0; top: 0; width: 100%; height: 100%;
+            .sa-container {
+                display: flex; position: relative; left: 0; height: 100%; transition: 0.3s; will-change: left, right;
+                &.dragging {pointer-events: none;}
+                .sa-article {
+                    @media (min-width:0) {padding: 0 15px;}
+                    @media (min-width:1000px) {padding: 0 30px;}
+                    height: 100%; background-position: center top; background-size: cover; position: relative;
+                    .sa-imgwrap {
+                        position: absolute; left: 0; top:0; width: 100%; height: 100%; 
+                        img {width: 100%; height: 100%; object-fit: cover;}
+                    }
+                    .sa-ovl {
+                        position: absolute; left: 0; top:0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.4); z-index: 2; transition: 0.3s; display: flex; justify-content: center; align-items: center;
+                        &.blured {backdrop-filter: blur(10px);}
+                    }
+                    .sa-content-wrap {
+                        max-width: var(--width); height: 100%; margin: 0 auto; position: relative; z-index: 3; 
+                        .sa-content {
+                            @media (min-width:0) {bottom: 30px;}
+                            @media (min-width:1000px) {bottom: 60px;}
+                            position: absolute; left: 0; width: 100%;
+                            a {
+                                @media (min-width:0) {font-size: 20px;}
+                                @media (min-width:640px) {font-size: 30px;}
+                                @media (min-width:1000px) {font-size: 40px;}
+                                color: var(--color9); text-decoration: none; font-weight: bold;
+                                &:hover {text-decoration: underline;}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.sa-dash {
+    height: 30px; display: flex; justify-content: center; align-items: center;
+    .sa-handle {
+        height: 8px; width: 40px; border-radius: 4px; margin: 0 5px; background-color: var(--color3); cursor: pointer; transition: 0.3s;
+        &.active {background-color: var(--color9);}
+    }
+}

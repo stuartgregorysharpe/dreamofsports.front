@@ -1,0 +1,20 @@
+<div class="pagewrap">
+    <div class="page">
+        <div class="breadcrumbs">
+            <span><a routerLink="/{{lang.slug}}">{{words['common']?.['home']?.[lang.slug]}}</a>&nbsp;/&nbsp;</span>
+            <span><a routerLink="/{{lang.slug}}/articles">{{page?.name[lang.slug]}}</a>&nbsp;/&nbsp;</span>
+            <span *ngIf="cat"><a routerLink="/{{lang.slug}}/articles/{{cat.slug}}">{{cat.name[lang.slug]}}</a>&nbsp;/&nbsp;</span>
+        </div>
+        <h1 [innerHTML]="h1"></h1>
+        <div class="content margined">
+            <div class="article-params">
+                <div class="ap-date">{{page?.words['date']?.[lang.slug]}}: {{isBrowser ? article?.formattedDate : '&nbsp;'}}</div>
+                <div class="ap-cat" *ngIf="cat">{{page?.words['cat']?.[lang.slug]}}: <a routerLink="/{{lang.slug}}/articles/{{cat.slug}}">{{cat.name[lang.slug]}}</a></div>
+            </div>
+            <img *ngIf="img" class="content-img" src="/images/articles/{{img}}" [alt]="title">
+            <div *ngIf="content" [innerHTML]="content | safe:'html'"></div>
+        </div>
+        <h2>{{page?.words['other']?.[lang.slug]}}</h2>
+        <slider-articles [excludeSlug]="slug" [catSlug]="cat?.slug"></slider-articles>
+    </div>
+</div>

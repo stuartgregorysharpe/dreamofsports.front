@@ -1,0 +1,19 @@
+<div class="users compact" #container>
+    <ng-container *ngIf="athlets !== null">
+        <ng-container *ngIf="athlets.length">
+            <div class="u-items">
+                <div class="u-item" *ngFor="let a of athlets; let i = index;"><athlet-short [athlet]="a" [favoriteMode]="true" (delete)="onDelete(i)" (view)="onView(a.id)"></athlet-short></div>
+            </div>    
+        </ng-container>
+        <!-- <ng-container *ngIf="!athlets.length">
+            <div>{{words['common']?.['none-favorites']?.[lang.slug]}}</div>
+            <div>{{words['common']?.['onlypaid-function-1']?.[lang.slug]}} <a routerLink="/{{lang.slug}}/account/subscription">{{words['common']?.['onlypaid-function-2']?.[lang.slug]}}</a>.</div>
+        </ng-container> -->
+    </ng-container>
+    <ng-container *ngIf="athlets === null">
+        <div class="loading contrast"><span></span></div>
+    </ng-container>
+</div>
+<div class="loading contrast padded" *ngIf="loadingMore"><span></span></div>
+
+<popup-athlet [id]="viewerAthletId" [(active)]="viewerActive"></popup-athlet>

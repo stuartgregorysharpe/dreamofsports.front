@@ -1,0 +1,60 @@
+<div class="popup-wrap" [class.active]="active" (click)="onClick($event)">
+    <div class="popup" id="popup-{{unique}}">
+        <div class="popup-head">
+            <div class="roundbtn transparent dark close" (click)="onClose()"><span></span></div>
+        </div>
+        <div class="popup-main">
+            <div class="popup-title compact">{{words['login']?.['title']?.[lang.slug]}}</div>
+            <div class="flex justify-center mb-2 w-full">
+                <p-dropdown [options]="types" [(ngModel)]="type" optionLabel="name" class="w-4/5"></p-dropdown>
+            </div>
+            <!-- <ul class="popup-selection">
+                <li><input-radio [active]="type === 'athlet'" [title]="words['login']?.['type-athlet']?.[lang.slug]" (click)="type = 'athlet'"></input-radio></li>
+                <li><input-radio [active]="type === 'firm'" [title]="words['login']?.['type-firm']?.[lang.slug]" (click)="type = 'firm'"></input-radio></li>
+                <li><input-radio [active]="type === 'fan'" [title]="'login.type-fan' | translate" (click)="type = 'fan'"></input-radio></li>
+            </ul> -->
+            <div class="popup-content">
+                <form class="gf" (submit)="onSubmit()">
+                    <div class="gf-row">
+                        <div class="gf-inputwrap"><input type="email" name="email" [(ngModel)]="email"
+                                [class.error]="errors['email']" [placeholder]="words['login']?.['email']?.[lang.slug]">
+                        </div>
+                        <div *ngIf="errors['email']" class="gf-error">
+                            {{words['errors']?.[errors['email']]?.[lang.slug]}}</div>
+                    </div>
+                    <div class="gf-row">
+                        <div class="gf-inputwrap"><input-password [(value)]="password" [error]="errors['password']"
+                                [placeholder]="words['login']?.['password']?.[lang.slug]"></input-password></div>
+                        <div *ngIf="errors['password']" class="gf-error">
+                            {{words['errors']?.[errors['password']]?.[lang.slug]}}</div>
+                    </div>
+                    <div class="gf-row">
+                        <div *ngIf="!errors['form']" class="gf-btnwrap center"><button type="submit"
+                                class="btn main wide"
+                                [class.busy]="sending"><span>{{words['login']?.['submit']?.[lang.slug]}}</span></button>
+                        </div>
+                        <div *ngIf="errors['form']" class="gf-denied">{{words['errors']?.[errors['form']]?.[lang.slug]}}
+                        </div>
+                    </div>
+                    <div class="gf-row">
+                        <div class="gf-title center">{{words['login']?.['socials']?.[lang.slug]}}</div>
+                        <div class="gf-socials">
+                            <button type="button" class="gf-social google"
+                                (click)="onEnterWithGoogle()"><span></span></button>
+                            <!--<button type="button" class="gf-social facebook"><span></span></button>-->
+                            <button type="button" class="gf-social linkedin"
+                                (click)="onEnterWithLinkedin()"><span></span></button>
+                        </div>
+                    </div>
+                    <div class="gf-hr"></div>
+                    <div class="gf-row">
+                        <div class="gf-linkwrap mb5"><span>{{words['login']?.['no-acc1']?.[lang.slug]}}</span>&nbsp;<a
+                                (click)="onRegister()">{{words['login']?.['no-acc2']?.[lang.slug]}}</a></div>
+                        <div class="gf-linkwrap"><a
+                                (click)="onRecover()">{{words['login']?.['forgot']?.[lang.slug]}}</a></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="pagewrap">
+    <div class="page">
+        <div class="breadcrumbs">
+            <span><a routerLink="/{{lang.slug}}">{{words['common']?.['home']?.[lang.slug]}}</a>&nbsp;/&nbsp;</span>
+        </div>
+        <h1 [innerHTML]="h1"></h1>
+        <div class="content">
+            <img *ngIf="img" class="content-img" src="/images/pages/{{img}}" [alt]="title">
+            <section [innerHTML]="page?.words['part-1']?.[lang.slug] || '' | safe:'html'"></section>
+            <section>
+                <list-employees></list-employees>
+            </section>
+            <section [innerHTML]="page?.words['part-2']?.[lang.slug] || '' | safe:'html'"></section>
+            <section>
+                <div class="indicators">
+                    <div class="indicator">
+                        <div appear-animation [timeout]="100" class="i-digit">{{page?.words['dost1-1']?.[lang.slug]}}</div>
+                        <div class="i-txt">{{page?.words['dost1-2']?.[lang.slug]}}</div>
+                    </div>
+                    <div class="indicator">
+                        <div appear-animation [timeout]="200" class="i-digit">{{page?.words['dost2-1']?.[lang.slug]}}</div>
+                        <div class="i-txt">{{page?.words['dost2-2']?.[lang.slug]}}</div>
+                    </div>
+                    <div class="indicator">
+                        <div appear-animation [timeout]="300" class="i-digit">{{page?.words['dost3-1']?.[lang.slug]}}</div>
+                        <div class="i-txt">{{page?.words['dost3-2']?.[lang.slug]}}</div>
+                    </div>
+                    <div class="indicator">
+                        <div appear-animation [timeout]="400" class="i-digit">{{page?.words['dost4-1']?.[lang.slug]}}</div>
+                        <div class="i-txt">{{page?.words['dost4-2']?.[lang.slug]}}</div>
+                    </div>
+                    <div class="indicator">
+                        <div appear-animation [timeout]="500" class="i-digit">{{page?.words['dost5-1']?.[lang.slug]}}</div>
+                        <div class="i-txt">{{page?.words['dost5-2']?.[lang.slug]}}</div>
+                    </div>
+                </div>
+            </section>
+            <section [innerHTML]="page?.words['part-3']?.[lang.slug] || '' | safe:'html'"></section>
+        </div>
+    </div>
+</div>

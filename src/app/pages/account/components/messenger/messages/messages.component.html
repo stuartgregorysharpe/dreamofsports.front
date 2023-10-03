@@ -1,0 +1,11 @@
+<div class="mm-content bscroll-v" #container>
+    <ng-container *ngIf="!loading">
+        <div *ngFor="let m of messages" class="mm-message" [class.my]="m.user_id === user.id">
+            <div class="mmm-content" [innerHTML]="m.content | safe:'html'"></div>
+            <div class="mmm-date">{{m.formatDate('created_at', true)}}</div>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="loading || loadingMore">
+        <div><div class="loading"><span></span></div></div>    
+    </ng-container>    
+</div>

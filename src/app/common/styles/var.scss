@@ -1,0 +1,58 @@
+@font-face {font-family: "inter"; src: url("/assets/fonts/Inter-Regular.woff"); font-weight: normal; font-style: normal; font-display: swap;}
+@font-face {font-family: "inter"; src: url("/assets/fonts/Inter-Medium.woff"); font-weight: 500; font-style: normal; font-display: swap;}
+@font-face {font-family: "inter"; src: url("/assets/fonts/Inter-SemiBold.woff"); font-weight: 600; font-style: normal; font-display: swap;}
+@font-face {font-family: "inter"; src: url("/assets/fonts/Inter-Bold.woff"); font-weight: bold; font-style: normal; font-display: swap;}
+@font-face {font-family: "fa-solid"; src: url("/assets/fonts/fa-solid.woff"); font-display: swap;}
+@font-face {font-family: "fa-regular"; src: url("/assets/fonts/fa-regular.woff"); font-display: swap;}
+@font-face {font-family: "fa-brands"; src: url("/assets/fonts/fa-brands.woff"); font-display: swap;}
+
+html {
+	--width: 1300px;	
+
+	--color0: #000000;
+	--color1: #171717;
+	--color2: #1F1F1F;
+	--color3: #434343;
+	--color4: #555555;
+	--color5: #7b7b7b;
+	--color6: #cccccc;
+	--color7: #eeeeee;
+	--color9: #ffffff;
+	--color-accent1: #c10808;
+	--color-accent2: #f70909;
+	--color-alert1: #c10808;
+	--color-alert2: #f5c3c3;
+	--color-ok1: #14AE5C;
+
+	--shadow-popup: 0 2px 4px -1px #0003, 0 4px 5px #00000024, 0 1px 10px #0000001f;
+	--shadow-block-vert: 0 2px 2px rgba(128,128,128,0.5);
+	--shadow-block-both: 2px 2px 2px rgba(128,128,128,0.5);
+}
+
+@keyframes rotation {
+	0% {transform: rotate(0);}	
+	100% {transform: rotate(360deg);}
+}
+
+@keyframes appear {
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+@keyframes appear-slow {
+	0% {opacity: 0;}
+	50% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+@keyframes alert {
+	0% {background-color: var(--color-accent1);}
+	50% {background-color: var(--color-accent2);}
+	100% {background-color: var(--color-accent1);}
+}
+
+@keyframes alert-border {
+	0% {border-color: var(--color-accent1);}
+	50% {border-color: transparent; }
+	100% {border-color: var(--color-accent1);}
+}

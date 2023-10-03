@@ -1,0 +1,108 @@
+<div class="user">
+    <h1>{{h1}}</h1>
+    <div class="u-top">
+        <div class="ut-left">
+            <div *ngIf="firm.img_s" class="utl-imgwrap" [class.viewable]="firm.img" (click)="firm.img && onViewImg(supabaseUrl+'/images/users/'+firm.img)">
+                <img smart-media src="{{supabaseUrl}}/images/users/{{firm.img_s}}" loading="lazy">                
+            </div>
+            <div *ngIf="!firm.img_s" class="utl-noimgwrap">
+                <div class="utl-noimg"><span></span></div>               
+            </div>    
+            <div class="utl-btns">
+                <div class="utl-btnwrap" *ngIf="authenticated"><button type="button" class="btn transparent complaint" (click)="onComplain()"><span>{{words['common']?.['complain']?.[lang.slug]}}</span></button></div>
+            </div>        
+        </div>
+        <div class="ut-right">            
+            <div class="utr-sections">
+                <div class="utr-section">
+                    <div class="utr-data">
+                        <div class="utrd-param">{{words['firm']?.['branch']?.[lang.slug]}}:</div>
+                        <div class="utrd-value">{{firm.branch[lang.slug] || firm.branch[langs[0].slug] || words['common']?.['not-set']?.[lang.slug]}}</div>
+                        <div class="utrd-param">{{words['firm']?.['founder']?.[lang.slug]}}:</div>
+                        <div class="utrd-value">{{firm.founder[lang.slug] || firm.founder[langs[0].slug] || words['common']?.['not-set']?.[lang.slug]}}</div>
+                        <div class="utrd-param">{{words['firm']?.['reg_no']?.[lang.slug]}}:</div>
+                        <div class="utrd-value">{{firm.reg_no || words['common']?.['not-set']?.[lang.slug]}}</div>
+                        <div class="utrd-param">{{words['firm']?.['reg_date']?.[lang.slug]}}:</div>
+                        <div class="utrd-value">{{firm.reg_date || words['common']?.['not-set']?.[lang.slug]}}</div>
+                        
+                    </div>                    
+                </div>     
+                <div class="utr-section">
+                    <div class="utr-data">
+                        <div class="utrd-param">{{words['firm']?.['reg_country']?.[lang.slug]}}:</div>
+                        <div class="utrd-value">{{firm.reg_country?.name[lang.slug] || words['common']?.['not-set']?.[lang.slug]}}</div>
+                        <div class="utrd-param">{{words['firm']?.['reg_addr']?.[lang.slug]}}:</div>
+                        <div class="utrd-value">{{firm.reg_addr[lang.slug] || firm.reg_addr[langs[0].slug] || words['common']?.['not-set']?.[lang.slug]}}</div>
+                        <div class="utrd-param">{{words['firm']?.['fact_country']?.[lang.slug]}}:</div>
+                        <div class="utrd-value">{{firm.fact_country?.name[lang.slug] || words['common']?.['not-set']?.[lang.slug]}}</div>
+                        <div class="utrd-param">{{words['firm']?.['fact_addr']?.[lang.slug]}}:</div>
+                        <div class="utrd-value">{{firm.fact_addr[lang.slug] || firm.fact_addr[langs[0].slug] || words['common']?.['not-set']?.[lang.slug]}}</div>                        
+                    </div>
+                </div> 
+            </div>
+            <ng-container *ngIf="hasAbout">
+                <h2>{{words['firm']?.['about']?.[lang.slug]}}</h2>
+                <div [innerHTML]="firm.about[lang.slug] || firm.about[langs[0].slug]" [dir]="firm.about[lang.slug] ? lang.dir : 'ltr'"></div>
+            </ng-container>                                                      
+        </div>
+    </div>
+    <div class="u-bottom">
+        <div class="ub-chapters">
+            <div class="ub-chapter" [class.active]="chapter === 'contacts'" (click)="chapter = 'contacts'">{{words['firm']?.['contacts']?.[lang.slug]}}</div>
+            <div *ngIf="firm.images.length" class="ub-chapter" [class.active]="chapter === 'images'" (click)="chapter = 'images'">{{words['firm']?.['images']?.[lang.slug]}}</div>
+            <div *ngIf="firm.videos.length" class="ub-chapter" [class.active]="chapter === 'videos'" (click)="chapter = 'videos'">{{words['firm']?.['videos']?.[lang.slug]}}</div>
+            <div *ngIf="firm.others.length" class="ub-chapter" [class.active]="chapter === 'others'" (click)="chapter = 'others'">{{words['firm']?.['others']?.[lang.slug]}}</div>
+        </div>
+        <div class="ub-content">
+            <!-- contacts -->
+            <ng-container *ngIf="chapter === 'contacts'">
+                <ng-container *ngIf="firm.phones === null"> <!-- если backend отдал null, то нет доступа -->
+                    <div class="warning">
+                        <div class="w-icon"><span></span></div>
+                        <div class="w-txt">{{words['common']?.['onlypaid-data-1']?.[lang.slug]}} <a routerLink="/{{lang.slug}}/account/subscription">{{words['common']?.['onlypaid-data-2']?.[lang.slug]}}</a></div>                        
+                    </div>                    
+                </ng-container>
+                <ng-container *ngIf="firm.phones !== null">
+                    <ng-container *ngIf="firm.emails.length || firm.phones.length || firm.links.length || firm.socials.length">
+                        <div class="ub-contacts">
+                            <div *ngFor="let phone of firm.phones" class="ub-contact">
+                                <div class="ubc-icon phone"><img src="/assets/images/phone.svg" alt="phone" loading="lazy"></div>
+                                <div class="ubc-value"><span>{{phone.value}}</span></div>
+                            </div>
+                            <div *ngFor="let email of firm.emails" class="ub-contact">
+                                <div class="ubc-icon email"><img src="/assets/images/email.svg" alt="email" loading="lazy"></div>
+                                <div class="ubc-value"><a href="mailto:{{email.value}}">{{email.value}}</a></div>
+                            </div>
+                            <div *ngFor="let link of firm.links" class="ub-contact">
+                                <div class="ubc-icon link"><img src="/assets/images/link.svg" alt="link" loading="lazy"></div>
+                                <div class="ubc-value"><a href="{{link.value}}" target="_blank">{{link.value}}</a></div>
+                            </div>       
+                            <div *ngFor="let social of firm.socials" class="ub-contact">
+                                <div class="ubc-icon"><img src="/images/socials/{{social.img}}" alt="social" loading="lazy"></div>
+                                <div class="ubc-value"><a href="{{social.value}}" target="_blank">{{social.value}}</a></div>
+                            </div>                            
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="!(firm.emails.length || firm.phones.length || firm.links.length || firm.socials.length)">
+                        <span>{{words['common']?.['not-set']?.[lang.slug]}}</span>
+                    </ng-container>
+                </ng-container>                
+            </ng-container>                    
+            <!-- images -->
+            <ng-container *ngIf="chapter === 'images'">
+                <user-media type="images" [data]="firm.images" (viewItem)="onViewImg(supabaseUrl+'/images/users/'+$event)"></user-media>
+            </ng-container>
+            <!-- videos -->
+            <ng-container *ngIf="chapter === 'videos'">
+                <user-media type="videos" [data]="firm.videos" (viewItem)="onViewVideo(supabaseUrl+'/videos/users/'+$event)"></user-media>
+            </ng-container>
+            <!-- others -->
+            <ng-container *ngIf="chapter === 'others'">
+                <user-others [data]="firm.others"></user-others>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<popup-media-viewer [url]="viewerImg" [type]="viewerType" [(active)]="viewerActive"></popup-media-viewer>
+<popup-complaint [breaker_id]="firm.id" [(active)]="complaintActive"></popup-complaint>

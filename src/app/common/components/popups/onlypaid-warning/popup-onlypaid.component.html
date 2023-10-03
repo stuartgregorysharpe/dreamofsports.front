@@ -1,0 +1,11 @@
+<div class="popup-wrap" [class.active]="active" (click)="onClick($event)">
+    <div class="popup image-viewer" id="popup-{{unique}}">
+        <div class="popup-head"><div class="roundbtn transparent dark close" (click)="onClose()"><span></span></div></div>
+        <div class="popup-main">
+            <div class="only-paid">
+                <div class="op-icon"><span></span></div>
+                <div class="op-txt">{{words['common']?.['onlypaid-function-1']?.[lang.slug]}} <a routerLink="/{{lang.slug}}/account/subscription" (click)="onClose()">{{words['common']?.['onlypaid-function-2']?.[lang.slug]}}</a></div>
+            </div>
+        </div>
+    </div>
+</div>

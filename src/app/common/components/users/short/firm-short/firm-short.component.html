@@ -1,0 +1,15 @@
+<div class="firm-short">
+    <div class="fs-imgwrap">
+        <a class="fs-img" (click)="onView()">
+            <span *ngIf="!firm.img_s"></span>
+            <img *ngIf="firm.img_s" smart-media loading="lazy" [src]="img" [alt]="firm.name[lang.slug]">
+        </a>        
+    </div>
+    <div class="fs-details1">
+        <div class="fs-country">{{firm.reg_country.name[lang.slug]}}</div>
+        <a class="fs-name" (click)="onView()">{{firm.name[lang.slug] || firm.name[langs[0].slug]}}</a>                    
+    </div>
+    <div class="fs-details2 dark">             
+        <div class="fs-btnwrap"><a class="btn main chat" [class.busy]="connecting" (click)="onConnect()"><span>{{words['firm']?.['connect']?.[lang.slug]}}</span></a></div>
+    </div>
+</div>

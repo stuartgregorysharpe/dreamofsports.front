@@ -1,0 +1,7 @@
+<div class="popup" [class.active]="active">
+    <div class="popup-head"><div class="roundbtn compact transparent dark close" (click)="onClose()"><span></span></div></div>
+    <div class="popup-main">        
+        <div class="pm-txt"><span>Error: {{txt}}</span></div>
+        <div class="pm-btnwrap"><button type="button" class="btn main reload" (click)="onReload()"><span>Reload</span></button></div>
+    </div>
+</div>

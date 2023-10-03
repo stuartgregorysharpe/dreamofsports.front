@@ -1,0 +1,20 @@
+<div class="account-menu">
+    <div class="am-user" *ngIf="user?.firm?._name">
+        <div class="am-imgwrap">
+            <span *ngIf="!userImg">{{user.firm._shortname}}</span>
+            <img smart-media *ngIf="userImg" [src]="userImg">
+        </div>
+        <div class="am-name">{{user.firm._name}}</div>
+    </div>
+    <div class="am-main">
+        <div class="am-title"><span>{{words['account']?.['my-account']?.[lang.slug]}}</span></div>
+        <div class="am-menu">
+            <a class="favorites" [class.active]="!url[3]" routerLink="/{{lang.slug}}/account">{{words['account']?.['menu-favorites']?.[lang.slug]}}</a>
+            <a class="profile" [class.active]="url[3] === 'resume'" routerLink="/{{lang.slug}}/account/resume">{{"account.menu.profile" | translate}}</a>
+            <a class="setting" [class.active]="url[3] === 'profile'" routerLink="/{{lang.slug}}/account/profile">{{"account.menu.settings" | translate}}</a>
+            <a class="messenger" [class.active]="url[3] === 'messenger'" routerLink="/{{lang.slug}}/account/messenger">{{words['account']?.['menu-messenger']?.[lang.slug]}}</a>
+            <!-- <a class="subscription" [class.active]="url[3] === 'subscription'" routerLink="/{{lang.slug}}/account/subscription">{{words['account']?.['menu-subscription']?.[lang.slug]}}</a> -->
+            <a class="logout" (click)="onLogout()">{{words['account']?.['menu-logout']?.[lang.slug]}}</a>
+        </div>
+    </div>
+</div>

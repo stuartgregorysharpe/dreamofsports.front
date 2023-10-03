@@ -1,0 +1,7 @@
+<div class="textarea">
+    <div class="ta-inputwrap"><textarea [(ngModel)]="currentValue" [maxlength]="maxlength" (change)="onChange()" [class.error]="error" [dir]="currentDir" [placeholder]="placeholder"></textarea></div>
+    <div class="ta-foot">
+        <div class="ta-error"><span *ngIf="error">{{words['errors']?.[error]?.[lang.slug]}}</span></div>
+        <div class="ta-length">{{currentValue?.length || 0}} / {{maxlength}}</div>                
+    </div> 
+</div>

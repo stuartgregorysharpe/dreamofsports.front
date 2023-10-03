@@ -1,0 +1,4 @@
+<div class="ac">
+    <a class="btn simple" [class.active]="!url[3]" routerLink="/{{lang.slug}}/articles">{{words['common']?.['all']?.[lang.slug]}}</a>
+    <a *ngFor="let c of cats" class="btn simple" [class.active]="url[3] === c.slug" routerLink="/{{lang.slug}}/articles/{{c.slug}}">{{c.name[lang.slug]}}</a>
+</div>

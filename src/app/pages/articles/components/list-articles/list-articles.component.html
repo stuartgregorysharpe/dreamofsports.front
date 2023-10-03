@@ -1,0 +1,22 @@
+<ng-container *ngIf="articles !== null">
+    <div class="articles" #container>
+        <ng-container *ngIf="articles.length">
+            <div class="article" *ngFor="let a of articles" >
+                <div class="a-imgwrap">
+                    <a class="a-img" routerLink="/{{lang.slug}}/articles/a/{{a.slug}}">
+                        <img src="/images/articles/{{a.img_s}}" [alt]="a.name[lang.slug]" loading="lazy">
+                    </a>                    
+                </div>
+                <div class="a-main">
+                    <a class="a-name" routerLink="/{{lang.slug}}/articles/a/{{a.slug}}">{{a.name[lang.slug]}}</a>
+                    <div class="a-date" *ngIf="isBrowser">{{a.formattedDate}}</div>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="!articles.length">{{words['common']?.['none']?.[lang.slug]}}</ng-container>       
+    </div>
+</ng-container>
+<ng-container *ngIf="articles === null">
+    <div class="loading contrast"><span></span></div>        
+</ng-container> 
+<div class="loading contrast padded" *ngIf="loadingMore"><span></span></div>

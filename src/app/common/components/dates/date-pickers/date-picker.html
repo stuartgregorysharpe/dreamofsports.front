@@ -1,0 +1,31 @@
+<div class="dp-date {{skin}}" #btnelement (click)="onActivate()">    
+    <span class="dpd-icon"></span>
+    <span class="dpd-value">{{formattedDate}}</span>
+    <span *ngIf="resetable && value" class="dpd-reset" (click)="onReset($event)"></span>
+</div>
+<div class="dp-calendar {{skin}}" [class.active]="calendarActive" [style.left]="calendarLeft" [style.top]="calendarTop">        
+    <div class="dp-head">
+        <div class="dp-currentmonthdash">
+            <div class="dp-currentmonth">{{words['date']?.['month-'+(month+1)][lang.slug]}} {{year}}</div>
+            <div class="roundbtn compact transparent {{skin}} down" (click)="yearPickerActive = true"><span></span></div>
+        </div>
+        <div class="dp-monthdash">
+            <div class="roundbtn compact transparent {{skin}}" [class.left]="lang.dir === 'ltr'" [class.right]="lang.dir === 'rtl'" (mousedown)="onMonthBack();"><span></span></div>
+            <div class="roundbtn compact transparent {{skin}}" [class.left]="lang.dir === 'rtl'" [class.right]="lang.dir === 'ltr'" (mousedown)="onMonthForward();"><span></span></div>
+        </div>        
+    </div>
+    <div class="dp-days">                
+        <div class="dp-days-content">
+            <div class="head" [class.compact]="lang.slug === 'ar'" *ngFor="let i of [1,2,3,4,5,6,7]">{{words['date']?.['day-'+i][lang.slug]}}</div>                
+            <div *ngFor="let day of days" class="roundbtn compact transparent {{skin}} day" [class.hidden]="day.hidden" [class.holiday]="day.holiday" [class.current]="day.current" [class.now]="day.now" (click)="onSetDate(day);">{{day.n}}</div>
+        </div>
+    </div>
+    <div class="dp-time" *ngIf="useTime">
+        <time-picker [(hour)]="currentHour" [(minute)]="currentMinute"></time-picker>
+    </div>
+    <div class="dp-foot">
+        <button type="button" class="btn main select" (click)="onApply()"><span>{{words['common']?.['select']?.[lang.slug]}}</span></button>
+    </div>
+    <year-picker [skin]="skin" [(value)]="year" [(active)]="yearPickerActive" (valueChange)="buildDays()"></year-picker>
+</div> 
+<div class="dp-ovl" [class.active]="calendarActive" (click)="close()"></div>

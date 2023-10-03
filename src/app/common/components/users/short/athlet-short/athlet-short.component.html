@@ -1,0 +1,62 @@
+<div class="athlet-short">
+    <div class="as-imgwrap">
+        <ng-container *ngIf="favoriteMode">
+            <a class="as-img" (click)="onView()">
+                <span *ngIf="!athlet.img_s"></span>
+                <img *ngIf="athlet.img_s" smart-media loading="lazy" [src]="img" [alt]="athlet.lastname[lang.slug]">
+            </a>
+        </ng-container>
+        <ng-container *ngIf="!favoriteMode">
+            <a class="as-img" routerLink="/{{lang.slug}}/catalogue/a/{{athlet.id}}">
+                <span *ngIf="!athlet.img_s"></span>
+                <img *ngIf="athlet.img_s" smart-media loading="lazy" [src]="img" [alt]="athlet.lastname[lang.slug]">
+            </a>
+        </ng-container>        
+        <div *ngIf="athlet.top" class="as-top">{{words['athlet']?.['top']?.[lang.slug]}}</div>
+        <div class="as-dash" *ngIf="favoriteMode">
+            <div class="roundbtn transparent light danger delete" (click)="onDelete($event)"><span></span></div>
+        </div>
+    </div>
+    <div class="as-details1">
+        <div class="as-cat">{{athlet.cat?.name[lang.slug]}}</div>
+        <ng-container *ngIf="favoriteMode">
+            <a class="as-name" (click)="onView()">{{athlet.firstname[lang.slug] || athlet.firstname[langs[0].slug]}} {{athlet.lastname[lang.slug] || athlet.lastname[langs[0].slug]}}</a>                    
+        </ng-container>
+        <ng-container *ngIf="!favoriteMode">
+            <a class="as-name" routerLink="/{{lang.slug}}/catalogue/a/{{athlet.id}}">{{athlet.firstname[lang.slug] || athlet.firstname[langs[0].slug]}} {{athlet.lastname[lang.slug] || athlet.lastname[langs[0].slug]}}</a>                    
+        </ng-container>        
+    </div>
+    <div class="as-details2" [class.dark]="favoriteMode">
+        <div class="as-params">
+            <div class="as-param">
+                <div>{{words['athlet']?.['age']?.[lang.slug]}}:</div>
+                <div>{{athlet.age}}</div>
+            </div>
+            <div class="as-param">
+                <div>{{words['athlet']?.['gender']?.[lang.slug]}}:</div>
+                <div>{{words['athlet']?.['gender-short-'+athlet.gender]?.[lang.slug]}}</div>
+            </div>
+            <div class="as-param" *ngIf="athlet.height_meter || athlet.height_foot">
+                <div>{{words['athlet']?.['height']?.[lang.slug]}}:</div>
+                <div>
+                    <span *ngIf="athlet.height_meter">{{athlet.height_meter}} {{words['common']?.['m']?.[lang.slug]}}</span>
+                    <span *ngIf="athlet.height_meter && athlet.height_foot">&nbsp;/&nbsp;</span>
+                    <span *ngIf="athlet.height_foot">{{athlet.height_foot}} {{words['common']?.['ft']?.[lang.slug]}}</span>
+                </div>
+            </div>
+            <div class="as-param" *ngIf="athlet.weight_kg || athlet.weight_pound">
+                <div>{{words['athlet']?.['weight']?.[lang.slug]}}:</div>
+                <div>
+                    <span *ngIf="athlet.weight_kg">{{athlet.weight_kg}} {{words['common']?.['kg']?.[lang.slug]}}</span>
+                    <span *ngIf="athlet.weight_kg && athlet.weight_pound">&nbsp;/&nbsp;</span>
+                    <span *ngIf="athlet.weight_pound">{{athlet.weight_pound}} {{words['common']?.['lb']?.[lang.slug]}}</span>
+                </div>
+            </div>
+            <div class="as-param">
+                <div>{{words['athlet']?.['country']?.[lang.slug]}}:</div>
+                <div>{{athlet.country?.name[lang.slug]}}</div>
+            </div>
+        </div>        
+        <div class="as-btnwrap" *ngIf="contactable"><a class="btn main chat" [class.busy]="connecting" (click)="onConnect()"><span>{{words['athlet']?.['connect']?.[lang.slug]}}</span></a></div>
+    </div>
+</div>

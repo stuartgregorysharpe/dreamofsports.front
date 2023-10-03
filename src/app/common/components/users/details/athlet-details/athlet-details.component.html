@@ -1,0 +1,153 @@
+<div class="user">
+    <h1 *ngIf="favoriteMode">{{h1}}</h1>
+    <div class="u-top">
+        <div class="ut-left">
+            <div *ngIf="athlet.img_s" class="utl-imgwrap" [class.viewable]="athlet.img" (click)="athlet.img && onViewImg(supabaseUrl+'/images/users/'+athlet.img)">
+                <img  smart-media src="{{supabaseUrl}}/images/users/{{athlet.img_s}}" loading="lazy">                
+                <div *ngIf="athlet.top" class="utl-top">{{words['athlet']?.['top']?.[lang.slug]}}</div>
+            </div>
+            <div *ngIf="!athlet.img_s" class="utl-noimgwrap">
+                <div class="utl-noimg"><span></span></div>               
+                <div *ngIf="athlet.top" class="utl-top">{{words['athlet']?.['top']?.[lang.slug]}}</div>
+            </div>
+            <div class="utl-btns">
+                <div class="utl-btnwrap" *ngIf="!favoriteMode && contactable"><button type="button" class="btn main chat" [class.busy]="connecting" (click)="onConnect()"><span>{{words['athlet']?.['connect']?.[lang.slug]}}</span></button></div>
+                <div class="utl-btnwrap" *ngIf="!favoriteMode && favoritable"><button type="button" class="btn transparent favorites" [class.busy]="favoriting" [class.done]="favorited" (click)="onFavorite()"><span>{{words['athlet']?.['favor']?.[lang.slug]}}</span></button></div>
+                <div class="utl-btnwrap" *ngIf="authenticated"><button type="button" class="btn transparent complaint" (click)="onComplain()"><span>{{words['common']?.['complain']?.[lang.slug]}}</span></button></div>
+            </div>
+        </div>
+        <div class="ut-right">   
+            <div class="utr-sections">
+                <div class="utr-section">
+                    <div class="utr-data">
+                        <div class="utrd-param">{{words['athlet']?.['country']?.[lang.slug]}}:</div>
+                        <div class="utrd-value">{{athlet.country?.name[lang.slug]}}</div>
+                        <div class="utrd-param">{{words['athlet']?.['region']?.[lang.slug]}}:</div>
+                        <div class="utrd-value">{{athlet.region[lang.slug] || athlet.region[langs[0].slug] || words['common']?.['not-set']?.[lang.slug]}}</div>
+                        <div class="utrd-param">{{words['athlet']?.['city']?.[lang.slug]}}:</div>
+                        <div class="utrd-value">{{athlet.city[lang.slug] || athlet.city[langs[0].slug] || words['common']?.['not-set']?.[lang.slug]}}</div>
+                        <div class="utrd-param">{{words['athlet']?.['cat']?.[lang.slug]}}:</div>
+                        <div class="utrd-value">{{athlet.cat?.name[lang.slug]}}</div>
+                        <div class="utrd-param">{{words['athlet']?.['team']?.[lang.slug]}}:</div>
+                        <div class="utrd-value">{{athlet.team[lang.slug] || athlet.team[langs[0].slug] || words['common']?.['not-set']?.[lang.slug]}}</div>
+                        <div class="utrd-param">{{words['athlet']?.['role']?.[lang.slug]}}:</div>
+                        <div class="utrd-value">{{athlet.role[lang.slug] || athlet.role[langs[0].slug] || words['common']?.['not-set']?.[lang.slug]}}</div>
+                        <div class="utrd-param">{{words['athlet']?.['no']?.[lang.slug]}}:</div>
+                        <div class="utrd-value">{{athlet.no || words['common']?.['not-set']?.[lang.slug]}}</div>
+                    </div>                    
+                </div>     
+                <div class="utr-section">
+                    <div class="utr-data">
+                        <div class="utrd-param">{{words['athlet']?.['birthdate']?.[lang.slug]}}:</div>
+                        <div class="utrd-value">{{athlet.birthdate}}</div>
+                        <div class="utrd-param">{{words['athlet']?.['age']?.[lang.slug]}}:</div>
+                        <div class="utrd-value">{{athlet.age}}</div>
+                        <div class="utrd-param">{{words['athlet']?.['gender']?.[lang.slug]}}:</div>
+                        <div class="utrd-value">{{words['athlet']?.['gender-short-'+athlet.gender]?.[lang.slug]}}</div>
+                        <div class="utrd-param">{{words['athlet']?.['height']?.[lang.slug]}}:</div>
+                        <div class="utrd-value">
+                            <ng-container *ngIf="athlet.height_meter || athlet.height_foot">
+                                <span *ngIf="athlet.height_meter">{{athlet.height_meter}} {{words['common']?.['m']?.[lang.slug]}}</span>
+                                <span *ngIf="athlet.height_meter && athlet.height_foot">&nbsp;/&nbsp;</span>
+                                <span *ngIf="athlet.height_foot">{{athlet.height_foot}} {{words['common']?.['ft']?.[lang.slug]}}</span>
+                            </ng-container>
+                            <ng-container *ngIf="!(athlet.height_meter || athlet.height_foot)">
+                                {{words['common']?.['not-set']?.[lang.slug]}}
+                            </ng-container>                                
+                        </div>                           
+                        <div class="utrd-param">{{words['athlet']?.['weight']?.[lang.slug]}}:</div>
+                        <div class="utrd-value">
+                            <ng-container *ngIf="athlet.weight_kg || athlet.weight_pound">
+                                <span *ngIf="athlet.weight_kg">{{athlet.weight_kg}} {{words['common']?.['kg']?.[lang.slug]}}</span>
+                                <span *ngIf="athlet.weight_kg && athlet.weight_pound">&nbsp;/&nbsp;</span>
+                                <span *ngIf="athlet.weight_pound">{{athlet.weight_pound}} {{words['common']?.['lb']?.[lang.slug]}}</span>
+                            </ng-container>
+                            <ng-container *ngIf="!(athlet.weight_kg || athlet.weight_pound)">
+                                {{words['common']?.['not-set']?.[lang.slug]}}
+                            </ng-container>
+                        </div>
+                    </div>
+                </div> 
+            </div> 
+            <ng-container *ngIf="hasBio">
+                <h2>{{words['athlet']?.['bio']?.[lang.slug]}}</h2>
+                <div [innerHTML]="athlet.bio[lang.slug] || athlet.bio[langs[0].slug]" [dir]="athlet.bio[lang.slug] ? lang.dir : 'ltr'"></div>
+            </ng-container>                                                             
+        </div>
+    </div>
+    <div class="u-bottom">
+        <div class="ub-chapters">
+            <div class="ub-chapter" [class.active]="chapter === 'contacts'" (click)="chapter = 'contacts'">{{words['athlet']?.['contacts']?.[lang.slug]}}</div>
+            <div *ngIf="athlet.rewards.length" class="ub-chapter" [class.active]="chapter === 'rewards'" (click)="chapter = 'rewards'">{{words['athlet']?.['rewards']?.[lang.slug]}}</div>
+            <div *ngIf="athlet.images.length" class="ub-chapter" [class.active]="chapter === 'images'" (click)="chapter = 'images'">{{words['athlet']?.['images']?.[lang.slug]}}</div>
+            <div *ngIf="athlet.videos.length" class="ub-chapter" [class.active]="chapter === 'videos'" (click)="chapter = 'videos'">{{words['athlet']?.['videos']?.[lang.slug]}}</div>
+            <div *ngIf="athlet.others.length" class="ub-chapter" [class.active]="chapter === 'others'" (click)="chapter = 'others'">{{words['athlet']?.['others']?.[lang.slug]}}</div>
+        </div>
+        <div class="ub-content">
+            <!-- contacts -->
+            <ng-container *ngIf="chapter === 'contacts'">
+                <ng-container *ngIf="athlet.phones === null"> <!-- если backend отдал null, то нет доступа -->
+                    <div class="warning">
+                        <div class="w-icon"><span></span></div>
+                        <div class="w-txt">{{words['common']?.['onlypaid-data-1']?.[lang.slug]}} <a routerLink="/{{lang.slug}}/account/subscription">{{words['common']?.['onlypaid-data-2']?.[lang.slug]}}</a></div>                        
+                    </div>                    
+                </ng-container>
+                <ng-container *ngIf="athlet.phones !== null">
+                    <ng-container *ngIf="athlet.emails.length || athlet.phones.length || athlet.links.length || athlet.socials.length">
+                        <div class="ub-contacts">
+                            <div *ngFor="let phone of athlet.phones" class="ub-contact">
+                                <div class="ubc-icon phone"><img src="/assets/images/phone.svg" alt="phone" loading="lazy"></div>
+                                <div class="ubc-value"><span>{{phone.value}}</span></div>
+                            </div>
+                            <div *ngFor="let email of athlet.emails" class="ub-contact">
+                                <div class="ubc-icon email"><img src="/assets/images/email.svg" alt="email" loading="lazy"></div>
+                                <div class="ubc-value"><a href="mailto:{{email.value}}">{{email.value}}</a></div>
+                            </div>
+                            <div *ngFor="let link of athlet.links" class="ub-contact">
+                                <div class="ubc-icon link"><img src="/assets/images/link.svg" alt="link" loading="lazy"></div>
+                                <div class="ubc-value"><a href="{{link.value}}" target="_blank">{{link.value}}</a></div>
+                            </div>       
+                            <div *ngFor="let social of athlet.socials" class="ub-contact">
+                                <div class="ubc-icon"><img src="/images/socials/{{social.img}}" alt="social" loading="lazy"></div>
+                                <div class="ubc-value"><a href="{{social.value}}" target="_blank">{{social.value}}</a></div>
+                            </div>                            
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="!(athlet.emails.length || athlet.phones.length || athlet.links.length || athlet.socials.length)">
+                        <span>{{words['common']?.['not-set']?.[lang.slug]}}</span>
+                    </ng-container>
+                </ng-container>                
+            </ng-container>            
+            <!-- rewards -->
+            <ng-container *ngIf="chapter === 'rewards'">
+                <div class="ub-rewards">
+                    <div *ngFor="let r of athlet.rewards" class="ub-reward">
+                        <div class="ubr-imgwrap" [class.viewable]="r.img" (click)="r.img && onViewImg(supabaseUrl+'/images/users/'+r.img)">
+                            <img smart-media *ngIf="r.img" src="{{supabaseUrl}}/images/users/{{r.img}}" alt="award" loading="lazy">
+                            <img *ngIf="!r.img" src="/images/default-avatar.jpg" alt="award" loading="lazy">
+                        </div>
+                        <div class="ubr-details">
+                            <div class="ubr-date">{{r.date}}</div>
+                            <div class="ubr-name" [dir]="r.name[lang.slug] ? lang.dir : 'ltr'" [innerHTML]="r.name[lang.slug] || r.name[langs[0].slug]"></div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            <!-- images -->
+            <ng-container *ngIf="chapter === 'images'">
+                <user-media type="images" [data]="athlet.images" (viewItem)="onViewImg(supabaseUrl+'/images/users/'+$event)"></user-media>
+            </ng-container>
+            <!-- videos -->
+            <ng-container *ngIf="chapter === 'videos'">
+                <user-media type="videos" [data]="athlet.videos" (viewItem)="onViewVideo(supabaseUrl+'/videos/users/'+$event)"></user-media>
+            </ng-container>
+            <!-- others -->
+            <ng-container *ngIf="chapter === 'others'">
+                <user-others [data]="athlet.others"></user-others>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<popup-media-viewer [url]="viewerImg" [type]="viewerType" [(active)]="viewerActive"></popup-media-viewer>
+<popup-complaint [breaker_id]="athlet.id" [(active)]="complaintActive"></popup-complaint>

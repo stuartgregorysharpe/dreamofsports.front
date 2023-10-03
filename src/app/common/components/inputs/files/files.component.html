@@ -1,0 +1,22 @@
+<div class="fl" sortable [data]="data" itemClass="fl-item" handleClass="fl-item">
+    <!-- list -->
+    <div class="fl-item" *ngFor="let item of data; let i = index;">
+        <div class="fli-content">
+            <div class="fli-component" files-item [item]="item" [folder]="folder" [type]="type" [supabase]="supabase"></div>
+        </div>
+        <div class="fli-dash">
+            <div *ngIf="type !== 'others'" class="roundbtn compact transparent light view" (click)="onView(i)"><span></span></div>
+            <div *ngIf="type === 'others'" class="roundbtn compact transparent light download" (click)="onDownload(i)" ><span></span></div>
+            <div class="roundbtn compact transparent light danger delete" (click)="onDelete(i)"><span></span></div>
+        </div>
+    </div>
+    <!-- add -->
+    <div *ngIf="!exhausted" class="fl-item add" (click)="onSelect($event)">
+        <div class="fli-content">
+            <div class="fli-icon"><span></span></div>
+            <div class="fli-txt">{{words['common']?.['upload-'+type]?.[lang.slug]}}</div>
+        </div>
+    </div>
+</div>
+<div class="fl-error" *ngIf="error">{{words['errors'][error][lang.slug]}}</div>
+<popup-media-viewer [url]="viewerImg" [type]="type" [(active)]="viewerActive"></popup-media-viewer>

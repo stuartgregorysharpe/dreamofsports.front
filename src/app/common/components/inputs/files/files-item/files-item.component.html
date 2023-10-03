@@ -1,0 +1,6 @@
+<img smart-media *ngIf="type === 'images'" [src]="url | safe:'url'">
+<video smart-media *ngIf="type === 'videos'" [src]="url | safe:'url'"></video>
+<div *ngIf="type === 'others'" class="other">
+    <div class="o-icon"><span></span></div>
+    <div class="o-name">{{item.name}}</div> 
+</div>

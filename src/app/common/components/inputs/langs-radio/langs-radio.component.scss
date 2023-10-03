@@ -1,0 +1,12 @@
+.langs-radio {
+    @media (min-width:0) {display: block;}
+    @media (min-width:1000px) {display: flex;}
+    align-items: center;
+    .lr-title {
+        margin-inline-end: 5px;
+    }
+    .lr-radios {
+        display: flex;
+        .lr-radio {margin-inline-end: 5px; text-transform: uppercase;}
+    }
+}

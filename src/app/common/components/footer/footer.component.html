@@ -1,0 +1,49 @@
+<footer>
+    <div class="f-top">
+        <div class="ft-content">
+            <a class="ft-logo" routerLink="/{{lang.slug}}">
+                <div>{{words['common']?.['name1']?.[lang.slug]}}</div>
+                <div>{{words['common']?.['name2']?.[lang.slug]}}</div>
+            </a>
+            <div class="ft-cols">
+                <div class="ft-col">
+                    <div class="ft-section">
+                        <div class="ft-title">{{words['common']?.['menu-foot']?.[lang.slug]}}</div>
+                        <menu-foot></menu-foot>
+                    </div>                    
+                </div>
+                <div class="ft-col">
+                    <div class="ft-section">
+                        <div class="ft-title">{{words['common']?.['catalogue']?.[lang.slug]}}</div>
+                        <menu-foot-cats></menu-foot-cats>
+                    </div>                    
+                </div>
+                <div class="ft-col">
+                    <div class="ft-section">
+                        <div class="ft-title">{{words['socials']?.['head']?.[lang.slug]}}</div>
+                        <div class="ft-socials">
+                            <a *ngIf="words['socials']?.['fb']?.[lang.slug]" class="fb" target="_blank" [href]="words['socials']?.['fb']?.[lang.slug]"></a>
+                            <a *ngIf="words['socials']?.['tw']?.[lang.slug]" class="tw" target="_blank" [href]="words['socials']?.['tw']?.[lang.slug]"></a>
+                            <a *ngIf="words['socials']?.['ig']?.[lang.slug]" class="ig" target="_blank" [href]="words['socials']?.['ig']?.[lang.slug]"></a>
+                            <a *ngIf="words['socials']?.['tg']?.[lang.slug]" class="tg" target="_blank" [href]="words['socials']?.['tg']?.[lang.slug]"></a>
+                            <a *ngIf="words['socials']?.['li']?.[lang.slug]" class="li" target="_blank" [href]="words['socials']?.['li']?.[lang.slug]"></a>                        
+                        </div>
+                    </div>  
+                    <div class="ft-section">
+                        <div class="ft-title">{{words['apps']?.['head']?.[lang.slug]}}</div>
+                        <div class="ft-apps">
+                            <a *ngIf="words['apps']?.['apple']?.[lang.slug]" target="_blank" [href]="words['apps']?.['apple']?.[lang.slug]"><img src="/assets/images/app-store.svg" loading="lazy" alt="appstore"></a>                            
+                            <a *ngIf="words['apps']?.['google']?.[lang.slug]" target="_blank" [href]="words['apps']?.['google']?.[lang.slug]"><img src="/assets/images/google-play.svg" loading="lazy" alt="google play"></a>                            
+                            <a *ngIf="words['apps']?.['huawei']?.[lang.slug]" target="_blank" [href]="words['apps']?.['huawei']?.[lang.slug]"><img src="/assets/images/huawei-appgallery.svg" loading="lazy" alt="appgallery"></a>                            
+                        </div>
+                    </div>                  
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="f-bottom">
+        <div class="fb-content">
+            <div class="fb-copy" [innerHTML]="words['common']?.['copy']?.[lang.slug]"></div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,13 @@
+<div class="pagewrap">
+    <div class="page">
+        <div class="breadcrumbs">
+            <span><a routerLink="/{{lang.slug}}">{{words['common']?.['home']?.[lang.slug]}}</a>&nbsp;/&nbsp;</span>
+            <span *ngIf="cat"><a routerLink="/{{lang.slug}}/catalogue">{{page?.name[lang.slug]}}</a>&nbsp;/&nbsp;</span>
+        </div>
+        <h1 [innerHTML]="h1"></h1>
+        <ng-container *ngIf="cat !== undefined">
+            <div class="athlets-filter"><athlets-filter [cat_id]="cat?.id || undefined"></athlets-filter></div>
+            <athlets-filtered></athlets-filtered>
+        </ng-container>        
+    </div>
+</div>

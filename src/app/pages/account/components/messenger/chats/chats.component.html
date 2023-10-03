@@ -1,0 +1,29 @@
+<form class="mll-search" (submit)="applyFilter()">
+    <div class="mlls-content">
+        <input type="text" name="search" [(ngModel)]="search" [placeholder]="words['messenger']?.['search']?.[lang.slug]">
+        <div *ngIf="search" class="roundbtn compact transparent light reset" (click)="resetFilter()"><span></span></div>
+    </div>    
+    <button type="submit"></button>    
+</form>
+<div class="mll-chats bscroll-v">
+    <ng-container *ngIf="filteredChats !== null">
+        <ng-container *ngIf="filteredChats.length">
+            <a *ngFor="let c of filteredChats" class="mllc-chat" [class.active]="c.id === current_id" routerLink="/{{lang.slug}}/account/messenger/{{c.id}}">
+                <div class="mllc-imgwrap2">
+                    <div class="mllc-imgwrap">
+                        <img *ngIf="c.img" smart-media src="{{supabaseUrl}}/images/users/{{c.img}}">
+                        <span *ngIf="!c.img">{{c.shortname[lang.slug] || c.shortname[langs[0].slug]}}</span>                        
+                    </div>
+                    <div *ngIf="c.unread" class="mllc-unread">{{c.unread}}</div>
+                </div>                
+                <div class="mllc-name">{{c.name[lang.slug] || c.name[langs[0].slug]}}</div>
+            </a>    
+        </ng-container>        
+        <ng-container *ngIf="!filteredChats.length">
+            <div class="mllc-empty">{{words['messenger']?.['no-chats']?.[lang.slug]}}</div>            
+        </ng-container>
+    </ng-container>
+    <ng-container *ngIf="filteredChats === null">
+        <div class="loading padded"><span></span></div>    
+    </ng-container>    
+</div>

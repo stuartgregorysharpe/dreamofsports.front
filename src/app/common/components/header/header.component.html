@@ -1,0 +1,40 @@
+<header>
+    <div class="h-top">
+        <div class="ht-content">
+            <div class="ht-left">
+                <a class="ht-logo" routerLink="/{{lang.slug}}">
+                    <div>{{words['common']?.['name1']?.[lang.slug]}}</div>
+                    <div>{{words['common']?.['name2']?.[lang.slug]}}</div>
+                </a>
+            </div>
+            <div class="ht-center"><menu-main></menu-main></div>
+            <div class="ht-right">
+                <div class="ht-langs"><menu-langs></menu-langs></div>
+                <div class="ht-mmbtn" (click)="mmActive = true"><span></span></div>
+            </div>
+        </div>
+    </div>
+    <div class="h-bottom">
+        <div class="hb-content">
+            <div class="hb-side"><a class="btn simple cat" [class.active]="url[2] === 'catalogue'"
+                    [routerLink]="catalogueLink"><span>{{words['common']?.['catalogue']?.[lang.slug]}}</span></a></div>
+            <div class="hb-center">
+                <div class="hbc-content"><input-search></input-search></div>
+            </div>
+            <div class="hb-side">
+                <a class="btn simple account" [class.active]="url[2] === 'account'" routerLink="/{{lang.slug}}/account">
+                    <span *ngIf="!authorized">{{"account.login" | translate}}</span>
+                    <div *ngIf="authorized" class="flex gap-2 items-center h-full">
+                        <img [src]="userImg" class="rounded-full object-cover w-10 h-10 flex-0" />
+                        <div class="grow">
+                            <div class="text-start text-sm font-normal">{{"common.hello" | translate}}</div>
+                            <div class="text-start truncate text-sm font-normal">{{userName}}</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<menu-mobile [(active)]="mmActive"></menu-mobile>

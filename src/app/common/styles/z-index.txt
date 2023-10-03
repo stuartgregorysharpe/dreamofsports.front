@@ -1,0 +1,4 @@
+header - 10
+popup windows - 100+
+context menus - 1000
+errors - 1000

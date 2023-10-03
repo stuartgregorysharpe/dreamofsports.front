@@ -1,0 +1,47 @@
+<ng-container *ngIf="user">
+    <h2>{{pageWords['status']?.[lang.slug]}}</h2>
+    <section>
+        <div class="tf">
+            <div class="tf-title">{{pageWords['subscription']?.[lang.slug]}}:</div>
+            <div class="tf-value"> 
+                <div class="status" [class.alert]="!user.payed_until"><span *ngIf="isBrowser" [innerHTML]="user.payed_until ? pageWords['until']?.[lang.slug] + ' ' + user.formatDate('payed_until', true) : pageWords['no-subscription']?.[lang.slug]"></span></div>        
+            </div>
+        </div>
+    </section>
+    <h2>{{pageWords['payment']?.[lang.slug]}}</h2>
+    <section>
+        <div class="payment">
+            <div class="p-head">{{pageWords['tariffs']?.[lang.slug]}}</div>
+            <div class="note p-note">
+                <div class="note-icon"><span></span></div>
+                <div class="note-text">{{pageWords['np-note']?.[lang.slug]}}</div>  
+            </div>
+            <div class="p-tariffs"><tariffs [(value)]="tariff" [paysystemName]="paysystem?.name"></tariffs></div>
+            <div class="p-head">{{pageWords['paysystems']?.[lang.slug]}}</div>
+            <div class="p-paysystems"><paysystems [(value)]="paysystem"></paysystems></div>
+            <ng-container *ngIf="paysystem?.name === 'nowpayments'">
+                <div class="p-head">{{pageWords['currencies']?.[lang.slug]}}</div>
+                <div class="p-currencies">
+                    <div class="selectwrap {{lang.dir}}">
+                        <select [(ngModel)]="npCurrency">
+                            <option *ngFor="let nc of npCurrencies" [value]="nc">{{nc}}</option>
+                        </select>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="paysystem?.name === 'stripe'">
+                <popup-stripe [(active)]="stripeActive" [paysystem]="paysystem" [tariff]="tariff"></popup-stripe>
+            </ng-container>
+            <div class="p-btnwrap"><button class="btn wide main pay" [class.disabled]="!tariff || !paysystem || (paysystem?.name === 'nowpayments' && !npCurrency)" [class.busy]="paing" (click)="onPay()"><span>{{pageWords['pay']?.[lang.slug]}}</span></button></div>
+            <div class="p-error" *ngIf="errorDescription">{{words['errors']?.[errorDescription]?.[lang.slug]}}<span *ngIf="errorValue"> ({{errorValue}})</span></div>
+        </div>        
+    </section>
+    <h2>{{pageWords['adv-head']?.[lang.slug]}}</h2>
+    <p>{{pageWords['adv-desc1']?.[lang.slug]}}</p>
+    <p>{{pageWords['adv-desc2']?.[lang.slug]}}</p>
+    <ul>
+        <li>{{pageWords['adv-1-'+user.type]?.[lang.slug]}}</li>
+        <li>{{pageWords['adv-2']?.[lang.slug]}}</li>
+        <li>{{pageWords['adv-3']?.[lang.slug]}}</li>
+    </ul>
+</ng-container>

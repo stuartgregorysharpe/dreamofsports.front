@@ -1,0 +1,30 @@
+.radio {
+    display: flex; align-items: center; user-select: none;
+    .r-btn {
+        width: 40px; height: 40px; border-radius: 20px; margin-inline-end: 3px; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center;        
+        .r-border {
+            width: 20px; height: 20px; border-radius: 10px; border: 2px var(--color5) solid; display: flex; justify-content: center; align-items: center;
+            .r-point {width: 0; height: 0; border-radius: 6px; background-color: var(--color-accent1); transition: 0.3s;}
+        }
+        &.dark:hover {
+            @media (min-width: 0) {background-color: transparent;}
+            @media (min-width: 1000px) {background-color: var(--color4);}
+        }
+        &.dark:active {background-color: var(--color4);}
+        &.light:hover {
+            @media (min-width: 0) {background-color: transparent;}
+            @media (min-width: 1000px) {background-color: var(--color7);}
+        }
+        &.light:active {background-color: var(--color7);}
+    }
+    .r-title {white-space: nowrap;}    
+    &.active {
+        pointer-events: none;
+        .r-btn {
+            .r-border {
+                border-color: var(--color-accent1);
+                .r-point {width: 12px; height: 12px;}
+            }
+        }
+    }
+}

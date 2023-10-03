@@ -1,0 +1,5 @@
+<nav>
+    <ul>
+        <li *ngFor="let p of pages"><a [routerLink]="pageUrl(p)" [class.active]="isActive(p)" (click)="onClick()">{{p.name[lang.slug]}}</a></li>
+    </ul>
+</nav>

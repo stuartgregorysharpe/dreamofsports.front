@@ -1,0 +1,3 @@
+<ul class="ml">
+    <li *ngFor="let l of langs"><a [routerLink]="getLangLink(l, 'url')" [fragment]="getLangLink(l, 'fragment')" [queryParams]="getLangLink(l, 'queryParams')" [class.active]="lang.id === l.id">{{l.slug}}</a></li>
+</ul>                

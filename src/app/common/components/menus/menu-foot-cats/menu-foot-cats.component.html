@@ -1,0 +1,4 @@
+<ul>
+    <li *ngFor="let c of cats[lang.slug]"><a routerLink="/{{lang.slug}}/catalogue/{{c.slug}}" [class.active]="isActive(c)">{{c.name}}</a></li>
+    <li><a routerLink="/{{lang.slug}}/catalogue">{{words['common']?.['all-cats']?.[lang.slug]}}</a></li>
+</ul>

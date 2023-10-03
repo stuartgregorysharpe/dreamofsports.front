@@ -1,0 +1,12 @@
+<div class="popup-wrap" [class.active]="active" (click)="onClick($event)">
+    <div class="popup" id="popup-{{unique}}">
+        <div class="popup-head"><div class="roundbtn transparent dark close" (click)="onClose()"><span></span></div></div>
+        <div class="popup-main">
+            <div class="user-banned">
+                <div class="ub-icon"><span></span></div>
+                <div class="ub-txt">{{words['messenger']?.['user-banned']?.[lang.slug]}}</div>
+                <div class="ub-btnwrap"><button type="button" class="btn main" [class.busy]="unbanning" (click)="unBan()"><span>{{words['messenger']?.['unban']?.[lang.slug]}}</span></button></div>
+            </div>
+        </div>
+    </div>
+</div>

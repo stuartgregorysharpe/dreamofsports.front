@@ -1,0 +1,20 @@
+<div class="yp {{skin}}" [class.active]="active">
+    <div class="yp-head">
+        <div class="yp-currentperioddash">
+            <div class="yp-currentperiod">{{from}} - {{to}}</div>
+            <div class="roundbtn compact transparent {{skin}} up" (click)="onClose()"><span></span></div>
+        </div>
+        <div class="yp-perioddash">
+            <div class="roundbtn compact transparent {{skin}}" [class.left]="lang.dir === 'ltr'" [class.right]="lang.dir === 'rtl'" (mousedown)="onBack();"><span></span></div>
+            <div class="roundbtn compact transparent {{skin}}" [class.left]="lang.dir === 'rtl'" [class.right]="lang.dir === 'ltr'" (mousedown)="onForward();"><span></span></div>
+        </div>
+    </div>
+    <div class="yp-main">
+        <div class="yp-years">
+            <div *ngFor="let y of years" class="roundbtn compact transparent {{skin}} yp-year" [class.current]="y === current" [class.now]="y === now" (click)="onSelect(y)">{{y}}</div>
+        </div>
+    </div>
+    <div class="yp-foot">
+        <button type="button" class="btn main select" (click)="onApply()"><span>{{words['common']?.['select']?.[lang.slug]}}</span></button>
+    </div>
+</div>

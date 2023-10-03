@@ -1,0 +1,26 @@
+.articles {
+    @media (min-width:0) {grid-template-columns: 1fr; gap: 15px;}
+	@media (min-width:640px) {grid-template-columns: 1fr 1fr; gap: 15px;}
+    @media (min-width:1000px) {grid-template-columns: 1fr 1fr 1fr; gap: 30px;}
+    display: grid;
+    .article {
+        display: block; background-color: var(--color3); color: var(--color9); text-decoration: none; user-select: none;
+        .a-imgwrap {            
+            padding-bottom: 75%; position: relative;
+            .a-img {
+                position: absolute; left: 0; top: 0; width: 100%; height: 100%;
+                img {object-fit: cover; width: 100%; height: 100%;}
+            }
+        }
+        .a-main {
+            @media (min-width:0) {padding: 15px;}
+	        @media (min-width:1000px) {padding: 15px;}
+            .a-name {
+                @media (min-width:0) {font-size: 16px; }
+	            @media (min-width:1000px) {font-size: 20px;}
+                font-weight: bold; margin-bottom: 5px; color: var(--color9);
+            }
+            .a-date {font-size: 12px;}
+        }
+    }
+}

@@ -1,0 +1,35 @@
+<div class="pagewrap">
+    <div class="page">
+        <div class="breadcrumbs">
+            <span><a routerLink="/{{lang.slug}}">{{words['common']?.['home']?.[lang.slug]}}</a>&nbsp;/&nbsp;</span>
+            <span>{{words['account']?.['account-'+userType]?.[lang.slug]}}&nbsp;/&nbsp;</span>
+        </div>
+        <h1 [innerHTML]="h1"></h1>
+        <div class="account">
+            <div class="a-left">
+                <menu-athlet *ngIf="userType === 'athlet'"></menu-athlet>            
+                <menu-firm *ngIf="userType === 'firm'"></menu-firm>            
+            </div>
+            <div class="a-right">
+                <!--index-->
+                <favorites *ngIf="page?.slug === 'firm-index'"></favorites>
+                <firms *ngIf="page?.slug === 'athlet-index'"></firms>
+                <!--profile-->
+                <profile *ngIf="page?.slug === 'profile'" [pageWords]="page.words"></profile>
+                <!--resume-->
+                <ng-container *ngIf="page?.slug === 'resume'">
+                    <resume-athlet *ngIf="userType === 'athlet'" [pageWords]="page.words"></resume-athlet>
+                    <resume-firm *ngIf="userType === 'firm'" [pageWords]="page.words"></resume-firm>
+                </ng-container>  
+                <!-- post -->
+                <ng-container *ngIf="page?.slug === 'post'">
+                    <post-page></post-page>
+                </ng-container>
+                <!--messenger-->
+                <messenger *ngIf="page?.slug === 'messenger'" [chat_id]="itemId"></messenger>          
+                <!--subscription-->
+                <subscription *ngIf="page?.slug === 'subscription'" [pageWords]="page.words"></subscription>          
+            </div>            
+        </div>
+    </div>
+</div>

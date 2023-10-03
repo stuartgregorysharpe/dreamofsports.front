@@ -1,0 +1,46 @@
+.firm-short {
+    height: 100%; display: flex; flex-direction: column;
+    .fs-imgwrap {
+        padding-bottom: 75%; position: relative; 
+        .fs-img {
+            position: absolute; left: 0; top:0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; background-color: var(--color6); text-decoration: none; color: var(--color4);
+            img {width: 100%; height: 100%; object-fit: cover;}
+            span::before {font-family: "fa-solid"; font-size: 40px; content: "\e1b7";}
+        }        
+        /*
+        .fs-dash {
+            position: absolute; z-index: 2; top:15px; right: 15px; display: flex; flex-direction: column;
+            .roundbtn {text-shadow: 1px 1px 1px white;}
+        }
+        */
+    }
+    .fs-details1 {
+        background-color: var(--color3); color: var(--color9); padding: 15px;
+        .fs-country {
+            @media (min-width:0) {font-size: 12px;}
+            @media (min-width:1000px) {font-size: 14px;}
+            margin-bottom: 5px; display: inline-block; white-space: nowrap; width: 100%; overflow: hidden; text-overflow: ellipsis;
+        }
+        .fs-name {
+            @media (min-width:0) {font-size: 14px;}
+            @media (min-width:1000px) {font-size: 16px;}
+            font-weight: bold; color: var(--color9); display: inline-block; white-space: nowrap; width: 100%; overflow: hidden; text-overflow: ellipsis; user-select: none;
+        }
+    }  
+    .fs-details2 {        
+        background-color: var(--color9); padding: 15px; color: var(--color3); flex: 1; display: flex; flex-direction: column;
+        &.dark {background-color: var(--color7);}
+        /*
+        .fs-params {
+            margin-bottom: 15px; flex: 1;
+            .fs-param {
+                @media (min-width:0) {font-size: 12px;}
+                @media (min-width:1000px) {font-size: 14px;}
+                display: flex; justify-content: space-between; margin-bottom: 3px;
+                &:last-child {margin-bottom: 0;}
+            }
+        } 
+        */       
+        .fs-btnwrap {display: flex; justify-content: flex-end;}
+    }  
+}

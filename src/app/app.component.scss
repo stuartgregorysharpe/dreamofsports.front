@@ -1,0 +1,13 @@
+@import "./common/styles/var.scss";
+
+html {
+	height: 100%; width: 100%; overflow: hidden;
+    body {      
+		@media (min-width:0) {font-size: 14px;}  
+		@media (min-width:1000px) {font-size: 16px;}  
+        margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; font-family: "inter", Arial, Helvetica, sans-serif; color: var(--color0); background-color: var(--color0); overflow-anchor: none; overscroll-behavior: none;
+		@import "./common/styles/general.scss";		
+		@import "./common/styles/layout.scss";		
+		@import "./common/styles/helpers.scss";			
+    }
+}

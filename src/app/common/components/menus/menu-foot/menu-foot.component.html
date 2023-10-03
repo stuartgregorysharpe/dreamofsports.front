@@ -1,0 +1,3 @@
+<ul>
+    <li *ngFor="let p of pages"><a [routerLink]="pageUrl(p)" [class.active]="isActive(p)">{{p.name[lang.slug]}}</a></li>
+</ul>

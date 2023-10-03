@@ -1,0 +1,15 @@
+<div class="win" #win [dir]="dir">
+    <ng-container *ngIf="ready">
+        <the-header></the-header>
+        <main><router-outlet></router-outlet></main>
+        <the-footer></the-footer>
+        <popup-login [(active)]="popupLoginActive"></popup-login>
+        <popup-register [(active)]="popupRegisterActive"></popup-register>
+        <popup-recover [(active)]="popupRecoverActive"></popup-recover>
+        <popup-onlypaid [(active)]="popupOnlypaidActive"></popup-onlypaid>
+        <popup-youbanned [(active)]="popupYoubannedActive"></popup-youbanned>
+        <popup-userbanned [(active)]="popupUserbannedActive"></popup-userbanned>
+        <popup-error></popup-error>
+        <popup-cookies></popup-cookies>
+    </ng-container>
+</div>

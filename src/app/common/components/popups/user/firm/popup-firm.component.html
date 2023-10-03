@@ -1,0 +1,11 @@
+<div class="popup-wrap" [class.active]="active" (click)="onClick($event)">
+    <div class="popup image-viewer" id="popup-{{unique}}">
+        <div class="popup-head"><div class="roundbtn transparent dark close" (click)="onClose()"><span></span></div></div>
+        <div class="popup-main">
+            <div class="popup-user">
+                <firm-details *ngIf="firm" [firm]="firm"></firm-details>
+                <div *ngIf="!firm" class="loading contrast"><span></span></div>
+            </div>            
+        </div>
+    </div>
+</div>

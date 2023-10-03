@@ -1,0 +1,3 @@
+<div class="paysystems">
+    <div *ngFor="let p of paysystems" class="p-item" (click)="onSelect(p)"><input-radio skin="light" [active]="p.id === value?.id" [title]="p.title[lang.slug]"></input-radio></div>
+</div>

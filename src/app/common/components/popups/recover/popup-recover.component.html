@@ -1,0 +1,49 @@
+<div class="popup-wrap" [class.active]="active" (click)="onClick($event)">
+    <div class="popup" id="popup-{{unique}}">
+        <div class="popup-head"><div class="roundbtn transparent dark close" (click)="onClose()"><span></span></div></div>
+        <div class="popup-main">
+            <div class="popup-title">{{words['recover']?.['title']?.[lang.slug]}}</div>
+            <div class="popup-content">
+                <form class="gf" (submit)="onSubmit()">
+                    <ng-container *ngIf="!passwordChanged">
+                        <div class="gf-row">
+                            <div class="gf-inputwrap"><input type="email" name="email" [(ngModel)]="email" [class.error]="errors['email']" [placeholder]="words['recover']?.['email']?.[lang.slug]"></div>
+                            <div *ngIf="errors['email']" class="gf-error">{{words['errors']?.[errors['email']]?.[lang.slug]}}</div>
+                        </div>
+                        <div class="gf-row">
+                            <div class="gf-2cols">
+                                <div class="gf-col">
+                                    <div class="gf-inputwrap"><input-password [(value)]="code" [error]="errors['code']" [placeholder]="words['register']?.['code']?.[lang.slug]"></input-password></div>
+                                    <div *ngIf="errors['code']" class="gf-error">{{words['errors']?.[errors['code']]?.[lang.slug]}}</div>
+                                </div>
+                                <div class="gf-col">
+                                    <div class="gf-btnwrap"><button type="button" tabindex="-1" class="btn main full" [class.busy]="codeSending" [class.done-wtext]="codeSent" (click)="onSendCode()"><span>{{codeSent ? words['recover']?.['code-sent']?.[lang.slug] : words['recover']?.['get-code']?.[lang.slug]}}</span></button></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gf-row">
+                            <div class="gf-inputwrap"><input-password [(value)]="password" [error]="errors['password']" [placeholder]="words['recover']?.['password']?.[lang.slug]"></input-password></div>
+                            <div *ngIf="errors['password']" class="gf-error">{{words['errors']?.[errors['password']]?.[lang.slug]}}</div>
+                        </div>
+                        <div class="gf-row">
+                            <div class="gf-inputwrap"><input-password [(value)]="password2" [error]="errors['password2']" [placeholder]="words['recover']?.['password2']?.[lang.slug]"></input-password></div>
+                            <div *ngIf="errors['password2']" class="gf-error">{{words['errors']?.[errors['password2']]?.[lang.slug]}}</div>
+                        </div>
+                        <div class="gf-row">
+                            <div class="gf-btnwrap center"><button type="submit" class="btn main wide" [class.busy]="formSending"><span>{{words['recover']?.['submit']?.[lang.slug]}}</span></button></div>
+                        </div>
+                        <div class="gf-hr"></div>
+                        <div class="gf-row">
+                            <div class="gf-linkwrap"><span>{{words['recover']?.['remembered']?.[lang.slug]}}</span>&nbsp;<a (click)="onLogin()">{{words['recover']?.['login']?.[lang.slug]}}</a></div>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="passwordChanged">
+                        <div class="gf-row">
+                            <div class="gf-linkwrap"><span>{{words['recover']?.['password-changed']?.[lang.slug]}}</span>&nbsp;<a (click)="onLogin()">{{words['recover']?.['login']?.[lang.slug]}}</a></div>
+                        </div>                        
+                    </ng-container>     
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

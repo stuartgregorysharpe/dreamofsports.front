@@ -1,0 +1,6 @@
+<div class="langs-radio">
+    <div class="lr-title">{{words['common']?.['langs']?.[lang.slug]}}:</div>
+    <div class="lr-radios">
+        <div class="lr-radio" *ngFor="let l of langs"><input-radio [active]="value.id === l.id" [title]="l.slug" [skin]="skin" (click)="onSelect(l)"></input-radio></div>
+    </div>
+</div>

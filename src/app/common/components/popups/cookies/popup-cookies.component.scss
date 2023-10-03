@@ -1,0 +1,12 @@
+.popup-cookies {
+    position: sticky; z-index: 10; bottom: 0; width: 100%; background-color: var(--color3); padding: 0 15px; max-height: 0; overflow: hidden; opacity: 0; transition: opacity 0.3s, max-height 0s linear 0.3s;
+    .pc-content {
+        display: flex; align-items: center; justify-content: center; color: var(--color9); padding: 5px 0;
+        .pc-icon {
+            margin-inline-end: 15px;
+            span::before {font-family: "fa-regular"; content: "\f05a"; display: inline-block; color: var(--color-accent1); font-size: 20px;}
+        }
+        .pc-txt {margin-inline-end: 15px;}
+    }
+    &.active {opacity: 1; max-height: 500px;}
+}

@@ -1,0 +1,7 @@
+<div class="popup-cookies" [class.active]="active">
+    <div class="pc-content">
+        <div class="pc-icon"><span></span></div>
+        <div class="pc-txt"><span>{{words['common']?.['cookie-txt']?.[lang.slug]}}</span></div>
+        <div class="pc-btnwrap"><button type="button" class="btn transparent" (click)="onClose()"><span>{{words['common']?.['cookie-btn']?.[lang.slug]}}</span></button></div>
+    </div>
+</div>

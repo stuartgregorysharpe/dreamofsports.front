@@ -1,0 +1,27 @@
+.objectable-select {
+    width: 100%; height: 100%; position: relative; user-select: none;
+    .os-value {
+        width: 100%; height: 100%; display: flex; align-items: center; border-radius: 5px; position: relative; padding-inline-start: 15px; padding-inline-end: 35px; cursor: pointer;
+        &::after {position: absolute; display: flex; top:50%; transform: translateY(calc(-50% + 2px)); pointer-events: none; font-family: "fa-solid"; content: "\f107"; font-size: 14px;}
+	    &.ltr::after {left: auto; right: 15px;}
+	    &.rtl::after {left: 15px; right: auto;}
+        .osv-content {
+            display: inline-block; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+    }
+    .os-items {
+        position: absolute; z-index: 1001; left: 0; min-width: 100%; max-height: 180px; overflow-y: scroll; background-color: white;  display: none; 
+        &.active {display: block;}
+        .osv-item {
+            height: 30px; display: flex; align-items: center; white-space: nowrap; color: black; font-size: 14px; padding: 0 5px; cursor: pointer; transition: 0.3s;
+            &:hover, &.active {background-color: var(--color7);}
+        }
+    }
+    .os-ovl {
+        position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; display: none;
+        &.active {display: block;}
+    }
+    &.dark {
+        .os-value {background-color: var(--color3); color: var(--color9);}
+    }
+}

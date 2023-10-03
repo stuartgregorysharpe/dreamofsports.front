@@ -1,0 +1,7 @@
+<div class="athlets-filter">
+    <div class="af-item"><objectable-select [value]="filter.cat_slug" (valueChange)="onSelectCat($event)" [items]="cats" [multilangable]="true" valuableField="slug" visibleField="name" [undefinedable]="true" [undefinedTitle]="words['athlet']?.['any-cat']"></objectable-select></div>
+    <div class="af-item"><objectable-select [(value)]="filter.age" [items]="ages" [multilangable]="true" valuableField="range" visibleField="name" [undefinedable]="true" [undefinedTitle]="words['athlet']?.['any-age']"></objectable-select></div>    
+    <div class="af-item"><objectable-select *ngIf="countries" [(value)]="filter.country_id" [items]="countries[lang.slug]" [multilangable]="false" valuableField="id" visibleField="name" [undefinedable]="true" [undefinedTitle]="words['athlet']?.['any-country']"></objectable-select></div>
+    <div class="af-item"><objectable-select [(value)]="filter.gender" [items]="genders" [multilangable]="true" valuableField="type" visibleField="name" [undefinedable]="true" [undefinedTitle]="words['athlet']?.['any-gender']"></objectable-select></div>
+    <div class="af-item"><objectable-select [(value)]="filter.top" [items]="statuses" [multilangable]="true" valuableField="top" visibleField="name" [undefinedable]="true" [undefinedTitle]="words['athlet']?.['any-status']"></objectable-select></div>    
+</div>

@@ -1,0 +1,163 @@
+<form class="resume" (submit)="onSubmit()" name="resume-top">
+    <menu-resume [(chapter)]="chapter" [chapters]="chapters" [words]="pageWords" [errors]="errors" [layout]="3"></menu-resume>
+    <ng-container *ngIf="user">
+        <!-- general -->
+        <ng-container *ngIf="chapter === 'general'">
+            <h2>{{pageWords["menu-general"]?.[lang.slug]}}</h2>  
+            <!-- <div class="note r-note">
+                <div class="note-icon"><span></span></div>
+                <div class="note-text">{{pageWords['langs-note']?.[lang.slug]}}</div>  
+            </div>     
+            <div class="r-langs"><langs-radio [(value)]="currentLang" skin="light"></langs-radio></div>        -->
+            <section>
+                <div class="r-img">
+                    <div class="ri-title required">{{pageWords['firm-img']?.[lang.slug]}}:</div>
+                    <image-picker [(img)]="user.firm.img" folder="users" [supabase]="true" [error]="errors['img']"></image-picker>                    
+                </div>                
+                <div class="tf">                    
+                    <div class="tf-title" [class.required]="currentLang.id === 1">
+                        <span>{{pageWords['firm-name']?.[lang.slug]}}</span>
+                        <span class="tf-lang">({{currentLang.slug}}):</span>
+                    </div>
+                    <div class="tf-value">
+                        <div class="tf-inputwrap"><input type="text" name="name" [class.error]="errors['name']" maxlength="255" [(ngModel)]="user.firm.translation(currentLang.id).name" [dir]="currentLang.dir"></div>
+                        <div *ngIf="errors['name']" class="tf-error">{{words['errors']?.[errors['name']]?.[lang.slug]}}</div>
+                    </div>
+                    <div class="tf-title">
+                        <span>{{pageWords['firm-branch']?.[lang.slug]}}</span>
+                        <span class="tf-lang">({{currentLang.slug}}):</span>
+                    </div>
+                    <div class="tf-value">
+                        <div class="tf-inputwrap"><input type="text" name="branch" maxlength="255" [(ngModel)]="user.firm.translation(currentLang.id).branch" [dir]="currentLang.dir"></div>
+                    </div>   
+                    <div class="tf-title">
+                        <span>{{pageWords['firm-founder']?.[lang.slug]}}</span>
+                        <span class="tf-lang">({{currentLang.slug}}):</span>
+                    </div>
+                    <div class="tf-value">
+                        <div class="tf-inputwrap"><input type="text" name="founder" maxlength="255" [(ngModel)]="user.firm.translation(currentLang.id).founder" [dir]="currentLang.dir"></div>
+                    </div>                    
+                </div>
+            </section>
+            <h3>{{pageWords['firm-reg']?.[lang.slug]}}</h3>
+            <section>
+                <div class="tf">
+                    <div class="tf-title required">
+                        <span>{{pageWords['firm-reg-no']?.[lang.slug]}}:</span>
+                    </div>
+                    <div class="tf-value">
+                        <div class="tf-inputwrap"><input type="text" name="reg_no" [class.error]="errors['reg_no']" maxlength="255" [(ngModel)]="user.firm.reg_no"></div>
+                        <div *ngIf="errors['reg_no']" class="tf-error">{{words['errors']?.[errors['reg_no']]?.[lang.slug]}}</div>
+                    </div>
+                    <div class="tf-title required">{{pageWords['firm-reg-date']?.[lang.slug]}}:</div>               
+                    <div class="tf-value">
+                        <date-picker [(value)]="user.firm.reg_date" skin="medium"></date-picker>
+                        <div *ngIf="errors['reg_date']" class="tf-error">{{words['errors']?.[errors['reg_date']]?.[lang.slug]}}</div>
+                    </div>
+                    <div class="tf-title required">{{pageWords['firm-reg-country']?.[lang.slug]}}:</div>
+                    <div class="tf-value">
+                        <div class="tf-inputwrap">
+                            <div class="selectwrap {{lang.dir}}" *ngIf="countries">
+                                <select [(ngModel)]="user.firm.reg_country_id" name="reg_country_id">
+                                    <option [ngValue]="null">{{words['common']?.['not-set']?.[lang.slug]}}</option>
+                                    <option *ngFor="let c of countries[lang.slug]" [ngValue]="c.id">{{c.name}}</option>
+                                </select>
+                            </div>
+                        </div>   
+                        <div *ngIf="errors['reg_country_id']" class="tf-error">{{words['errors']?.[errors['reg_country_id']]?.[lang.slug]}}</div>                     
+                    </div>
+                    <div class="tf-title" [class.required]="currentLang.id === 1">
+                        <span>{{pageWords['firm-reg-addr']?.[lang.slug]}}</span>
+                        <span class="tf-lang">({{currentLang.slug}}):</span>
+                    </div>
+                    <div class="tf-value">
+                        <div class="tf-inputwrap"><input type="text" name="reg_addr" [class.error]="errors['reg_addr']" maxlength="255" [(ngModel)]="user.firm.translation(currentLang.id).reg_addr" [dir]="currentLang.dir"></div>
+                        <div *ngIf="errors['reg_addr']" class="tf-error">{{words['errors']?.[errors['reg_addr']]?.[lang.slug]}}</div>
+                    </div>
+                </div>
+            </section>
+            <h3>{{pageWords['firm-fact']?.[lang.slug]}}</h3>
+            <section>
+                <div class="tf">
+                    <div class="tf-title">{{pageWords['firm-fact-country']?.[lang.slug]}}:</div>
+                    <div class="tf-value">
+                        <div class="tf-inputwrap">
+                            <div class="selectwrap {{lang.dir}}" *ngIf="countries">
+                                <select [(ngModel)]="user.firm.fact_country_id" name="fact_country_id">
+                                    <option [ngValue]="null">{{words['common']?.['not-set']?.[lang.slug]}}</option>
+                                    <option *ngFor="let c of countries[lang.slug]" [ngValue]="c.id">{{c.name}}</option>
+                                </select>
+                            </div>
+                        </div>   
+                    </div>
+                    <div class="tf-title">
+                        <span>{{pageWords['firm-fact-addr']?.[lang.slug]}}</span>
+                        <span class="tf-lang">({{currentLang.slug}}):</span>
+                    </div>
+                    <div class="tf-value">
+                        <div class="tf-inputwrap"><input type="text" name="fact_addr" maxlength="255" [(ngModel)]="user.firm.translation(currentLang.id).fact_addr" [dir]="currentLang.dir"></div>
+                    </div>
+                </div>
+            </section>
+            <h3>{{pageWords['contacts']?.[lang.slug]}}</h3>
+            <h4>{{pageWords['phones']?.[lang.slug]}}</h4>
+            <section>                
+                <contacts type="phones" [contacts]="user.phones" [errors]="errors['phones']"></contacts>
+            </section>
+            <h4>{{pageWords['emails']?.[lang.slug]}}</h4>
+            <section>                
+                <contacts type="emails" [contacts]="user.emails" [errors]="errors['emails']"></contacts>
+            </section>
+            <h4>{{pageWords['links']?.[lang.slug]}}</h4>
+            <div class="note r-note">
+                <div class="note-icon"><span></span></div>
+                <div class="note-text">{{pageWords['links-note']?.[lang.slug]}}</div>  
+            </div>     
+            <section>                
+                <contacts type="links" [contacts]="user.links" [errors]="errors['links']"></contacts>
+            </section>
+            <h4>{{pageWords['socials']?.[lang.slug]}}</h4>
+            <section>                
+                <contacts type="socials" [contacts]="user.socials" [socials]="socials" [errors]="errors['socials']"></contacts>
+            </section>
+            <div class="r-next"><button type="button" class="btn main" (click)="onNext('about')"><span>{{pageWords['next']?.[lang.slug]}}</span></button></div>
+        </ng-container>
+        <!-- about -->
+        <ng-container *ngIf="chapter === 'about'">
+            <h2>{{pageWords["menu-about"]?.[lang.slug]}}</h2> 
+            <!-- <div class="note r-note">
+                <div class="note-icon"><span></span></div>
+                <div class="note-text">{{pageWords['langs-note']?.[lang.slug]}}</div>  
+            </div>     
+            <div class="r-langs"><langs-radio [(value)]="currentLang" skin="light"></langs-radio></div>     -->
+            <section>
+                <the-textarea [maxlength]="10000" [(value)]="user.firm.translation(currentLang.id).about" [dir]="currentLang.dir"></the-textarea>
+            </section>            
+            <div class="r-next"><button type="button" class="btn main" (click)="onNext('files')"><span>{{pageWords['next']?.[lang.slug]}}</span></button></div>
+        </ng-container>        
+        <!-- files -->
+        <ng-container *ngIf="chapter === 'files'">
+            <h2>{{pageWords["menu-files"]?.[lang.slug]}}</h2>   
+            <h3>{{pageWords["images"]?.[lang.slug]}}</h3>     
+            <section>
+                <files [data]="user.images" type="images" folder="users" [supabase]="true"></files>
+            </section>   
+            <h3>{{pageWords["videos"]?.[lang.slug]}}</h3>     
+            <section>
+                <files [data]="user.videos" type="videos" folder="users" [supabase]="true"></files>
+            </section>            
+            <h3>{{pageWords["others"]?.[lang.slug]}}</h3>     
+            <section>
+                <files [data]="user.others" type="others" folder="users" [supabase]="true"></files>
+            </section>            
+        </ng-container>
+        <!-- finish -->
+        <div class="r-finish">
+            <div class="rf-agrees">
+                <div class="rf-agree"><input-checkbox [active]="agreePrivacy" [title]="pageWords['agree-privacy']?.[lang.slug]" skin="light" (click)="agreePrivacy = !agreePrivacy" [error]="errors['privacy']"></input-checkbox></div>
+                <div class="rf-agree"><input-checkbox [active]="agreeTerms" [title]="pageWords['agree-terms']?.[lang.slug]" skin="light" (click)="agreeTerms = !agreeTerms" [error]="errors['terms']"></input-checkbox></div>
+            </div>
+            <div class="rf-btnwrap"><button type="submit" class="btn main save" [class.busy]="sending" [class.done]="sent"><span>{{pageWords["submit"]?.[lang.slug]}}</span></button></div>
+        </div>
+    </ng-container>
+</form>

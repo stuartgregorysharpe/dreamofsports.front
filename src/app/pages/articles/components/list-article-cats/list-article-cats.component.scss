@@ -1,0 +1,8 @@
+.ac {
+    display: flex; flex-wrap: wrap;
+    .btn {
+        @media (min-width:0) {margin-block-end: 10px; margin-inline-end: 10px;}  
+        @media (min-width:1000px) {margin-block-end: 15px; margin-inline-end: 15px;}  
+        
+    }
+}

@@ -1,0 +1,74 @@
+.dp-date {
+    @media (min-width: 0) {font-size: 14px;}
+	@media (min-width: 1000px) {font-size: 16px;}
+	display: inline-flex; align-items: center; justify-content: center; cursor: pointer; user-select: none; border-radius: 5px; height: 40px; padding: 0 15px; font-weight: 600; transition: 0.3s;
+    &.medium {
+        background-color: var(--color7); color: var(--color4);
+        &:hover {
+            @media (min-width: 0) {background-color: var(--color7);}
+			@media (min-width: 1000px) {background-color: var(--color6);}
+        }
+    }
+    &.dark {
+        background-color: var(--color3); color: var(--color9);
+        &:hover {
+            @media (min-width: 0) {background-color: var(--color3);}
+			@media (min-width: 1000px) {background-color: var(--color5);}
+        }
+    }
+    .dpd-value {}        
+    .dpd-reset {
+        margin-inline-start: 10px;
+        &::before {font-family: "fa-solid"; content: "\f057";}
+        &:hover {opacity: 0.5;}
+    }
+    .dpd-icon {
+        margin-inline-end: 10px;
+        &::before {font-family: "fa-solid"; content: "\f073";}     
+    }
+}
+.dp-ovl {
+    display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%;
+    &.active {display: block;}
+}
+.dp-calendar {
+    position: fixed; z-index: 1001; display: none; padding: 15px; box-shadow: var(--shadow-popup); border-radius: 5px; user-select: none;
+    &.medium {background-color: var(--color7); color: var(--color4);}
+    &.dark {background-color: var(--color3); color: var(--color9);}
+    &.active {display: block;}
+    .dp-head {
+        display: flex; justify-content: space-between; align-items: center; height: 30px; margin-bottom: 15px; 
+        .dp-currentmonthdash { 
+            display: flex; align-items: center;
+            .dp-currentmonth {text-transform: capitalize; font-weight: 500; margin-inline-end: 5px;}            
+        }
+        .dp-monthdash {display: flex;}    
+    }
+    .dp-days {
+        margin-bottom: 15px; height: 222px;
+        .dp-days-content {
+            display: grid; grid-template-columns: repeat(7, 30px); gap: 2px; direction: ltr;
+            div {
+                height: 30px; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 12px;
+                &.head {
+                    color: var(--color-grey2); text-transform: capitalize;
+                    &.compact {font-size: 10px;}
+                }
+                &.day {
+                    &.hidden {opacity: 0; pointer-events: none;}
+                    &.current {background-color: var(--color-accent1); color: white;}
+                    &.holiday {
+                        color: var(--color-accent2); 
+                        &.current {color: white;}
+                    }
+                    &.now {font-weight: bold;}
+                }                    
+            }
+        }                
+    } 
+    .dp-time {height: 30px; margin-bottom: 15px;}
+    .dp-foot {
+        height: 30px; display: flex; justify-content: flex-end;
+        button {height: 30px; font-size: 14px;}
+    }    
+}

@@ -1,0 +1,15 @@
+<div class="users">
+  <ng-container *ngIf="athlets !== null">
+    <ng-container *ngIf="athlets.length">
+      <div class="flex flex-col gap-2">
+        <div *ngFor="let a of athlets">
+          <athlet-tiny [athlet]="a"></athlet-tiny>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container
+      *ngIf="!athlets.length"
+      >{{words['common']?.['none']?.[lang.slug]}}</ng-container
+    >
+  </ng-container>
+</div>

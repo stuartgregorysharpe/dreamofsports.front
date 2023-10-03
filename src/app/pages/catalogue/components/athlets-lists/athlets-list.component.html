@@ -1,0 +1,14 @@
+<div class="users" #container>
+    <ng-container *ngIf="athlets !== null">
+        <ng-container *ngIf="athlets.length">
+            <div class="u-items">
+                <div class="u-item" *ngFor="let a of athlets"><athlet-short [athlet]="a"></athlet-short></div>
+            </div>    
+        </ng-container>
+        <ng-container *ngIf="!athlets.length">{{words['common']?.['none']?.[lang.slug]}}</ng-container>
+    </ng-container>
+    <ng-container *ngIf="athlets === null">
+        <div class="loading contrast"><span></span></div>
+    </ng-container>
+</div>
+<div class="loading contrast padded" *ngIf="loadingMore"><span></span></div>

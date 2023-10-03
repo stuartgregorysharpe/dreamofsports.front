@@ -1,0 +1,5 @@
+<form class="is2 {{skin}}" (submit)="onSubmit()">
+    <input type="text" name="search" [(ngModel)]="currentValue" [placeholder]="placeholder">
+    <button *ngIf="currentValue" type="button" class="roundbtn transparent light reset" (click)="onReset()"><span></span></button>
+    <button type="submit" class="roundbtn transparent light search"><span></span></button>
+</form>

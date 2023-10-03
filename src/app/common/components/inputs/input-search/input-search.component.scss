@@ -1,0 +1,13 @@
+.is {
+    height: 45px; width: 100%; border-radius: 5px; border:1px var(--color5) solid; background-color: var(--color3); display: flex; align-items: center;
+    input {
+        width: calc(100% - 40px - 2px); height: 100%; color: var(--color9); border-bottom: none; padding: 0 15px;
+        &::placeholder {color: var(--color5);}
+        &:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active {-webkit-text-fill-color: var(--color9); box-shadow:0 0 0 50px var(--color3) inset;}
+    }    
+    button {margin: 0 1px;}    
+    &.compact {
+        height: 35px; 
+        input {width: calc(100% - 30px - 2px);}
+    }
+}

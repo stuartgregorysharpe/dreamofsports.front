@@ -1,0 +1,23 @@
+.tariffs {
+    @media (min-width:0) {grid-template-columns: repeat(2, minmax(0, 1fr)); gap:15px;}
+    @media (min-width:1000px) {grid-template-columns: repeat(3, minmax(0, 1fr)); gap:30px;}
+    display: grid; 
+    .t-item {
+        @media (min-width:0) {padding: 10px 0;}
+        @media (min-width:1000px) {padding: 15px 0;}
+        border:1px var(--color7) solid; border-radius: 5px; cursor: pointer; text-align: center; transition: 0.3s;
+        .t-name {
+            @media (min-width:0) {font-size: 16px;}
+            @media (min-width:1000px) {font-size: 18px;}
+            font-weight: bold; margin-bottom: 5px;
+        }
+        .t-price {font-weight: bold; color: var(--color-accent1); margin-bottom: 5px;}
+        .t-duration {margin-bottom: 5px;}
+        &:hover {background-color: var(--color7);}
+        &.active {
+            background-color: var(--color-accent1); color: var(--color9);
+            .t-price {color: var(--color9);}
+        }
+        &.disabled {opacity: 0.5; pointer-events: none;}
+    }
+}

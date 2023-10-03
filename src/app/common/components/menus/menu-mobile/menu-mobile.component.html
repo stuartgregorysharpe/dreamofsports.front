@@ -1,0 +1,23 @@
+<div class="mm" [class.active]="active">
+    <div class="mm-left" (click)="close()"></div>
+    <div class="mm-right">
+        <div class="mm-head">
+            <a class="mm-logo" routerLink="/{{lang.slug}}">
+                <div>{{words['common']?.['name1']?.[lang.slug]}}</div>
+                <div>{{words['common']?.['name2']?.[lang.slug]}}</div>
+            </a>
+            <div class="mm-close" (click)="close()"><span></span></div>
+        </div>
+        <div class="mm-content">
+            <div class="mm-searchwrap">
+                <input-search (submitted)="close()" [compact]="true"></input-search>
+            </div>
+            <div class="mm-btns">
+                <a class="btn simple cat" [class.active]="url[2] === 'catalogue'" [routerLink]="catalogueLink" (click)="close()"><span>{{words['common']?.['catalogue']?.[lang.slug]}}</span></a>
+                <a class="btn simple account" [class.active]="url[2] === 'account'" routerLink="/{{lang.slug}}/account" (click)="close()"><span>{{words['common']?.['account']?.[lang.slug]}}</span></a>
+            </div>
+            <div class="mm-pages"><menu-main (clicked)="close()"></menu-main></div>
+            <div class="mm-langs"><menu-langs></menu-langs></div>
+        </div>
+    </div>
+</div>

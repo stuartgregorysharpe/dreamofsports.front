@@ -1,0 +1,48 @@
+<ng-container *ngIf="forbidden">
+    <div class="warning">
+        <div class="w-icon"><span></span></div>
+        <div class="w-txt">{{words['common']?.['onlypaid-function-1']?.[lang.slug]}} <a routerLink="/{{lang.slug}}/account/subscription">{{words['common']?.['onlypaid-function-2']?.[lang.slug]}}</a></div>                        
+    </div>     
+</ng-container>
+
+<ng-container *ngIf="!forbidden">
+    <div class="messenger-component">
+        <!-- left -->
+        <div class="messenger-left {{lang.dir}}" [class.active]="chatsActive">
+            <div class="ml-left"><chats [current_id]="chat_id"></chats></div>
+            <div class="ml-right" (click)="chatsActive = false"></div>
+        </div>
+        <!-- right -->
+        <div class="messenger-right">
+            <!-- head -->
+            <div class="messenger-head">
+                <div class="mh-left">
+                    <div class="roundbtn transparent medium menu2" (click)="chatsActive = true"><span></span></div>
+                    <div *ngIf="chat" class="mh-title">{{chat.name[lang.slug] || chat.name[langs[0].slug]}}</div>
+                </div>
+                <div class="mh-right">
+                    <ng-container *ngIf="chat">
+                        <div class="roundbtn transparent medium menu" (click)="menuActive = true"><span></span></div>
+                        <div class="mh-menu {{lang.dir}}" [class.active]="menuActive">
+                            <ul>
+                                <li class="delete" (click)="onDelete()">{{words['messenger']?.['delete']?.[lang.slug]}}</li>
+                                <li class="ban" (click)="onDeleteAndBan()">{{words['messenger']?.['ban']?.[lang.slug]}}</li>
+                            </ul>
+                        </div>    
+                        <div class="mh-menuovl" [class.active]="menuActive" (click)="menuActive = false"></div>
+                    </ng-container>                    
+                </div>
+            </div>
+            <!-- messages -->
+            <div class="messenger-messages" [class.compact]="chat">
+                <messages *ngIf="chat_id" [chat_id]="chat_id"></messages>
+                <div class="mm-nochat" *ngIf="!chat_id">{{words['messenger']?.['no-chat']?.[lang.slug]}}</div>
+            </div>
+            <!-- sender -->
+            <form class="messenger-send" *ngIf="chat" (submit)="onSubmit()">
+                <div class="ms-tawrap"><textarea name="text" [(ngModel)]="newMsgContent" maxlength="1000" (keyup)="onKeyUp($event)"></textarea></div>
+                <button [dir]="lang.dir" class="roundbtn transparent medium message" type="submit"><span></span></button>
+            </form>
+        </div>
+    </div>
+</ng-container>

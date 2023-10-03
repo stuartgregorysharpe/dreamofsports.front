@@ -1,0 +1,13 @@
+<div class="pagewrap">
+    <div class="page">
+        <div class="breadcrumbs">
+            <span><a routerLink="/{{lang.slug}}">{{words['common']?.['home']?.[lang.slug]}}</a>&nbsp;/&nbsp;</span>
+            <span><a routerLink="/{{lang.slug}}/catalogue">{{words['common']?.['catalogue']?.[lang.slug]}}</a>&nbsp;/&nbsp;</span>
+        </div>
+        <h1 [innerHTML]="h1"></h1>
+        <ng-container *ngIf="query">
+            <div class="search-head"><strong>{{page?.words['query']?.[lang.slug]}}</strong>: {{query}}</div>
+            <athlets-search [query]="query"></athlets-search>
+        </ng-container>        
+    </div>
+</div>

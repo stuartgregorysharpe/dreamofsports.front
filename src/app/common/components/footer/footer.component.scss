@@ -1,0 +1,83 @@
+footer {
+    color: var(--color9); user-select: none;
+    .f-top {
+        @media (min-width:0) {padding: 30px 15px;}  
+        @media (min-width:1000px) {padding: 60px 30px;}  
+        border-bottom: 1px var(--color2) solid;
+        .ft-content {
+            max-width: var(--width); margin: 0 auto; 
+            a.ft-logo {
+                display: inline-block; text-decoration: none; font-weight: bold; font-style: italic; margin-bottom: 30px; 
+                div:first-child {
+                    @media (min-width:0) {font-size: 20px; margin-bottom: -13px;}  
+                    @media (min-width:1000px) {font-size: 26px; margin-bottom: -15px;}  
+                    color: var(--color9); 
+                }
+                div:last-child {
+                    @media (min-width:0) {font-size: 32px;}  
+                    @media (min-width:1000px) {font-size: 40px;}  
+                    color: var(--color-accent1);
+                }
+            }
+            .ft-cols {
+                @media (min-width:0) {display: block;}  
+                @media (min-width:1000px) {display: flex;}  
+                justify-content: space-between; 
+                .ft-col {
+                    @media (min-width:0) {width: 100%; margin-bottom: 30px;}  
+                    @media (min-width:1000px) {width: 30%; margin-bottom: 0;}  
+                    &:last-child {margin-bottom: 0;}
+                    .ft-section {
+                        margin-bottom: 15px;
+                        &:last-child {margin-bottom: 0;}
+                        .ft-title {font-size: 18px; font-weight: 600; margin-bottom: 30px;}
+                        ul {
+                            margin: 0; padding: 0; list-style: none;
+                            li {
+                                margin-bottom: 15px;
+                                &:last-child {margin-bottom: 0;}
+                                a {
+                                    color: var(--color6); text-decoration: none; transition: 0.3s;
+                                    &:hover {text-decoration: underline;}
+                                    &.active {color: var(--color-accent1);}
+                                }
+                            }
+                        }
+                        .ft-socials {
+                            display: flex; flex-wrap: wrap;
+                            a {
+                                display: inline-block; margin-inline-end: 15px; margin-bottom: 15px; font-size: 30px; color: var(--color6); text-decoration: none; transition: 0.3s;
+                                &:hover {color: var(--color9);}
+                                &::before {font-family: "fa-brands";}
+                                &.fb::before {content: "\f09a";}
+                                &.tw::before {content: "\f099";}
+                                &.ig::before {content: "\f16d";}
+                                &.tg::before {content: "\f2c6";}
+                                &.li::before {content: "\f08c";}
+                            }
+                        }
+                        .ft-apps {
+                            display: flex; flex-wrap: wrap;
+                            a {
+                                display: inline-block; margin-inline-end: 15px; margin-bottom: 15px; text-decoration: none;
+                                img {
+                                    height: 35px; opacity: 0.8; transition: 0.3s;
+                                    &:hover {opacity: 1;}
+                                }
+                            }
+                        }
+                    }                    
+                }
+            }
+        }
+    }
+    .f-bottom {
+        @media (min-width:0) {padding: 30px 15px;}  
+        @media (min-width:1000px) {padding: 30px 30px;}  
+        .fb-content {
+            max-width: var(--width); margin: 0 auto; 
+            .fb-copy {font-size: 14px;}
+        }
+    }
+    
+}

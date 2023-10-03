@@ -1,0 +1,53 @@
+.account {
+    @media (min-width:0) {display: block;}
+    @media (min-width:1000px) {display: flex;}
+    .a-left {
+        @media (min-width:0) {width: 100%;}
+        @media (min-width:1000px) {width: 300px;}        
+        background-color: var(--color3); color: var(--color9);
+    }
+    .a-right {
+        @media (min-width:0) {width: 100%; padding: 15px;}
+        @media (min-width:1000px) {width: calc(100% - 300px); padding: 30px;}                
+        background-color: var(--color9); color: var(--color4); overflow: hidden;
+    }
+}
+
+.account-menu {
+    .am-user {
+        @media (min-width:0) {padding: 15px;}
+        @media (min-width:1000px) {padding: 30px;}
+        border-bottom: 1px var(--color4) solid;  display: flex; align-items: center; justify-content: space-between;
+        .am-imgwrap {
+            width: 60px; height: 60px; overflow: hidden; border-radius: 30px; border:2px var(--color5) solid; background-color: var(--color4); display: flex; justify-content: center; align-items: center;
+            img {width: 100%; height: 100%; object-fit: cover;}
+        }
+        .am-name {width: calc(100% - 75px); overflow: hidden;}
+    }
+    .am-main {
+        .am-title {
+            @media (min-width:0) {font-size: 16px; padding: 15px;}
+            @media (min-width:1000px) {font-size: 20px; padding: 30px 30px 15px 30px;}
+            font-weight: bold;
+        }
+        .am-menu {     
+            padding-bottom: 30px;           
+            a {
+                @media (min-width:0) {padding: 10px 15px;}
+                @media (min-width:1000px) {padding: 10px 30px;}
+                display: block; transition: 0.3s; color: var(--color9); text-decoration: none;
+                &.active, &:hover {background-color: var(--color4);}
+                &::before {font-family: "fa-solid"; display: inline-block; width: 30px; color: var(--color-accent1);}
+                &.favorites::before {content: "\f005";}
+                &.companies::before {content: "\f1ad";}
+                &.profile::before {content: "\f2bd";}
+                &.resume::before {content: "\e1d2";}
+                &.setting:before {content: "\f013";}
+                &.post::before {content: "\f1ea";}
+                &.messenger::before {content: "\f4a3";}
+                &.subscription::before {content: "\f81d";}
+                &.logout::before {content: "\e023";}
+            }
+        }
+    }
+}

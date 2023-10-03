@@ -1,0 +1,8 @@
+.cats {
+    .cats-title {margin-bottom: 10px;}
+}
+.filter {
+    @media (min-width:0) {margin-bottom: 15px;}
+    @media (min-width:1000px) {margin-bottom: 30px;}
+    .filter-title {margin-bottom: 10px;}
+}

@@ -1,0 +1,6 @@
+.athlets-filter {
+    @media (min-width:0) {grid-template-columns: minmax(0,1fr);}
+    @media (min-width:1000px) {grid-template-columns: repeat(5, minmax(0,1fr));}
+    display: grid; gap: 15px;
+    .af-item {height: 40px;}
+}

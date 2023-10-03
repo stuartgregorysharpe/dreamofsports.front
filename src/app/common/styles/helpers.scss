@@ -1,0 +1,15 @@
+.mb0 {margin-bottom: 0;}
+.mb5 {margin-bottom: 5px;}
+.mb15 {margin-bottom: 15px;}
+.mb30 {margin-bottom: 30px;}
+
+.bscroll-v {
+	@media (min-width:1000px) {
+		&::-webkit-scrollbar {-webkit-appearance: none;}
+		&::-webkit-scrollbar:vertical {width: 8px;}
+		&::-webkit-scrollbar-thumb {background-color: var(--color6);}            
+		&::-webkit-scrollbar-track {background-color: var(--color7);}
+	} 
+}
+
+.ta-right {text-align: right;}

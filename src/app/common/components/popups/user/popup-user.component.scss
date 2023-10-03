@@ -1,0 +1,11 @@
+.popup-wrap {
+    z-index: 99; backdrop-filter: none; padding: 0;
+    .popup {
+        width: 100%; height: 100%; border-radius: 0; background-color: var(--color2);
+        .popup-main {
+            @media (min-width:0) {height: calc(100% - 70px);}
+            @media (min-width:1000px) {height: calc(100% - 90px);}            
+            .popup-user {max-width: var(--width); margin: 0 auto;}
+        }
+    }
+}

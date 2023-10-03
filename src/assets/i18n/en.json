@@ -1,0 +1,102 @@
+{
+    "account": {
+        "login": "Login/Register",
+        "menu": {
+            "profile": "My Profile",
+            "settings": "Settings"
+        }
+    },
+    "login": {
+        "type-fan": "Fan"
+    },
+    "post": {
+        "new": {
+            "new": "New Post",
+            "comment": "Start your post about sports...",
+            "attachment": "Attachment:",
+            "post": "Post",
+            "attachment_image": "Add images",
+            "attach_video": "Add Videos",
+            "attach_youtube": "Add Youtube",
+            "attach_award": "Add an achievement/certificate/award",
+            "attachment_youtube_header": "Input Youtube link",
+            "youtube_add": "Add"
+        },
+        "content": {
+            "like": "Like",
+            "comment": "Comment",
+            "share": "Share",
+            "share_link_header": "Copy the link to share",
+            "copy_share": "Copy link"
+        }
+    },
+    "common": {
+        "optional": "Optional",
+        "close": "Close",
+        "save": "Save",
+        "ok": "OK",
+        "hello": "Hello",
+        "followed_me": "Followed Me",
+        "subscribed_me": "Subscribed Me",
+        "view_profile": "View Profile",
+        "athlete": "Athlete",
+        "register": "Register your free account now and become part of the Dream of Sports community"
+    },
+    "resume": {
+        "athlet": {
+            "position": "Position/Role",
+            "cat": "Type of Sport",
+            "category": "In which athlete category do you currently classify yourself?",
+            "other_sport": "Other",
+            "other_sport_input_header": "Input sports name",
+            "sport_Physical_Fitness_Metrics": "Physical Fitness Metrics:",
+            "sport_40-Yard Dash Time": "40-Yard Dash Time: ",
+            "sport_Vertical Jump Height": "Vertical Jump Height: ",
+            "sport_Bench Press Max": "Bench Press Max: ",
+            "sport_Squat Max": "Squat Max: ",
+            "sport_Deadlift Max": "Deadlift Max: ",
+            "sport_Endurance Metrics": "Endurance Metrics:",
+            "sport_100m/200m/400m Time": "100m/200m/400m Time: ",
+            "sport_5K/10K Run Time": "5K/10K Run Time: ",
+            "sport_Marathon Time": "Marathon Time: ",
+            "sport_Team Sports Metrics": "Team Sports Metrics:",
+            "sport_Goals Scored": "Goals Scored: ",
+            "sport_Assists": "Assists: ",
+            "sport_Shooting Percentage": "Shooting Percentage: ",
+            "sport_Pass Completion Percentage": "Pass Completion Percentage: ",
+            "sport_Tackles Made": "Tackles Made: ",
+            "sport_Accuracy Metrics": "Accuracy Metrics:",
+            "sport_Free Throw Percentage": "Free Throw Percentage: ",
+            "sport_Field Goal Percentage": "Field Goal Percentage: ",
+            "sport_3-Point Percentage": "3-Point Percentage: ",
+            "sport_Serve Accuracy": "Serve Accuracy: ",
+            "sport_Pitch Accuracy": "Pitch Accuracy: ",
+            "sport_Defensive Metrics": "Defensive Metrics:",
+            "sport_Interceptions": "Interceptions: ",
+            "sport_Blocks": "Blocks: ",
+            "sport_Steals": "Steals: ",
+            "sport_Shutouts": "Shutouts: ",
+            "sport_Saves": "Saves: ",
+            "sport_Statistics Over Time": "Statistics Over Time:",
+            "sport_Career Points/Goals/Assists": "Career Points/Goals/Assists: ",
+            "sport_Seasonal Averages": "Seasonal Averages: ",
+            "sport_Personal Bests": "Personal Bests: ",
+            "sport_Competition Records": "Competition Records:",
+            "sport_Championships Won": "Championships Won: ",
+            "sport_Top Tournament Finishes": "Top Tournament Finishes: ",
+            "sport_Records Held/Broken": "Records Held/Broken: "
+        }
+    },
+    "home":  {
+        "mobile_download": "Unlock the ultimate Dream of Sports experience on your mobile – download our app now!",
+        "title1": "Dream of",
+        "title2": "Sport"
+    },
+    "auth": {
+        "register": {
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "phoneNumber": "Phone Number"
+        }
+    }
+}

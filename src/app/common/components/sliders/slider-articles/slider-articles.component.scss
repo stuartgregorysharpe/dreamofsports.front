@@ -1,0 +1,70 @@
+.sa-viewport {
+    @media (min-width:0) {margin-bottom: 15px;}
+    @media (min-width:1000px) {margin-bottom: 30px;}
+    width: 100%; overflow: hidden; user-select: none; position: relative; 
+    .sa-container-b {
+        display: flex; position: relative; top:0; will-change: left, right; transition: 0.3s;
+        &.dragging {pointer-events: none;}
+        .sa-article {
+            @media (min-width:0) {margin-inline-end: 15px;}
+            @media (min-width:1000px) {margin-inline-end: 30px;}
+            &:last-child {margin-inline-end: 0;}
+        }
+    }
+    .sa-container-s {
+        display: flex;
+        .sa-article {
+            @media (min-width:0) {width: 100%; margin-inline-end: 0;}
+            @media (min-width:640px) {width: calc((100% - 15px) / 2); margin-inline-end: 15px;}
+            @media (min-width:1000px) {width: calc((100% - 60px) / 3); margin-inline-end: 30px;}
+            &:last-child {margin-inline-end: 0;}
+            &:nth-child(2) {
+                @media (min-width:0) {display: none;}
+                @media (min-width:640px) {display: block;}
+            }
+            &:nth-child(3) {
+                @media (min-width:0) {display: none;}
+                @media (min-width:1000px) {display: block;}
+            }
+        }
+    }
+    .sa-article {
+        display: block; background-color: var(--color3); color: var(--color9); text-decoration: none; 
+        .saa-imgwrap {
+            padding-bottom: 75%; position: relative;
+            .saa-img {
+                position: absolute; left: 0; top: 0; width: 100%; height: 100%;
+                img {width: 100%; height: 100%; object-fit: cover;}
+            }
+        }
+        .saa-main {
+            @media (min-width:0) {padding: 15px;}
+            @media (min-width:1000px) {padding: 15px;}
+            .saa-name {
+                @media (min-width:0) {font-size: 16px; }
+                @media (min-width:1000px) {font-size: 20px;}
+                font-weight: bold; margin-bottom: 5px; color: var(--color9);
+            }
+            .saa-date {font-size: 12px;}
+        }
+    }
+}
+
+.sa-dash {
+    display: flex; justify-content: center;
+    .sa-indicator {
+        @media (min-width:0) {font-size: 16px; padding: 0 15px; }
+        @media (min-width:1000px) {font-size: 20px; padding: 0 30px;}
+        display: flex; align-items: center;
+        .sai-item {
+            @media (min-width:0) {width: 8px; height: 8px; margin: 0 3px; }
+            @media (min-width:1000px) {width: 10px; height: 10px; margin: 0 5px; }
+            border-radius: 8px; background-color: var(--color3); transition: 0.3s;
+            &.active {
+                @media (min-width:0) {width: 12px; height: 12px; }
+                @media (min-width:1000px) {width: 15px; height: 15px;}
+                background-color: var(--color5);
+            }
+        }
+    }
+}

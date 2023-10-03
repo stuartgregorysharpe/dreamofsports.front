@@ -1,0 +1,23 @@
+<div class="rewards">
+    <div class="r-items">
+        <ng-container *ngIf="rewards.length"> 
+            <div class="r-item" *ngFor="let r of rewards; let i = index">
+                <div class="ri-content">
+                    <div class="ri-img"><image-picker [(img)]="r.img" folder="users" [supabase]="true"></image-picker></div>
+                    <div class="ri-params">
+                        <div class="ri-param"><div class="ri-inputwrap"><date-picker [(value)]="r.date" skin="medium"></date-picker></div></div>
+                        <div class="ri-param">
+                            <div class="ri-inputwrap"><input type="text" maxlength="255" [(ngModel)]="r.translation(currentLang.id).name" [placeholder]="words['common']?.['ph-description']?.[lang.slug]"></div>
+                            <div class="ri-error" *ngIf="errors?.[i]">{{words['errors']?.[errors[i]]?.[lang.slug]}}</div>    
+                        </div>                                                                        
+                    </div>
+                </div>
+                <div class="ri-actions"><div class="roundbtn transparent light danger delete" (click)="onDelete(i)"><span></span></div></div>
+            </div>    
+        </ng-container>
+        <ng-container *ngIf="!rewards.length"> 
+            <span>{{words['common']?.['none2']?.[lang.slug]}}</span>
+        </ng-container>
+    </div>
+    <div class="r-btnwrap" *ngIf="!exhausted"><button type="button" class="btn simple" (click)="onAdd()"><span>{{words['common']?.['add']?.[lang.slug]}}</span></button></div>
+</div>

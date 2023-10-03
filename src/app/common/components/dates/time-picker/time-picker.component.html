@@ -1,0 +1,13 @@
+<div class="tp">
+    <div class="tp-input">
+        <div class="tp-btn roundbtn back" (mousedown)="onBack('hour')"><span></span></div>    
+        <div class="tp-value">{{hour | number:'2.0-0'}}</div>
+        <div class="tp-btn roundbtn forward" (mousedown)="onForward('hour')"><span></span></div> 
+    </div>
+    <div class="tp-divider">:</div>
+    <div class="tp-input">
+        <div class="tp-btn roundbtn back" (mousedown)="onBack('minute')"><span></span></div>    
+        <div class="tp-value">{{minute | number:'2.0-0'}}</div>
+        <div class="tp-btn roundbtn forward" (mousedown)="onForward('minute')"><span></span></div> 
+    </div>
+</div>

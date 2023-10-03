@@ -1,0 +1,8 @@
+<div class="tariffs">
+    <div *ngFor="let t of tariffs" class="t-item" [class.disabled]="paysystemName === 'nowpayments' && !t.np_compatible" [class.active]="value?.id === t.id" (click)="onSelect(t)">
+        <div class="t-name">{{t.name[lang.slug]}}</div>
+        <div class="t-price">${{t.price}}</div>
+        <div class="t-duration">{{t.duration}} {{words['common']?.['days']?.[lang.slug]}}</div>
+        <div class="t-perday" *ngIf="t.duration !== 1">(${{t.perday}} {{words['common']?.['per-day']?.[lang.slug]}})</div>
+    </div>    
+</div>
