@@ -1,6 +1,6 @@
 {
     "account": {
-        "login": "Login/Register",
+        "login": "Login",
         "menu": {
             "profile": "My Profile",
             "settings": "Settings"
@@ -12,7 +12,7 @@
     "post": {
         "new": {
             "new": "New Post",
-            "comment": "Start your post about sports...",
+            "comment": "Start a publication demonstrating your achievements and skills...",
             "attachment": "Attachment:",
             "post": "Post",
             "attachment_image": "Add images",

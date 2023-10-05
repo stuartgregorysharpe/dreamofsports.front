@@ -32,7 +32,7 @@ export class CAuthGuard {
             this.cookieService.removeItem("blockedUrl"); 
             this.blockedUrl = null;
         }
-        
+        alert(blockedUrl);
         return blockedUrl;
     }
 

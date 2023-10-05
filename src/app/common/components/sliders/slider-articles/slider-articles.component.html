@@ -4,7 +4,8 @@
         <div *ngIf="isBrowser" class="sa-container-b" [class.dragging]="dragging" #container [style.left]="lang.dir === 'ltr' ? -offset+'px' : 'auto'" [style.right]="lang.dir === 'rtl' ? -offset+'px' : 'auto'" (mousedown)="onDragStart($event);" (touchstart)="onDragStart($event);">
             <div class="sa-article" *ngFor="let a of dataItems" [style.min-width]="itemWidth+'px'" [style.width]="itemWidth+'px'">
                 <div class="saa-imgwrap">
-                    <a class="saa-img" routerLink="/{{lang.slug}}/articles/a/{{a.slug}}"><img src="/images/articles/{{a.img_s}}" [alt]="a.name[lang.slug]" loading="lazy"></a>
+                    <a class="saa-img" routerLink="/{{lang.slug}}/articles/a/{{a.slug}}"><img [src]="'https://img001.prntscr.com/file/img001/7JSlRJfTSXGroXZGnxp2Gw.png'" [alt]="a.name[lang.slug]" loading="lazy"></a>
+                    <!-- <a class="saa-img" routerLink="/{{lang.slug}}/articles/a/{{a.slug}}"><img src="/images/articles/{{a.img_s}}" [alt]="a.name[lang.slug]" loading="lazy"></a> -->
                 </div>                
                 <div class="saa-main">
                     <a class="saa-name" routerLink="/{{lang.slug}}/articles/a/{{a.slug}}">{{a.name[lang.slug]}}</a>

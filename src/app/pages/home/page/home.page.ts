@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+import { Component, ElementRef, ViewChild, OnInit, ViewEncapsulation } from "@angular/core";
 import { CSimplePage } from "../../simple.page";
 import { IFiles } from "src/app/model/entities/files.interface";
 import { CAppService } from "src/app/common/services/app.service";
@@ -17,10 +17,23 @@ import { IAthletOut } from "src/app/model/entities/athlet.out.interface";
     encapsulation: ViewEncapsulation.None,
 })
 export class CHomePage extends CSimplePage implements OnInit {
-    get isBrowser(): boolean {return this.appService.isBrowser;}
-    get files(): IFiles {return this.appService.files;}
+    get isBrowser(): boolean { return this.appService.isBrowser; }
+    get files(): IFiles { return this.appService.files; }
     mobileDialogVisible: boolean = false;
     public athlets: IAthletOut[] = null;
+    public currentSlide = 0;
+
+    @ViewChild('carouselText') carouselText: ElementRef;
+  
+    originalTopPosition: number;
+    isInOriginalPosition = true;
+
+    public images = [
+        'https://img001.prntscr.com/file/img001/o8CtndWTS9uYGGjXDEdHyQ.png',
+        'https://img001.prntscr.com/file/img001/5XPavDlyTaOhMTq9k2PQ4Q.png',
+        'https://img001.prntscr.com/file/img001/3lVefw4QRimC6pCs7Aquzg.png',
+        'https://img001.prntscr.com/file/img001/P47ABTeZQbKrHcmsebp4Vg.png',
+    ];
 
     constructor(
         protected appService: CAppService,
@@ -33,6 +46,23 @@ export class CHomePage extends CSimplePage implements OnInit {
     ) {
         super(appService, pageRepository, route, router, deviceDetector);
     }
+    
+    ngAfterViewInit(): void {
+        // store the initial top position
+        this.originalTopPosition = this.carouselText.nativeElement.getBoundingClientRect().top;
+        
+        // initial check
+        this.checkPosition();
+    
+        // adding the scroll event listener
+        window.addEventListener('scroll', this.checkPosition.bind(this));
+      }
+    
+      checkPosition(): void {
+        const currentTopPosition = this.carouselText.nativeElement.getBoundingClientRect().top;
+        this.isInOriginalPosition = this.originalTopPosition === currentTopPosition;
+      }
+
     get userImg(): string {
         if (!this.authService.authData) return "/imgages/default-avatar.jpg";
 
@@ -73,11 +103,11 @@ export class CHomePage extends CSimplePage implements OnInit {
     get my_followers(): number {
         return this.authService.user.followers.find(e => e.type === "follow").length;
     }
-    
+
     public async ngOnInit(): Promise<void> {
-        this.initScroll(); 
-        await this.initPage('home');        
-        this.route.params.subscribe(p => this.initSEO());  
+        this.initScroll();
+        await this.initPage('home');
+        this.route.params.subscribe(p => this.initSEO());
 
         if (this.deviceDetector.isMobile()) {
             const interval = setInterval(() => {
@@ -89,8 +119,8 @@ export class CHomePage extends CSimplePage implements OnInit {
     }
 
     protected async initAthlets(): Promise<void> {
-        try {                      
-            const chunk = await this.athletRepository.loadChunk(0, 4, "created_at", -1, {});     
+        try {
+            const chunk = await this.athletRepository.loadChunk(0, 4, "created_at", -1, {});
             this.athlets = chunk.data;
         } catch (err) {
         }
@@ -98,5 +128,13 @@ export class CHomePage extends CSimplePage implements OnInit {
 
     public closeMobile(): void {
         this.mobileDialogVisible = false;
+    }
+
+    public previousSlide() {
+        this.currentSlide = (this.currentSlide - 1 + this.images.length) % this.images.length;
+    }
+
+    public nextSlide() {
+        this.currentSlide = (this.currentSlide + 1) % this.images.length;
     }
 }

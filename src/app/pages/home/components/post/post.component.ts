@@ -219,14 +219,14 @@ export class CPost implements OnInit {
 
   public getUrl(attachment: IUserPostAttachment): string {
     const type = attachment.type;
-    switch (type) {
-      case "image": case "video":
-        return typeof (attachment.file) === "string" ?
-          `${cfg.supabaseUrl}/attachment/post/${attachment.file}` :
-          URL.createObjectURL(attachment.file as File);
-      case "youtube":
-        return attachment.file as string;
-    }
+    // switch (type) {
+    //   case "image": case "video":
+    //     return typeof (attachment.file) === "string" ?
+    //       `${cfg.supabaseUrl}/attachment/post/${attachment.file}` :
+    //       URL.createObjectURL(attachment.file as File);
+    //   case "youtube":
+    //     return attachment.file as string;
+    // }
     return "";
   }
 
@@ -248,11 +248,11 @@ export class CPost implements OnInit {
   }
 
   public saveComment(): void {
-    this.addComment().then((data) => {
-      this.messageService.add({ severity: 'info', summary: 'Success', detail: 'Your comment added' });
-      this.myComment = "";
-      this.loadComments();
-    });
+    // this.addComment().then((data) => {
+    //   this.messageService.add({ severity: 'info', summary: 'Success', detail: 'Your comment added' });
+    //   this.myComment = "";
+    //   this.loadComments();
+    // });
   }
 
   public addComment(): Promise<IUserPostComment> {
@@ -260,32 +260,32 @@ export class CPost implements OnInit {
     fd.content = this.myComment;
     return new Promise((resolve, reject) =>
       this.dataService.commentCreate(this.post.id, fd).subscribe({
-        next: (res) =>
-          [200, 201].includes(res.statusCode)
-            ? resolve(res.data)
-            : reject(res.statusCode),
-        error: (err) => reject(err.message),
+        // next: (res) =>
+        //   [200, 201].includes(res.statusCode)
+        //     ? resolve(res.data)
+        //     : reject(res.statusCode),
+        // error: (err) => reject(err.message),
       })
     );
   }
 
   public sendToggleLike(): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      this.dataService.toggleLike(this.post.id).subscribe({
-        next: (res) =>
-          [200, 201].includes(res.statusCode)
-            ? resolve(res.data)
-            : reject(res.statusCode),
-        error: (err) => reject(err.message),
-      })
+      // this.dataService.toggleLike(this.post.id).subscribe({
+      //   next: (res) =>
+      //     [200, 201].includes(res.statusCode)
+      //       ? resolve(res.data)
+      //       : reject(res.statusCode),
+      //   error: (err) => reject(err.message),
+      // })
     });
   }
 
   public toggleLike(): void {
-    if (!this.authService.authData) {
-      this.authorizeVisible = true;
-      return;
-    }
+    // if (!this.authService.authData) {
+    //   this.authorizeVisible = true;
+    //   return;
+    // }
     this.sendToggleLike().then((data) => {
       this.like = data;
       if (data) {
@@ -298,21 +298,21 @@ export class CPost implements OnInit {
 
   public sendToggleSave(): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      this.dataService.toggleSave(this.post.id).subscribe({
-        next: (res) =>
-          [200, 201].includes(res.statusCode)
-            ? resolve(res.data)
-            : reject(res.statusCode),
-        error: (err) => reject(err.message),
-      })
+      // this.dataService.toggleSave(this.post.id).subscribe({
+      //   next: (res) =>
+      //     [200, 201].includes(res.statusCode)
+      //       ? resolve(res.data)
+      //       : reject(res.statusCode),
+      //   error: (err) => reject(err.message),
+      // })
     });
   }
 
   public toggleSave(): void {
-    if (!this.authService.authData) {
-      this.authorizeVisible = true;
-      return;
-    }
+    // if (!this.authService.authData) {
+    //   this.authorizeVisible = true;
+    //   return;
+    // }
     this.sendToggleSave().then((data) => {
       this.save = data;
       if (data) {
@@ -325,21 +325,21 @@ export class CPost implements OnInit {
 
   public sendToggleFollow(): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      this.dataService.toggleFollow(this.post.user.id).subscribe({
-        next: (res) =>
-          [200, 201].includes(res.statusCode)
-            ? resolve(res.data)
-            : reject(res.statusCode),
-        error: (err) => reject(err.message),
-      })
+      // this.dataService.toggleFollow(this.post.user.id).subscribe({
+      //   next: (res) =>
+      //     [200, 201].includes(res.statusCode)
+      //       ? resolve(res.data)
+      //       : reject(res.statusCode),
+      //   error: (err) => reject(err.message),
+      // })
     });
   }
 
   public toggleFollow(): void {
-    if (!this.authService.authData) {
-      this.authorizeVisible = true;
-      return;
-    }
+    // if (!this.authService.authData) {
+    //   this.authorizeVisible = true;
+    //   return;
+    // }
     this.sendToggleFollow().then((data) => {
       this.follow = data;
       if (data) {
@@ -353,20 +353,20 @@ export class CPost implements OnInit {
   public sendToggleSubscribe(): Promise<boolean> {
     return new Promise((resolve, reject) => {
       this.dataService.toggleSubscribe(this.post.user.id).subscribe({
-        next: (res) =>
-          [200, 201].includes(res.statusCode)
-            ? resolve(res.data)
-            : reject(res.statusCode),
-        error: (err) => reject(err.message),
+        // next: (res) =>
+        //   [200, 201].includes(res.statusCode)
+        //     ? resolve(res.data)
+        //     : reject(res.statusCode),
+        // error: (err) => reject(err.message),
       })
     });
   }
 
   public toggleSubscribe(): void {
-    if (!this.authService.authData) {
-      this.authorizeVisible = true;
-      return;
-    }
+    // if (!this.authService.authData) {
+    //   this.authorizeVisible = true;
+    //   return;
+    // }
     this.sendToggleSubscribe().then((data) => {
       this.subscribe = data;
       if (data) {
@@ -378,12 +378,12 @@ export class CPost implements OnInit {
   }
 
   public toggleBlock(): Promise<void> {
-    if (!this.authService.authData) {
-      this.authorizeVisible = true;
-      return new Promise((resolve, reject) => {
-        reject("Not authorized");
-      });
-    }
+    // if (!this.authService.authData) {
+    //   this.authorizeVisible = true;
+    //   return new Promise((resolve, reject) => {
+    //     reject("Not authorized");
+    //   });
+    // }
     return new Promise((resolve, reject) => {
       this.dataService.blockPost(this.post.id).subscribe({
         next: (res) =>
@@ -396,12 +396,12 @@ export class CPost implements OnInit {
   }
 
   public delete(): Promise<void> {
-    if (!this.authService.authData) {
-      this.authorizeVisible = true;
-      return new Promise((resolve, reject) => {
-        reject("Not authorized");
-      });
-    }
+    // if (!this.authService.authData) {
+    //   this.authorizeVisible = true;
+    //   return new Promise((resolve, reject) => {
+    //     reject("Not authorized");
+    //   });
+    // }
     return new Promise((resolve, reject) => {
       this.dataService.deletePost(this.post.id).subscribe({
         next: (res) =>

@@ -75,7 +75,8 @@ export class CPopupLoginComponent extends CPopupComponent implements OnChanges {
 
             if (statusCode === 200) {
                 this.onClose();      
-                const url = this.authGuard.getBlockedUrl() || `/${this.lang.slug}/account`;
+                const url = `/`;
+                // const url = this.authGuard.getBlockedUrl() || `/${this.lang.slug}/contacts`;
                 this.router.navigateByUrl(url);    
                 return;                            
             } 

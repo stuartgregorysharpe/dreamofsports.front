@@ -68,7 +68,7 @@
                     </div>
                     <div class="gf-row">
                         <div class="gf-inputwrap flex">
-                            <p-dropdown [options]="countryCodes" [(ngModel)]="countryCode" optionLabel="name" class="w-2/5"></p-dropdown>
+                            <p-dropdown [options]="countryCodes" [(ngModel)]="countryCode" optionLabel="name" name="countryCode" class="w-2/5"></p-dropdown>
                             <input type="text" [(ngModel)]="phoneNumber" name="phoneNumber"
                                 [class.error]="errors['phoneNumber']"
                                 [placeholder]="'auth.register.phoneNumber' | translate" />

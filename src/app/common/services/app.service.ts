@@ -14,15 +14,15 @@ import { IKeyValue } from "src/app/model/keyvalue.interface";
 export class CAppService {
     public userType: any[] = [
         { name: 'Athlete', type: "athlet", sub_type: "Athlet" },
-        { name: 'Company (Sports Association, Organization, etc.)', type: "firm", sub_type: "Company" },
-        { name: 'Fan', type: "fan", sub_type: "Fan" },
+        { name: 'Athletic Director', type: "athlet", sub_type: "Athletic Director" },
         { name: 'Coach', type: "athlet", sub_type: "Coach" },
-        { name: 'Sports Manager', type: "athlet", sub_type: "Sports Manager" },
+        { name: 'Company', type: "firm", sub_type: "Company" },
+        { name: 'Fan', type: "fan", sub_type: "Fan" },
+        { name: 'Professional Sports Club', type: "firm", sub_type: "Professional Sports Club" },
         { name: 'Scout', type: "athlet", sub_type: "Scout" },
         { name: 'Sports Agent', type: "athlet", sub_type: "Sports Agent" },
+        { name: 'Sports Manager', type: "athlet", sub_type: "Sports Manager" },
         { name: 'Sports Recruiter', type: "athlet", sub_type: "Sports Recruiter" },
-        { name: 'Athletic Director', type: "athlet", sub_type: "Athletic Director" },
-        { name: 'Professional Sports Club', type: "firm", sub_type: "Professional Sports Club" },
     ]
     public category: any[] = [
         { name: "Amateur Athlete", value: 1 },

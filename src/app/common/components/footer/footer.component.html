@@ -5,45 +5,65 @@
                 <div>{{words['common']?.['name1']?.[lang.slug]}}</div>
                 <div>{{words['common']?.['name2']?.[lang.slug]}}</div>
             </a>
-            <div class="ft-cols">
-                <div class="ft-col">
-                    <div class="ft-section">
-                        <div class="ft-title">{{words['common']?.['menu-foot']?.[lang.slug]}}</div>
-                        <menu-foot></menu-foot>
-                    </div>                    
+            <div class="bottomslogan">
+                <p class="bottomphase">Join the ranks of athletes who have turned their dreams into reality with Dream-of-Sports.com. Your
+                    future in sports begins here. Don't miss out on the opportunity of a lifetime!</p>
+            </div>
+        </div>
+        <div class="ft-cols">
+            <div class="ft-col">
+                <div class="ft-section">
+                    <div class="ft-title">Visit Our Headquarters</div>
+                    <div class="ft-subtitle">
+                        Concord Tower, 
+                    </div>
+                    <div class="ft-subtitle">
+                        10th floor, 
+                    </div>
+                    <div class="ft-subtitle">
+                        Dubai Media City Dubai, 
+                    </div>
+                    <div class="ft-subtitle">
+                        United Arab Emirates
+                    </div>
                 </div>
-                <div class="ft-col">
-                    <div class="ft-section">
-                        <div class="ft-title">{{words['common']?.['catalogue']?.[lang.slug]}}</div>
-                        <menu-foot-cats></menu-foot-cats>
-                    </div>                    
+            </div>
+            <div class="ft-col">
+                <div class="ft-section">
+                    <div class="ft-title">Contact Us Today</div>
+                    <div class="ft-subtitle">
+                        +971 52 126 3567
+                    </div>
+                    <div class="ft-subtitle">
+                        +971 52 126 3567
+                    </div>
+                    <div class="ft-subtitle">
+                        info@dream-of-sports.com
+                    </div>
                 </div>
-                <div class="ft-col">
-                    <div class="ft-section">
-                        <div class="ft-title">{{words['socials']?.['head']?.[lang.slug]}}</div>
-                        <div class="ft-socials">
-                            <a *ngIf="words['socials']?.['fb']?.[lang.slug]" class="fb" target="_blank" [href]="words['socials']?.['fb']?.[lang.slug]"></a>
-                            <a *ngIf="words['socials']?.['tw']?.[lang.slug]" class="tw" target="_blank" [href]="words['socials']?.['tw']?.[lang.slug]"></a>
-                            <a *ngIf="words['socials']?.['ig']?.[lang.slug]" class="ig" target="_blank" [href]="words['socials']?.['ig']?.[lang.slug]"></a>
-                            <a *ngIf="words['socials']?.['tg']?.[lang.slug]" class="tg" target="_blank" [href]="words['socials']?.['tg']?.[lang.slug]"></a>
-                            <a *ngIf="words['socials']?.['li']?.[lang.slug]" class="li" target="_blank" [href]="words['socials']?.['li']?.[lang.slug]"></a>                        
-                        </div>
-                    </div>  
-                    <div class="ft-section">
-                        <div class="ft-title">{{words['apps']?.['head']?.[lang.slug]}}</div>
-                        <div class="ft-apps">
-                            <a *ngIf="words['apps']?.['apple']?.[lang.slug]" target="_blank" [href]="words['apps']?.['apple']?.[lang.slug]"><img src="/assets/images/app-store.svg" loading="lazy" alt="appstore"></a>                            
-                            <a *ngIf="words['apps']?.['google']?.[lang.slug]" target="_blank" [href]="words['apps']?.['google']?.[lang.slug]"><img src="/assets/images/google-play.svg" loading="lazy" alt="google play"></a>                            
-                            <a *ngIf="words['apps']?.['huawei']?.[lang.slug]" target="_blank" [href]="words['apps']?.['huawei']?.[lang.slug]"><img src="/assets/images/huawei-appgallery.svg" loading="lazy" alt="appgallery"></a>                            
-                        </div>
-                    </div>                  
+            </div>
+            <div class="ft-col">
+                <div class="ft-section">
+                    <div class="ft-title">Foolow us</div>
+                    <div class="ft-socials">
+                        <!-- <a *ngIf="words['socials']?.['fb']?.[lang.slug]" class="fb" target="_blank"
+                            [href]="words['socials']?.['fb']?.[lang.slug]"></a>
+                        <a *ngIf="words['socials']?.['tw']?.[lang.slug]" class="tw" target="_blank"
+                            [href]="words['socials']?.['tw']?.[lang.slug]"></a> -->
+                        <a *ngIf="words['socials']?.['ig']?.[lang.slug]" class="ig" target="_blank"
+                            [href]="words['socials']?.['ig']?.[lang.slug]"></a>
+                        <a *ngIf="words['socials']?.['tg']?.[lang.slug]" class="tg" target="_blank"
+                            [href]="words['socials']?.['tg']?.[lang.slug]"></a>
+                        <a *ngIf="words['socials']?.['li']?.[lang.slug]" class="li" target="_blank"
+                            [href]="words['socials']?.['li']?.[lang.slug]"></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="f-bottom">
+    <!-- <div class="f-bottom">
         <div class="fb-content">
             <div class="fb-copy" [innerHTML]="words['common']?.['copy']?.[lang.slug]"></div>
         </div>
-    </div>
+    </div> -->
 </footer>

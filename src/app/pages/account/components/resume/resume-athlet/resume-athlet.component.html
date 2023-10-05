@@ -193,9 +193,12 @@
                             <div class="selectwrap {{lang.dir}}" *ngIf="cats">
                                 <select [(ngModel)]="user.athlet.cat_id" name="cat" (change)="onCateChanged()">
                                     <option [ngValue]="null">{{words['common']?.['not-set']?.[lang.slug]}}</option>
-                                    <option *ngFor="let c of cats[lang.slug]" [ngValue]="c.id">{{c.name}}</option>
+                                    <ng-container *ngFor="let c of cats[lang.slug]">
+                                        <option *ngIf="c.name !== 'Other'" [ngValue]="c.id">{{c.name}}</option>
+                                    </ng-container>
                                     <option [ngValue]="-1">{{"resume.athlet.other_sport" | translate}}</option>
                                 </select>
+                                
                             </div>
                         </div>
                         <div *ngIf="errors['cat_id']" class="tf-error">

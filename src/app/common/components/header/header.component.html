@@ -7,25 +7,103 @@
                     <div>{{words['common']?.['name2']?.[lang.slug]}}</div>
                 </a>
             </div>
-            <div class="ht-center"><menu-main></menu-main></div>
+            <div *ngIf="!authorized" class="ht-center"><menu-main></menu-main></div>
+
+            <div *ngIf="authorized" class="ht-center">
+                <div class="flex">
+                    <div class="flex justify-center pl-72">
+
+                        <button
+                            class="bg-center bg-no-repeat flex items-center justify-center text-white w-44 h-16 relative"
+                            style="background-size: contain; padding: 2px; background-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%22181%22%20height%3D%2260%22%20viewBox%3D%220%200%20181%2060%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M22.7538%203.00808C23.5471%201.18161%2025.3486%200%2027.3399%200H175.377C178.977%200%20181.397%203.6899%20179.963%206.99192L158.246%2056.9919C157.453%2058.8184%20155.651%2060%20153.66%2060H5.62296C2.02292%2060%20-0.397331%2056.3101%201.03687%2053.0081L22.7538%203.00808Z%22%20fill%3D%22url%28%23paint0_linear_1584_156%29%22%20%2F%3E%3Cpath%20d%3D%22M23.2125%203.20727C23.9264%201.56345%2025.5478%200.5%2027.3399%200.5H175.377C178.617%200.5%20180.795%203.82091%20179.505%206.79273L157.788%2056.7927C157.074%2058.4365%20155.452%2059.5%20153.66%2059.5H5.62296C2.38292%2059.5%200.204698%2056.1791%201.49548%2053.2073L23.2125%203.20727Z%22%20stroke%3D%22%23FCFCFC%22%20stroke-opacity%3D%220.25%22%20%2F%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22paint0_linear_1584_156%22%20x1%3D%221.70859%22%20y1%3D%2257.5%22%20x2%3D%22172.643%22%20y2%3D%22-6.19738%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%3Cstop%20stop-color%3D%22%23151515%22%20%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%232F2F2F%22%20%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3C%2Fsvg%3E')">
+                            <span class="absolute inset-0 flex items-center justify-center">About company</span>
+                        </button>
+                        <button
+                            class="bg-center bg-no-repeat flex items-center justify-center text-white w-44 h-16 relative"
+                            style="background-size: contain; padding: 2px; background-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%22181%22%20height%3D%2260%22%20viewBox%3D%220%200%20181%2060%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M22.7538%203.00808C23.5471%201.18161%2025.3486%200%2027.3399%200H175.377C178.977%200%20181.397%203.6899%20179.963%206.99192L158.246%2056.9919C157.453%2058.8184%20155.651%2060%20153.66%2060H5.62296C2.02292%2060%20-0.397331%2056.3101%201.03687%2053.0081L22.7538%203.00808Z%22%20fill%3D%22url%28%23paint0_linear_1584_156%29%22%20%2F%3E%3Cpath%20d%3D%22M23.2125%203.20727C23.9264%201.56345%2025.5478%200.5%2027.3399%200.5H175.377C178.617%200.5%20180.795%203.82091%20179.505%206.79273L157.788%2056.7927C157.074%2058.4365%20155.452%2059.5%20153.66%2059.5H5.62296C2.38292%2059.5%200.204698%2056.1791%201.49548%2053.2073L23.2125%203.20727Z%22%20stroke%3D%22%23FCFCFC%22%20stroke-opacity%3D%220.25%22%20%2F%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22paint0_linear_1584_156%22%20x1%3D%221.70859%22%20y1%3D%2257.5%22%20x2%3D%22172.643%22%20y2%3D%22-6.19738%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%3Cstop%20stop-color%3D%22%23151515%22%20%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%232F2F2F%22%20%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3C%2Fsvg%3E')">
+                            <span class="absolute inset-0 flex items-center justify-center">News Poratala</span>
+                        </button>
+                        <button
+                            class="bg-center bg-no-repeat flex items-center justify-center text-white w-44 h-16 relative"
+                            style="background-size: contain; padding: 2px; background-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%22181%22%20height%3D%2260%22%20viewBox%3D%220%200%20181%2060%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M22.7538%203.00808C23.5471%201.18161%2025.3486%200%2027.3399%200H175.377C178.977%200%20181.397%203.6899%20179.963%206.99192L158.246%2056.9919C157.453%2058.8184%20155.651%2060%20153.66%2060H5.62296C2.02292%2060%20-0.397331%2056.3101%201.03687%2053.0081L22.7538%203.00808Z%22%20fill%3D%22url%28%23paint0_linear_1584_156%29%22%20%2F%3E%3Cpath%20d%3D%22M23.2125%203.20727C23.9264%201.56345%2025.5478%200.5%2027.3399%200.5H175.377C178.617%200.5%20180.795%203.82091%20179.505%206.79273L157.788%2056.7927C157.074%2058.4365%20155.452%2059.5%20153.66%2059.5H5.62296C2.38292%2059.5%200.204698%2056.1791%201.49548%2053.2073L23.2125%203.20727Z%22%20stroke%3D%22%23FCFCFC%22%20stroke-opacity%3D%220.25%22%20%2F%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22paint0_linear_1584_156%22%20x1%3D%221.70859%22%20y1%3D%2257.5%22%20x2%3D%22172.643%22%20y2%3D%22-6.19738%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%3Cstop%20stop-color%3D%22%23151515%22%20%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%232F2F2F%22%20%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3C%2Fsvg%3E')">
+                            <span class="absolute inset-0 flex items-center justify-center">Athletes catalog</span>
+                        </button>
+                        <button
+                            class="bg-center bg-no-repeat flex items-center justify-center text-white w-44 h-16 relative"
+                            style="background-size: contain; padding: 2px; background-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%22181%22%20height%3D%2260%22%20viewBox%3D%220%200%20181%2060%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M22.7538%203.00808C23.5471%201.18161%2025.3486%200%2027.3399%200H175.377C178.977%200%20181.397%203.6899%20179.963%206.99192L158.246%2056.9919C157.453%2058.8184%20155.651%2060%20153.66%2060H5.62296C2.02292%2060%20-0.397331%2056.3101%201.03687%2053.0081L22.7538%203.00808Z%22%20fill%3D%22url%28%23paint0_linear_1584_156%29%22%20%2F%3E%3Cpath%20d%3D%22M23.2125%203.20727C23.9264%201.56345%2025.5478%200.5%2027.3399%200.5H175.377C178.617%200.5%20180.795%203.82091%20179.505%206.79273L157.788%2056.7927C157.074%2058.4365%20155.452%2059.5%20153.66%2059.5H5.62296C2.38292%2059.5%200.204698%2056.1791%201.49548%2053.2073L23.2125%203.20727Z%22%20stroke%3D%22%23FCFCFC%22%20stroke-opacity%3D%220.25%22%20%2F%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22paint0_linear_1584_156%22%20x1%3D%221.70859%22%20y1%3D%2257.5%22%20x2%3D%22172.643%22%20y2%3D%22-6.19738%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%3Cstop%20stop-color%3D%22%23151515%22%20%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%232F2F2F%22%20%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3C%2Fsvg%3E')">
+                            <span class="absolute inset-0 flex items-center justify-center">Contacts</span>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
             <div class="ht-right">
-                <div class="ht-langs"><menu-langs></menu-langs></div>
+                <input *ngIf="!authorized" class="topbarsearch" placeholder="Search Anything..." />
+                <a *ngIf="!authorized" class="login" [class.active]="url[2] === 'account'"
+                    routerLink="/{{lang.slug}}/account">Log In</a>
+                <a *ngIf="!authorized" class="signup">Sign Up</a>
+
+                <div *ngIf="!authorized" class="ht-langs"><menu-langs></menu-langs></div>
                 <div class="ht-mmbtn" (click)="mmActive = true"><span></span></div>
             </div>
+
+            <div *ngIf="authorized" class="flex" style="margin-top: 30px; margin-bottom: 30px;">
+                <div *ngIf="authorized" class="pt-8 pr-2">
+                    <p>
+                        <svg width="30" height="20" viewBox="0 0 30 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect y="13.1428" width="30.0003" height="6.85721" fill="#CE2028" />
+                            <rect y="6.85742" width="30.0003" height="6.28577" fill="#22408C" />
+                            <rect width="30.0003" height="6.85721" fill="white" />
+                        </svg>
+                    </p>
+                </div>
+                <button class="bg-red-600 px-4 rounded-sm">
+                    <p class="text-white">
+                        Get to the top
+                    </p>
+                </button>
+            </div>
+
         </div>
     </div>
-    <div class="h-bottom">
+
+    <div *ngIf="authorized" class="h-bottom">
         <div class="hb-content">
             <div class="hb-side"><a class="btn simple cat" [class.active]="url[2] === 'catalogue'"
-                    [routerLink]="catalogueLink"><span>{{words['common']?.['catalogue']?.[lang.slug]}}</span></a></div>
+                    [routerLink]="catalogueLink"><span>Catalog by category</span></a></div>
             <div class="hb-center">
                 <div class="hbc-content"><input-search></input-search></div>
+                <div class="flex gap-4 pl-5">
+                    <button>
+                        <p>
+                            <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25 12.3333C25.0046 14.0932 24.5934 15.8292 23.8 17.4C22.8592 19.2823 21.413 20.8656 19.6233 21.9724C17.8335 23.0792 15.771 23.6659 13.6667 23.6667C11.9068 23.6713 10.1708 23.2601 8.6 22.4667L1 25L3.53333 17.4C2.73991 15.8292 2.32875 14.0932 2.33333 12.3333C2.33415 10.229 2.92082 8.16648 4.02763 6.37674C5.13444 4.58701 6.71767 3.14076 8.6 2.20001C10.1708 1.40658 11.9068 0.995419 13.6667 1.00001H14.3333C17.1125 1.15333 19.7374 2.32636 21.7055 4.29449C23.6737 6.26262 24.8467 8.88754 25 11.6667V12.3333Z"
+                                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </p>
+                    </button>
+                    <button>
+                        <p>
+                            <svg width="24" height="26" viewBox="0 0 24 26" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M16.0004 20.3333C16.0004 21.3942 15.579 22.4116 14.8288 23.1618C14.0787 23.9119 13.0613 24.3333 12.0004 24.3333C10.9395 24.3333 9.92211 23.9119 9.17196 23.1618C8.42182 22.4116 8.00039 21.3942 8.00039 20.3333M12.9617 1.67066L11.0071 1.66666C6.54839 1.656 2.67772 5.27866 2.64706 9.66666V14.72C2.64706 15.7733 2.51372 16.8013 1.93906 17.6773L1.55639 18.2613C0.973724 19.1467 1.60039 20.3333 2.64706 20.3333H21.3537C22.4004 20.3333 23.0257 19.1467 22.4444 18.2613L22.0617 17.6773C21.4884 16.8013 21.3537 15.772 21.3537 14.7187V9.668C21.3004 5.27867 17.4204 1.68133 12.9617 1.67066V1.67066Z"
+                                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </p>
+                    </button>
+                </div>
             </div>
             <div class="hb-side">
                 <a class="btn simple account" [class.active]="url[2] === 'account'" routerLink="/{{lang.slug}}/account">
                     <span *ngIf="!authorized">{{"account.login" | translate}}</span>
                     <div *ngIf="authorized" class="flex gap-2 items-center h-full">
-                        <img [src]="userImg" class="rounded-full object-cover w-10 h-10 flex-0" />
+                        <img [src]="'https://img001.prntscr.com/file/img001/3W_cp-jqSxW_oTagCEWrOQ.png'"
+                            class="rounded-full object-cover w-10 h-10 flex-0" />
+                        <!-- <img [src]="userImg" class="rounded-full object-cover w-10 h-10 flex-0" /> -->
                         <div class="grow">
                             <div class="text-start text-sm font-normal">{{"common.hello" | translate}}</div>
                             <div class="text-start truncate text-sm font-normal">{{userName}}</div>
