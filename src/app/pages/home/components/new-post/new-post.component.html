@@ -15,8 +15,8 @@
           class="text-white rounded-3xl bg-[#414141] border-white/30 focus:ring-0 focus:border-red-700/50 border-1 w-full max-h-44 no-scrol">
         </textarea>
       </div>
-      <div class="flex pl-20 pt-2 justify-between">
-        <div class="flex gap-4">
+      <div class="flex md:pl-20 pt-2 gap-2 justify-center md:justify-between">
+        <div class="flex gap-2 md:gap-4">
           <p class="text-white/50">{{ "post.new.attachment" | translate }}</p>
           <div class="cursor-pointer" [pTooltip]="'post.new.attachment_image' | translate" tooltipPosition="bottom"
             (click)="loadImages()">
@@ -62,7 +62,7 @@
             </svg>
           </div>
         </div>
-        <button class="bg-[#C10808] rounded-md text-white px-10" (click)="addPost()">
+        <button class="bg-[#C10808] rounded-md text-white px-8" (click)="addPost()">
           {{ "post.new.post" | translate }}
         </button>
       </div>

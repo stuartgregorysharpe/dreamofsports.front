@@ -68,12 +68,11 @@
       <p-menu #menu [model]="items" [popup]="true"></p-menu>
     </div>
   </div>
-  <p class="mt-2">{{ post.content }}</p>
+  <p class="md:mt-4 md:ml-8 mt-4 ml-2 mr-2 md:mr-8 text-blue-600" >{{ post.content }}</p>
   <div id="attachment" *ngIf="post.attachment.length != 0">
-    <p-carousel [value]="post.attachment" [numVisible]="1" [numScroll]="1" [circular]="false"
-      [responsiveOptions]="responsiveOptions">
+    <p-carousel [value]="post.attachment" [numVisible]="1" [numScroll]="1" [circular]="false" [responsiveOptions]="responsiveOptions">
       <ng-template let-item pTemplate="attachment">
-        <div class="border-1 surface-border border-round m-2 text-center">
+        <div class="border-1 surface-border border-round text-center">
           <img [src]="'https://img001.prntscr.com/file/img001/rIHqa6lhRqiOV3FsPgu4Jg.png'" *ngIf="item.type === 'image'" class="w-full object-cover">
           <!-- <img [src]="getUrl(item)" *ngIf="item.type === 'image'" class="w-full object-cover"> -->
           <!-- <video [src]="getUrl(item)" *ngIf="item.type === 'video' || item.type === 'youtube'" class="w-full"></video> -->
@@ -184,8 +183,7 @@
   </div>
 </div>
 
-<p-dialog [header]="'post.content.share_link_header' | translate" [(visible)]="shareLinkVisible" [modal]="true"
-  [style]="{ width: '30vw' }" [draggable]="false" [resizable]="false">
+<p-dialog [header]="'post.content.share_link_header' | translate" [(visible)]="shareLinkVisible" [modal]="true" [draggable]="false" [resizable]="false">
   <div class="flex flex-col items-end">
     <input class="border-1 rounded-md p-2 w-full" disabled [(ngModel)]="shareLinkValue" />
     <div class="w-full justify-center">
@@ -201,19 +199,18 @@
         </a>
       </div>
     </div>
-    <div class="flex gap-2 mt-4">
-      <button class="bg-main text-white rounded-md px-5 py-2 mt-2" (click)="copyShareLink()">{{"post.content.copy_share"
+    <div class="flex items-center justify-center gap-2 mt-4">
+      <button class="bg-main text-white rounded-md px-2 py-2 mt-2" (click)="copyShareLink()">{{"post.content.copy_share"
         |
         translate}}</button>
-      <button class="bg-gray-700 text-white rounded-md px-5 py-2 mt-2" (click)="closeShareLink()">{{"common.close" |
+      <button class="bg-gray-700 text-white rounded-md px-2 py-2 mt-2" (click)="closeShareLink()">{{"common.close" |
         translate}}</button>
     </div>
   </div>
 </p-dialog>
 <p-toast></p-toast>
 <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
-<p-dialog header="Register" [(visible)]="authorizeVisible" [modal]="true" [style]="{ width: '30vw' }"
-  [draggable]="false" [resizable]="false">
+<p-dialog header="Register" [(visible)]="authorizeVisible" [modal]="true" [draggable]="false" [resizable]="false">
   <div class="m-0 flex flex-col items-center">
     {{"common.register" | translate}}
     <div class="flex justify-end">

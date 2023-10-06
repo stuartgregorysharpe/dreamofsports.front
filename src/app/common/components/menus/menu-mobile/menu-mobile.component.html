@@ -13,8 +13,12 @@
                 <input-search (submitted)="close()" [compact]="true"></input-search>
             </div>
             <div class="mm-btns">
-                <a class="btn simple cat" [class.active]="url[2] === 'catalogue'" [routerLink]="catalogueLink" (click)="close()"><span>{{words['common']?.['catalogue']?.[lang.slug]}}</span></a>
-                <a class="btn simple account" [class.active]="url[2] === 'account'" routerLink="/{{lang.slug}}/account" (click)="close()"><span>{{words['common']?.['account']?.[lang.slug]}}</span></a>
+                <a class="btn simple cat" [class.active]="url[2] === 'catalogue'" [routerLink]="catalogueLink"
+                    (click)="close()"><span>{{words['common']?.['catalogue']?.[lang.slug]}}</span></a>
+                <a class="btn simple account" [class.active]="url[2] === 'account'" routerLink="/{{lang.slug}}/account"
+                    (click)="close()"><span *ngIf="authorized">Account</span><span *ngIf="!authorized">Log In</span></a>
+
+                <a *ngIf="!authorized" (click)="onRegister()" class="btn simple">Sign Up</a>
             </div>
             <div class="mm-pages"><menu-main (clicked)="close()"></menu-main></div>
             <div class="mm-langs"><menu-langs></menu-langs></div>

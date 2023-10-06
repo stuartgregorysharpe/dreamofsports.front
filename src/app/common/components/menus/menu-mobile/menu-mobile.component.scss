@@ -55,8 +55,8 @@
                     li {
                         margin-left: 3px;
                         a {
-                            display: block; padding: 5px; background-color: var(--color2); text-transform: uppercase; color: var(--color9); text-decoration: none; border-radius: 3px; transition: 0.3s;
-                            &.active {background-color: var(--color-accent1); pointer-events: none;}
+                            display: block; padding: 5px; background-color: black; text-transform: uppercase; color: var(--color9); text-decoration: none; border-radius: 10px; border: 1px solid grey; transition: 0.3s;
+                            &.active {background-color: black; pointer-events: none;}
                         }
                     }
                 }

@@ -1,7 +1,7 @@
 export const cfg = {
     apiUrl: "http://test.back.dream-of-sports.com/api/mainsite",
     baseUrl: "http://localhost:4200",
-    wsUrl: "wss://back.dream-of-sports.com/socket",
+    wsUrl: "wss://test.back.dream-of-sports.com/socket",
     supabaseUrl: "https://qqqjpngdspwjtashdlsa.supabase.co/storage/v1/object/public",
     maxImageFileSize: 10000000,
     maxVideoFileSize: 50000000,

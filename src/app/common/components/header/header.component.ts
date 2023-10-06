@@ -52,4 +52,9 @@ export class CHeaderComponent {
             return translation?.name;
         }
     }
+    
+    public async onRegister(): Promise<void> {
+        await this.appService.pause(500);
+        this.appService.popupRegisterActive = true;
+    }
 }

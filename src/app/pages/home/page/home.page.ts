@@ -22,12 +22,10 @@ export class CHomePage extends CSimplePage implements OnInit {
     mobileDialogVisible: boolean = false;
     public athlets: IAthletOut[] = null;
     public currentSlide = 0;
+    public currentImage = 0;
 
     @ViewChild('carouselText') carouselText: ElementRef;
   
-    originalTopPosition: number;
-    isInOriginalPosition = true;
-
     public images = [
         'https://img001.prntscr.com/file/img001/o8CtndWTS9uYGGjXDEdHyQ.png',
         'https://img001.prntscr.com/file/img001/5XPavDlyTaOhMTq9k2PQ4Q.png',
@@ -47,22 +45,6 @@ export class CHomePage extends CSimplePage implements OnInit {
         super(appService, pageRepository, route, router, deviceDetector);
     }
     
-    ngAfterViewInit(): void {
-        // store the initial top position
-        this.originalTopPosition = this.carouselText.nativeElement.getBoundingClientRect().top;
-        
-        // initial check
-        this.checkPosition();
-    
-        // adding the scroll event listener
-        window.addEventListener('scroll', this.checkPosition.bind(this));
-      }
-    
-      checkPosition(): void {
-        const currentTopPosition = this.carouselText.nativeElement.getBoundingClientRect().top;
-        this.isInOriginalPosition = this.originalTopPosition === currentTopPosition;
-      }
-
     get userImg(): string {
         if (!this.authService.authData) return "/imgages/default-avatar.jpg";
 
@@ -130,11 +112,11 @@ export class CHomePage extends CSimplePage implements OnInit {
         this.mobileDialogVisible = false;
     }
 
-    public previousSlide() {
-        this.currentSlide = (this.currentSlide - 1 + this.images.length) % this.images.length;
-    }
-
-    public nextSlide() {
-        this.currentSlide = (this.currentSlide + 1) % this.images.length;
+    nextImage() {
+        this.currentImage = (this.currentImage + 1) % this.images.length;
+      }
+    
+    previousImage() {
+    this.currentImage = (this.currentImage - 1 + this.images.length) % this.images.length;
     }
 }

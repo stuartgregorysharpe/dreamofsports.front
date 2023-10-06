@@ -74,9 +74,14 @@ header {
                     border-radius: 10px;
                     height: 35px;
                     padding: 5px;
+                    padding-left: 15px;
+                    color: white;
                     background-color: rgb(31, 29, 29);
                     margin-right: 20px;
                     margin-left: 40px;
+                }
+                .topbarsearch:focus {
+                    caret-color: auto;
                 }
             }
             .ht-center {

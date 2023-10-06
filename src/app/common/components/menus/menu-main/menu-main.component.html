@@ -1,5 +1,11 @@
 <nav>
-    <ul>
-        <li *ngFor="let p of pages"><a [routerLink]="pageUrl(p)" [class.active]="isActive(p)" (click)="onClick()">{{p.name[lang.slug]}}</a></li>
+    <ul class="">
+        <li *ngFor="let p of pages"><a *ngIf = "!authorized" [routerLink]="pageUrl(p)" [class.active]="isActive(p)" (click)="onClick()">{{p.name[lang.slug]}}</a></li>
+        <li *ngIf = "authorized"><a [routerLink]="" class="pt-4" (click)="onClick()">About company</a></li>    
+        <li *ngIf = "authorized"><a [routerLink]="" class="pt-4" (click)="onClick()">News</a></li>    
+        <li *ngIf = "authorized"><a [routerLink]="" class="pt-4" (click)="onClick()">Athletes catalog</a></li>    
+        <li *ngIf = "authorized"><a [routerLink]="" class="pt-4" (click)="onClick()">Contacts</a></li> 
     </ul>
 </nav>
+
+

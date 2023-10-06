@@ -20,7 +20,7 @@ export class CMenuMobileComponent {
         private authService: CAuthService,
         private athletsFilterService: CAthletsFilterService,
     ) {}
-
+ 
     get lang(): ILang {return this.appService.lang;}
     get words(): IWords {return this.appService.words;}
     get url(): string[] {return this.appService.url;}
@@ -32,11 +32,4 @@ export class CMenuMobileComponent {
     public close(): void {
         this.activeChange.emit(false);
     }  
-    get authorized(): boolean {
-        return !!this.authService.authData;
-    }  
-    public async onRegister(): Promise<void> {
-        await this.appService.pause(500);
-        this.appService.popupRegisterActive = true;
-    }
 }
