@@ -50,21 +50,23 @@
                 </div>
             </div>
 
-            <div *ngIf="authorized" class="flex md:block hidden" style="margin-top: 30px; margin-bottom: 30px;">
-                <div *ngIf="authorized" class="pt-8 pr-2">
-                    <p>
-                        <svg width="30" height="20" viewBox="0 0 30 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect y="13.1428" width="30.0003" height="6.85721" fill="#CE2028" />
-                            <rect y="6.85742" width="30.0003" height="6.28577" fill="#22408C" />
-                            <rect width="30.0003" height="6.85721" fill="white" />
-                        </svg>
-                    </p>
+            <div *ngIf="authorized" class="hidden md:block">
+                <div class="flex" style="margin-top: 30px; margin-bottom: 30px;">
+                    <div *ngIf="authorized" class="pt-8 pr-2">
+                        <p>
+                            <svg width="30" height="20" viewBox="0 0 30 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="13.1428" width="30.0003" height="6.85721" fill="#CE2028" />
+                                <rect y="6.85742" width="30.0003" height="6.28577" fill="#22408C" />
+                                <rect width="30.0003" height="6.85721" fill="white" />
+                            </svg>
+                        </p>
+                    </div>
+                    <button class="bg-red-600 px-4 rounded-sm">
+                        <p class="text-white">
+                            Get to the top
+                        </p>
+                    </button>
                 </div>
-                <button class="bg-red-600 px-4 rounded-sm">
-                    <p class="text-white">
-                        Get to the top
-                    </p>
-                </button>
             </div>
 
         </div>

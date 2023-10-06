@@ -24,7 +24,6 @@ footer {
                 font-weight: bold;
                 font-style: italic;
                 margin-bottom: 30px;
-                margin-right: 200px;
 
                 div:first-child {
                     @media (min-width:0) {
@@ -53,7 +52,14 @@ footer {
                 }
             }
             .bottomslogan {
+                @media (max-width:576px) {
+                    margin-left: 10px;
+                }
+                margin-left: 150px;
                 .bottomphase {
+                    @media (max-width: 567px) {
+                        font-size: 14px;
+                    }
                     font-size: 25px;
                 }
             }
@@ -63,19 +69,24 @@ footer {
             @media (min-width:0) {
                 display: block;
             }
-
+            @media (max-width: 576px) {
+                margin-top: 20px;
+                margin-left: 0px;
+                display: flex;
+                justify-content: center;
+            }
             @media (min-width:1000px) {
                 display: flex;
                 margin-top: 50px;
             }
             
             justify-content: center;
+
             margin-left: 180px;
 
             .ft-col {
                 @media (min-width:0) {
                     width: 100%;
-                    margin-bottom: 30px;
                 }
 
                 @media (min-width:1000px) {
