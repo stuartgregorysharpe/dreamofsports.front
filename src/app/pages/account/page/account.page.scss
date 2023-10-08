@@ -7,8 +7,8 @@
         background-color: var(--color3); color: var(--color9);
     }
     .a-right {
-        @media (min-width:0) {width: 100%; padding: 15px;}
-        @media (min-width:1000px) {width: calc(100% - 300px); padding: 30px;}                
+        @media (min-width:0) {width: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px; border: 1px solid grey;}
+        @media (min-width:1000px) {width: calc(100% - 300px);}                
         background-color: var(--color9); color: var(--color4); overflow: hidden;
     }
 }
