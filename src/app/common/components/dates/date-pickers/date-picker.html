@@ -17,15 +17,15 @@
     <div class="dp-days">                
         <div class="dp-days-content">
             <div class="head" [class.compact]="lang.slug === 'ar'" *ngFor="let i of [1,2,3,4,5,6,7]">{{words['date']?.['day-'+i][lang.slug]}}</div>                
-            <div *ngFor="let day of days" class="roundbtn compact transparent {{skin}} day" [class.hidden]="day.hidden" [class.holiday]="day.holiday" [class.current]="day.current" [class.now]="day.now" (click)="onSetDate(day);">{{day.n}}</div>
+            <div *ngFor="let day of days" class="roundbtn compact transparent {{skin}} day" [class.hidden]="day.hidden" [class.holiday]="day.holiday" [class.current]="day.current" [class.now]="day.now" (click)="onSetDate(day);onApply()">{{day.n}}</div>
         </div>
     </div>
     <div class="dp-time" *ngIf="useTime">
         <time-picker [(hour)]="currentHour" [(minute)]="currentMinute"></time-picker>
     </div>
-    <div class="dp-foot">
+    <!-- <div class="dp-foot">
         <button type="button" class="btn main select" (click)="onApply()"><span>{{words['common']?.['select']?.[lang.slug]}}</span></button>
-    </div>
+    </div> -->
     <year-picker [skin]="skin" [(value)]="year" [(active)]="yearPickerActive" (valueChange)="buildDays()"></year-picker>
 </div> 
 <div class="dp-ovl" [class.active]="calendarActive" (click)="close()"></div>

@@ -33,7 +33,7 @@
 }
 .dp-calendar {
     position: fixed; z-index: 1001; display: none; padding: 15px; box-shadow: var(--shadow-popup); border-radius: 5px; user-select: none;
-    &.medium {background-color: var(--color7); color: var(--color4);}
+    &.medium {background-color: white; color: var(--color4);}
     &.dark {background-color: var(--color3); color: var(--color9);}
     &.active {display: block;}
     .dp-head {
@@ -45,7 +45,7 @@
         .dp-monthdash {display: flex;}    
     }
     .dp-days {
-        margin-bottom: 15px; height: 222px;
+        margin-bottom: 15px; height: 200px;
         .dp-days-content {
             display: grid; grid-template-columns: repeat(7, 30px); gap: 2px; direction: ltr;
             div {

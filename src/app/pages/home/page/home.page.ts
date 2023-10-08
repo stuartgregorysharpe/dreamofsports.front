@@ -27,10 +27,10 @@ export class CHomePage extends CSimplePage implements OnInit {
     @ViewChild('carouselText') carouselText: ElementRef;
   
     public images = [
-        'https://img001.prntscr.com/file/img001/o8CtndWTS9uYGGjXDEdHyQ.png',
-        'https://img001.prntscr.com/file/img001/5XPavDlyTaOhMTq9k2PQ4Q.png',
-        'https://img001.prntscr.com/file/img001/3lVefw4QRimC6pCs7Aquzg.png',
-        'https://img001.prntscr.com/file/img001/P47ABTeZQbKrHcmsebp4Vg.png',
+        'https://img001.prntscr.com/file/img001/fm4Rz-yIQ1mdulQQbRIOVw.png',
+        'https://img001.prntscr.com/file/img001/V18oAguzSC-rG9NrD1yHhA.png',
+        'https://img001.prntscr.com/file/img001/uYgyfkNPTN2_aLiMng2Z6A.png',
+        'https://img001.prntscr.com/file/img001/sK2ipUkFSbuRQZYW5Feqew.png',
     ];
 
     constructor(
@@ -64,7 +64,9 @@ export class CHomePage extends CSimplePage implements OnInit {
             return translation?.name;
         }
     }
-
+    get authorized(): boolean {
+        return !!this.authService.authData;
+    }
     get category(): string {
         if (!this.authService.user) return "";
         if (this.authService.user.type === "athlet") {

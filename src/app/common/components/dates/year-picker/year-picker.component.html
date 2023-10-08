@@ -11,10 +11,10 @@
     </div>
     <div class="yp-main">
         <div class="yp-years">
-            <div *ngFor="let y of years" class="roundbtn compact transparent {{skin}} yp-year" [class.current]="y === current" [class.now]="y === now" (click)="onSelect(y)">{{y}}</div>
+            <div *ngFor="let y of years" class="roundbtn compact transparent {{skin}} yp-year" [class.current]="y === current" [class.now]="y === now" (click)="onSelect(y);onApply()">{{y}}</div>
         </div>
     </div>
-    <div class="yp-foot">
+    <!-- <div class="yp-foot">
         <button type="button" class="btn main select" (click)="onApply()"><span>{{words['common']?.['select']?.[lang.slug]}}</span></button>
-    </div>
+    </div> -->
 </div>

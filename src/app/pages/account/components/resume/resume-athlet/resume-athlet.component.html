@@ -1,612 +1,626 @@
 <form class="resume" (submit)="onSubmit()" name="resume-top">
-    <menu-resume [(chapter)]="chapter" [chapters]="chapters" [words]="pageWords" [errors]="errors"
-        [layout]="4"></menu-resume>
-    <ng-container *ngIf="user">
-        <!-- general -->
-        <ng-container *ngIf="chapter === 'general'">
-            <h2>{{pageWords["menu-general"]?.[lang.slug]}}</h2>
-            <!-- <div class="note r-note">
+  <menu-resume [(chapter)]="chapter" [chapters]="chapters" [words]="pageWords" [errors]="errors"
+    [layout]="4"></menu-resume>
+  <ng-container *ngIf="user">
+    <!-- general -->
+    <ng-container *ngIf="chapter === 'general'">
+      <h2>{{pageWords["menu-general"]?.[lang.slug]}}</h2>
+      <!-- <div class="note r-note">
                 <div class="note-icon"><span></span></div>
                 <div class="note-text">{{pageWords['langs-note']?.[lang.slug]}}</div>
             </div>
             <div class="r-langs"><langs-radio [(value)]="currentLang" skin="light"></langs-radio></div> -->
-            <section class="divide-y-[1px] divide-black/30">
-                <div class="flex">
-                    <div class="r-img">
-                        <div class="ri-title required">{{pageWords['athlet-img']?.[lang.slug]}}:</div>
-                        <image-picker [(img)]="user.athlet.img" folder="users" [supabase]="true"
-                            [error]="errors['img']"></image-picker>
-                    </div>
-                </div>
-                <div class="pt-2 mb-2" *ngIf="user.athlet.sub_type=='Athlet'">
-                    <div class="tf-title text-lg text-black font-bold">
-                        <span>{{"resume.athlet.category" | translate}}</span>
-                    </div>
-                    <div class="tf-value mt-2">
-                        <select [(ngModel)]="user.athlet.category" name="category">
-                            <option *ngFor="let c of category" [ngValue]="c.value">{{c.name}}</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="tf">
-                    <div class="tf-title" [class.required]="currentLang.id === 1">
-                        <span>{{pageWords['athlet-firstname']?.[lang.slug]}}</span>
-                        <span class="tf-lang">({{currentLang.slug}}):</span>
-                    </div>
-                    <div class="tf-value">
-                        <div class="tf-inputwrap"><input type="text" name="firstname"
-                                [class.error]="errors['firstname']" maxlength="255"
-                                [(ngModel)]="user.athlet.translation(currentLang.id).firstname" [dir]="currentLang.dir">
-                        </div>
-                        <div *ngIf="errors['firstname']" class="tf-error">
-                            {{words['errors']?.[errors['firstname']]?.[lang.slug]}}</div>
-                    </div>
-                    <div class="tf-title" [class.required]="currentLang.id === 1">
-                        <span>{{pageWords['athlet-lastname']?.[lang.slug]}}</span>
-                        <span class="tf-lang">({{currentLang.slug}}):</span>
-                    </div>
-                    <div class="tf-value">
-                        <div class="tf-inputwrap"><input type="text" name="lastname" [class.error]="errors['lastname']"
-                                maxlength="255" [(ngModel)]="user.athlet.translation(currentLang.id).lastname"
-                                [dir]="currentLang.dir"></div>
-                        <div *ngIf="errors['lastname']" class="tf-error">
-                            {{words['errors']?.[errors['lastname']]?.[lang.slug]}}</div>
-                    </div>
-                    <div class="tf-title">{{pageWords['athlet-gender']?.[lang.slug]}}:</div>
-                    <div class="tf-value">
-                        <div class="tf-inputwrap">
-                            <div class="selectwrap {{lang.dir}}">
-                                <select [(ngModel)]="user.athlet.gender" name="gender">
-                                    <option value="m">{{pageWords['athlet-gender-m']?.[lang.slug]}}</option>
-                                    <option value="f">{{pageWords['athlet-gender-f']?.[lang.slug]}}</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tf-title required">{{pageWords['athlet-birthdate']?.[lang.slug]}}:</div>
-                    <div class="tf-value">
-                        <date-picker [(value)]="user.athlet.birthdate" skin="medium"></date-picker>
-                        <div *ngIf="errors['birthdate']" class="tf-error">
-                            {{words['errors']?.[errors['birthdate']]?.[lang.slug]}}</div>
-                    </div>
-                </div>
-            </section>
-            <h3>{{pageWords['athlet-place']?.[lang.slug]}}</h3>
-            <section>
-                <div class="tf">
-                    <div class="tf-title required">{{pageWords['athlet-country']?.[lang.slug]}}:</div>
-                    <div class="tf-value">
-                        <div class="tf-inputwrap">
-                            <div class="selectwrap {{lang.dir}}" *ngIf="countries">
-                                <select [(ngModel)]="user.athlet.country_id" name="country_id">
-                                    <option [ngValue]="null">{{words['common']?.['not-set']?.[lang.slug]}}</option>
-                                    <option *ngFor="let c of countries[lang.slug]" [ngValue]="c.id">{{c.name}}</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div *ngIf="errors['country_id']" class="tf-error">
-                            {{words['errors']?.[errors['country_id']]?.[lang.slug]}}</div>
-                    </div>
-                    <div class="tf-title">
-                        <span>{{pageWords['athlet-region']?.[lang.slug]}}</span>
-                        <span class="tf-lang">({{currentLang.slug}}):</span>
-                    </div>
-                    <div class="tf-value">
-                        <div class="tf-inputwrap"><input type="text" name="region" maxlength="255"
-                                [(ngModel)]="user.athlet.translation(currentLang.id).region" [dir]="currentLang.dir">
-                        </div>
-                    </div>
-                    <div class="tf-title">
-                        <span>{{pageWords['athlet-city']?.[lang.slug]}}</span>
-                        <span class="tf-lang">({{currentLang.slug}}):</span>
-                    </div>
-                    <div class="tf-value">
-                        <div class="tf-inputwrap"><input type="text" name="city" maxlength="255"
-                                [(ngModel)]="user.athlet.translation(currentLang.id).city" [dir]="currentLang.dir">
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <ng-container *ngIf="user.athlet.sub_type=='Athlet'">
-                <h3>{{pageWords['athlet-physic']?.[lang.slug]}}</h3>
-                <section>
-                    <div class="tf">
-                        <div class="tf-title">{{pageWords['athlet-height']?.[lang.slug]}}:</div>
-                        <div class="tf-value">
-                            <div class="tf-inputwrap">
-                                <input type="number" class="small" name="height_meter"
-                                    [(ngModel)]="user.athlet.height_meter" min="0">&nbsp;
-                                <span>{{words['common']?.['m']?.[lang.slug]}}</span>&nbsp;&nbsp;&nbsp;
-                                <input type="number" class="small" name="height_foot"
-                                    [(ngModel)]="user.athlet.height_foot" min="0">&nbsp;
-                                <span>{{words['common']?.['ft']?.[lang.slug]}}</span>
-                            </div>
-                        </div>
-                        <div class="tf-title">{{pageWords['athlet-weight']?.[lang.slug]}}:</div>
-                        <div class="tf-value">
-                            <div class="tf-inputwrap">
-                                <input type="number" class="small" name="weight_kg" [(ngModel)]="user.athlet.weight_kg"
-                                    min="0">&nbsp;
-                                <span>{{words['common']?.['kg']?.[lang.slug]}}</span>&nbsp;&nbsp;&nbsp;
-                                <input type="number" class="small" name="weight_pound"
-                                    [(ngModel)]="user.athlet.weight_pound" min="0">&nbsp;
-                                <span>{{words['common']?.['lb']?.[lang.slug]}}</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </ng-container>
-            <h3>{{pageWords['contacts']?.[lang.slug]}}</h3>
-            <h4>{{pageWords['phones']?.[lang.slug]}}</h4>
-            <section>
-                <contacts type="phones" [contacts]="user.phones" [errors]="errors['phones']"></contacts>
-            </section>
-            <h4>{{pageWords['emails']?.[lang.slug]}}</h4>
-            <section>
-                <contacts type="emails" [contacts]="user.emails" [errors]="errors['emails']"></contacts>
-            </section>
-            <h4>{{pageWords['links']?.[lang.slug]}}</h4>
-            <div class="note r-note">
-                <div class="note-icon"><span></span></div>
-                <div class="note-text">{{pageWords['links-note']?.[lang.slug]}}</div>
+      <section class="divide-y-[1px] divide-black/30">
+        <div class="flex">
+          <div class="r-img" style="border-radius: 30px;">
+            <div class="ri-title required">{{pageWords['athlet-img']?.[lang.slug]}}:</div>
+            <image-picker [(img)]="user.athlet.img" folder="users" [supabase]="true"
+              [error]="errors['img']"></image-picker>
+          </div>
+        </div>
+        <div class="pt-2 mb-4" *ngIf="user.athlet.sub_type=='Athlet'">
+          <div class="tf-title text-lg text-black font-bold">
+            <span>{{"resume.athlet.category" | translate}}</span>
+          </div>
+          <div class="tf-value mt-2">
+            <div class="tf-inputwrap">
+              <div class="selectwrap {{lang.dir}}">
+                <select [(ngModel)]="user.athlet.category" name="category">
+                  <option *ngFor="let c of category" [ngValue]="c.value">{{c.name}}</option>
+                </select>
+              </div>
             </div>
-            <section>
-                <contacts type="links" [contacts]="user.links" [errors]="errors['links']"></contacts>
-            </section>
-            <h4>{{pageWords['socials']?.[lang.slug]}}</h4>
-            <section>
-                <contacts type="socials" [contacts]="user.socials" [socials]="socials" [errors]="errors['socials']">
-                </contacts>
-            </section>
-            <div class="r-next"><button type="button" class="btn main"
-                    (click)="onNext('bio')"><span>{{pageWords['next']?.[lang.slug]}}</span></button></div>
-        </ng-container>
-        <!-- bio -->
-        <ng-container *ngIf="chapter === 'bio'">
-            <h2>{{pageWords["menu-bio"]?.[lang.slug]}}</h2>
-            <div class="note r-note">
+          </div>
+        </div>
+        <div class="tf">
+          <div class="tf-title" [class.required]="currentLang.id === 1">
+            <span>{{pageWords['athlet-firstname']?.[lang.slug]}}</span>
+            <span class="tf-lang">({{currentLang.slug}}):</span>
+          </div>
+          <div class="tf-value">
+            <div class="tf-inputwrap"><input type="text" name="firstname" [class.error]="errors['firstname']"
+                maxlength="255" [(ngModel)]="user.athlet.translation(currentLang.id).firstname" [dir]="currentLang.dir">
+            </div>
+            <div *ngIf="errors['firstname']" class="tf-error">
+              {{words['errors']?.[errors['firstname']]?.[lang.slug]}}</div>
+          </div>
+          <div class="tf-title" [class.required]="currentLang.id === 1">
+            <span>{{pageWords['athlet-lastname']?.[lang.slug]}}</span>
+            <span class="tf-lang">({{currentLang.slug}}):</span>
+          </div>
+          <div class="tf-value">
+            <div class="tf-inputwrap"><input type="text" name="lastname" [class.error]="errors['lastname']"
+                maxlength="255" [(ngModel)]="user.athlet.translation(currentLang.id).lastname" [dir]="currentLang.dir">
+            </div>
+            <div *ngIf="errors['lastname']" class="tf-error">
+              {{words['errors']?.[errors['lastname']]?.[lang.slug]}}</div>
+          </div>
+          <div class="tf-title">{{pageWords['athlet-gender']?.[lang.slug]}}:</div>
+          <div class="tf-value">
+            <div class="tf-inputwrap">
+              <div class="selectwrap {{lang.dir}}">
+                <select [(ngModel)]="user.athlet.gender" name="gender">
+                  <option value="m">{{pageWords['athlet-gender-m']?.[lang.slug]}}</option>
+                  <option value="f">{{pageWords['athlet-gender-f']?.[lang.slug]}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="tf-title required">{{pageWords['athlet-birthdate']?.[lang.slug]}}:</div>
+          <div class="tf-value">
+            <date-picker [(value)]="user.athlet.birthdate" skin="medium"></date-picker>
+            <div *ngIf="errors['birthdate']" class="tf-error">
+              {{words['errors']?.[errors['birthdate']]?.[lang.slug]}}</div>
+          </div>
+        </div>
+      </section>
+      <h3>{{pageWords['athlet-place']?.[lang.slug]}}</h3>
+      <section>
+        <div class="tf">
+          <div class="tf-title required">{{pageWords['athlet-country']?.[lang.slug]}}:</div>
+          <div class="tf-value">
+            <div class="tf-inputwrap">
+              <div class="selectwrap {{lang.dir}}" *ngIf="countries">
+                <select [(ngModel)]="user.athlet.country_id" name="country_id">
+                  <option [ngValue]="null">{{words['common']?.['not-set']?.[lang.slug]}}</option>
+                  <option *ngFor="let c of countries[lang.slug]" [ngValue]="c.id">{{c.name}}</option>
+                </select>
+              </div>
+            </div>
+            <div *ngIf="errors['country_id']" class="tf-error">
+              {{words['errors']?.[errors['country_id']]?.[lang.slug]}}</div>
+          </div>
+          <div class="tf-title">
+            <span>{{pageWords['athlet-region']?.[lang.slug]}}</span>
+            <span class="tf-lang">({{currentLang.slug}}):</span>
+          </div>
+          <div class="tf-value">
+            <div class="tf-inputwrap"><input type="text" name="region" maxlength="255"
+                [(ngModel)]="user.athlet.translation(currentLang.id).region" [dir]="currentLang.dir">
+            </div>
+          </div>
+          <div class="tf-title">
+            <span>{{pageWords['athlet-city']?.[lang.slug]}}</span>
+            <span class="tf-lang">({{currentLang.slug}}):</span>
+          </div>
+          <div class="tf-value">
+            <div class="tf-inputwrap"><input type="text" name="city" maxlength="255"
+                [(ngModel)]="user.athlet.translation(currentLang.id).city" [dir]="currentLang.dir">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <ng-container *ngIf="user.athlet.sub_type=='Athlet'">
+        <h3>{{pageWords['athlet-physic']?.[lang.slug]}}</h3>
+        <section>
+          <div class="tf">
+            <div class="tf-title">{{pageWords['athlet-height']?.[lang.slug]}}:</div>
+            <div class="tf-value">
+              <div class="tf-inputwrap">
+                <input type="number" class="small" name="height_meter" [(ngModel)]="user.athlet.height_meter"
+                  min="0">&nbsp;
+                <span>{{words['common']?.['m']?.[lang.slug]}}</span>&nbsp;&nbsp;&nbsp;
+                <input type="number" class="small" name="height_foot" [(ngModel)]="user.athlet.height_foot"
+                  min="0">&nbsp;
+                <span>{{words['common']?.['ft']?.[lang.slug]}}</span>
+              </div>
+            </div>
+            <div class="tf-title">{{pageWords['athlet-weight']?.[lang.slug]}}:</div>
+            <div class="tf-value">
+              <div class="tf-inputwrap">
+                <input type="number" class="small" name="weight_kg" [(ngModel)]="user.athlet.weight_kg" min="0">&nbsp;
+                <span>{{words['common']?.['kg']?.[lang.slug]}}</span>&nbsp;&nbsp;&nbsp;
+                <input type="number" class="small" name="weight_pound" [(ngModel)]="user.athlet.weight_pound"
+                  min="0">&nbsp;
+                <span>{{words['common']?.['lb']?.[lang.slug]}}</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </ng-container>
+      <h3>{{pageWords['contacts']?.[lang.slug]}}</h3>
+      <h4>{{pageWords['phones']?.[lang.slug]}}</h4>
+      <section>
+        <contacts type="phones" [contacts]="user.phones" [errors]="errors['phones']"></contacts>
+      </section>
+      <h4>{{pageWords['emails']?.[lang.slug]}}</h4>
+      <section>
+        <contacts type="emails" [contacts]="user.emails" [errors]="errors['emails']"></contacts>
+      </section>
+      <h4>{{pageWords['links']?.[lang.slug]}}</h4>
+      <div class="note r-note">
+        <div class="note-icon"><span></span></div>
+        <div class="note-text">{{pageWords['links-note']?.[lang.slug]}}</div>
+      </div>
+      <section>
+        <contacts type="links" [contacts]="user.links" [errors]="errors['links']"></contacts>
+      </section>
+      <h4>{{pageWords['socials']?.[lang.slug]}}</h4>
+      <section>
+        <contacts type="socials" [contacts]="user.socials" [socials]="socials" [errors]="errors['socials']">
+        </contacts>
+      </section>
+      <div class="r-next"><button type="button" class="btn main"
+          (click)="onNext('bio')"><span>{{pageWords['next']?.[lang.slug]}}</span></button></div>
+    </ng-container>
+    <!-- bio -->
+    <ng-container *ngIf="chapter === 'bio'">
+      <h2>{{pageWords["menu-bio"]?.[lang.slug]}}</h2>
+      <!-- <div class="note r-note">
                 <div class="note-icon"><span></span></div>
                 <div class="note-text">{{pageWords['langs-note']?.[lang.slug]}}</div>
-            </div>
-            <div class="r-langs"><langs-radio [(value)]="currentLang" skin="light"></langs-radio></div>
-            <section>
-                <the-textarea [maxlength]="10000" [(value)]="user.athlet.translation(currentLang.id).bio"
-                    [dir]="currentLang.dir"></the-textarea>
-            </section>
-            <div class="r-next"><button type="button" class="btn main"
-                    (click)="onNext('sport')"><span>{{pageWords['next']?.[lang.slug]}}</span></button></div>
-        </ng-container>
-        <!-- sport -->
-        <ng-container *ngIf="chapter === 'sport'">
-            <h2>{{pageWords["menu-sport"]?.[lang.slug]}}</h2>
-            <!-- <div class="note r-note">
+            </div> -->
+      <!-- <div class="r-langs"><langs-radio [(value)]="currentLang" skin="light"></langs-radio></div> -->
+      <section>
+        <the-textarea [maxlength]="10000" [(value)]="user.athlet.translation(currentLang.id).bio"
+          [dir]="currentLang.dir"></the-textarea>
+      </section>
+      <div class="r-next"><button type="button" class="btn main"
+          (click)="onNext('sport')"><span>{{pageWords['next']?.[lang.slug]}}</span></button></div>
+    </ng-container>
+    <!-- sport -->
+    <ng-container *ngIf="chapter === 'sport'">
+      <h2>{{pageWords["menu-sport"]?.[lang.slug]}}</h2>
+      <!-- <div class="note r-note">
                 <div class="note-icon"><span></span></div>
                 <div class="note-text">{{pageWords['langs-note']?.[lang.slug]}}</div>  
             </div>      -->
-            <!-- <div class="r-langs"><langs-radio [(value)]="currentLang" skin="light"></langs-radio></div>                -->
-            <section>
-                <div class="tf">
-                    <div class="tf-title required"><span>{{"resume.athlet.cat" | translate}}:</span></div>
-                    <div class="tf-value">
-                        <div class="tf-inputwrap">
-                            <div class="selectwrap {{lang.dir}}" *ngIf="cats">
-                                <select [(ngModel)]="user.athlet.cat_id" name="cat" (change)="onCateChanged()">
-                                    <option [ngValue]="null">{{words['common']?.['not-set']?.[lang.slug]}}</option>
-                                    <ng-container *ngFor="let c of cats[lang.slug]">
-                                        <option *ngIf="c.name !== 'Other'" [ngValue]="c.id">{{c.name}}</option>
-                                    </ng-container>
-                                    <option [ngValue]="-1">{{"resume.athlet.other_sport" | translate}}</option>
-                                </select>
-                                
-                            </div>
-                        </div>
-                        <div *ngIf="errors['cat_id']" class="tf-error">
-                            {{words['errors']?.[errors['cat_id']]?.[lang.slug]}}</div>
-                    </div>
-                    <div class="tf-title">
-                        <span>{{pageWords['athlet-team']?.[lang.slug]}}({{"common.optional" | translate}})</span>
-                        <!-- <span class="tf-lang">({{currentLang.slug}}):</span> -->
-                    </div>
-                    <div class="tf-value">
-                        <div class="tf-inputwrap"><input type="text" name="team" maxlength="255"
-                                [(ngModel)]="user.athlet.translation(currentLang.id).team" [dir]="currentLang.dir">
-                        </div>
-                    </div>
-                    <div class="tf-title">
-                        <span>{{"resume.athlet.position" | translate}} ({{"common.optional" | translate}})</span>
-                        <!-- <span class="tf-lang">({{currentLang.slug}}):</span> -->
-                    </div>
-                    <div class="tf-value">
-                        <div class="tf-inputwrap"><input type="text" name="role" maxlength="255"
-                                [(ngModel)]="user.athlet.translation(currentLang.id).role" [dir]="currentLang.dir">
-                        </div>
-                    </div>
-                    <!-- <div class="tf-title">{{pageWords['athlet-no']?.[lang.slug]}}:</div>
+      <!-- <div class="r-langs"><langs-radio [(value)]="currentLang" skin="light"></langs-radio></div>                -->
+      <section>
+        <div class="tf">
+          <div class="tf-title required"><span>{{"resume.athlet.cat" | translate}}:</span></div>
+          <div class="tf-value">
+            <div class="tf-inputwrap">
+              <div class="selectwrap {{lang.dir}}" *ngIf="cats">
+                <select [(ngModel)]="user.athlet.cat_id" name="cat" (change)="onCateChanged()">
+                  <option [ngValue]="null">{{words['common']?.['not-set']?.[lang.slug]}}</option>
+                  <ng-container *ngFor="let c of cats[lang.slug]">
+                    <option *ngIf="c.name !== 'Other'" [ngValue]="c.id">{{c.name}}</option>
+                  </ng-container>
+                  <option [ngValue]="-1">{{"resume.athlet.other_sport" | translate}}</option>
+                </select>
+
+              </div>
+            </div>
+            <div *ngIf="errors['cat_id']" class="tf-error">
+              {{words['errors']?.[errors['cat_id']]?.[lang.slug]}}</div>
+          </div>
+          <div class="tf-title">
+            <span>{{pageWords['athlet-team']?.[lang.slug]}}({{"common.optional" | translate}})</span>
+            <!-- <span class="tf-lang">({{currentLang.slug}}):</span> -->
+          </div>
+          <div class="tf-value">
+            <div class="tf-inputwrap"><input type="text" name="team" maxlength="255"
+                [(ngModel)]="user.athlet.translation(currentLang.id).team" [dir]="currentLang.dir">
+            </div>
+          </div>
+          <div class="tf-title">
+            <span>{{"resume.athlet.position" | translate}} ({{"common.optional" | translate}})</span>
+            <!-- <span class="tf-lang">({{currentLang.slug}}):</span> -->
+          </div>
+          <div class="tf-value">
+            <div class="tf-inputwrap"><input type="text" name="role" maxlength="255"
+                [(ngModel)]="user.athlet.translation(currentLang.id).role" [dir]="currentLang.dir">
+            </div>
+          </div>
+          <!-- <div class="tf-title">{{pageWords['athlet-no']?.[lang.slug]}}:</div>
                     <div class="tf-value">
                         <div class="tf-inputwrap"><input type="text" class="small" maxlength="5" name="no" [(ngModel)]="user.athlet.no"></div>
                     </div>    -->
-                </div>
-            </section>
-            <ng-congainer *ngIf="user.athlet.sub_type === 'Athlet'">
-                <h3>{{"resume.athlet.sport_Physical_Fitness_Metrics" | translate}}</h3>
-                <section>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_40-Yard Dash Time" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="physical_fitnes.fourty_yard_dash_time" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.physical_fitnes.fourty_yard_dash_time">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_Vertical Jump Height" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="physical_fitnes.vertical_jump_height" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.physical_fitnes.vertical_jump_height">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_Bench Press Max" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="physical_fitnes.bench_press_max" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.physical_fitnes.bench_press_max">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_Squat Max" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="physical_fitnes.squat_max" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.physical_fitnes.squat_max">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_Deadlift Max" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="physical_fitnes.deadlift_max" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.physical_fitnes.deadlift_max">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <h3>{{"resume.athlet.sport_Endurance Metrics" | translate}}</h3>
-                <section>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_100m/200m/400m Time" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="endurance.hundred_twoh_fourhm_time" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.endurance.hundred_twoh_fourhm_time">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_5K/10K Run Time" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="endurance.fivek_tenk_run_time" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.endurance.fivek_tenk_run_time">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_Marathon Time" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="endurance.marathon_time" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.endurance.marathon_time">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <h3>{{"resume.athlet.sport_Team Sports Metrics" | translate}}</h3>
-                <section>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_Goals Scored" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="team_sport.goals_scored" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.team_sport.goals_scored">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_Assists" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="team_sport.assists" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.team_sport.assists">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_Shooting Percentage" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="team_sport.shooting_percentage" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.team_sport.shooting_percentage">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_Pass Completion Percentage" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="team_sport.pass_completion_percentage" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.team_sport.pass_completion_percentage">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_Tackles Made" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="team_sport.tackles_made" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.team_sport.tackles_made">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <h3>{{"resume.athlet.sport_Accuracy Metrics" | translate}}</h3>
-                <section>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_Free Throw Percentage" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="accuracy.free_throw_percentage" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.accuracy.free_throw_percentage">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_Field Goal Percentage" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="accuracy.field_goal_percentage" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.accuracy.field_goal_percentage">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_3-Point Percentage" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="accuracy.three_point_percentage" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.accuracy.three_point_percentage">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_Serve Accuracy" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="accuracy.serve_accuracy" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.accuracy.serve_accuracy">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_Pitch Accuracy" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="accuracy.pitch_accuracy" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.accuracy.pitch_accuracy">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <h3>{{"resume.athlet.sport_Defensive Metrics" | translate}}</h3>
-                <section>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_Interceptions" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="defensive.interceptions" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.defensive.interceptions">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_Blocks" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="defensive.blocks" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.defensive.blocks">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_Steals" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="defensive.steals" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.defensive.steals">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_Shutouts" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="defensive.shutouts" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.defensive.shutouts">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_Saves" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="defensive.saves" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.defensive.saves">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <h3>{{"resume.athlet.sport_Statistics Over Time" | translate}}</h3>
-                <section>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_Career Points/Goals/Assists" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="statistics.career_points" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.statistics.career_points">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_Seasonal Averages" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="statistics.seasonal_averages" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.statistics.seasonal_averages">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_Personal Bests" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="statistics.personal_bests" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.statistics.personal_bests">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <h3>{{"resume.athlet.sport_Competition Records" | translate}}</h3>
-                <section>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_Championships Won" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="competition_records.championships_won" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.competition_records.championships_won">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_Top Tournament Finishes" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="competition_records.top_tournament_finishes" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.competition_records.top_tournament_finishes">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tf">
-                            <div class="tf-title">
-                                <span>{{"resume.athlet.sport_Records Held/Broken" | translate}}</span>
-                            </div>
-                            <div class="tf-value">
-                                <div class="tf-inputwrap"><input type="text" name="competition_records.records_held" maxlength="255"
-                                        [(ngModel)]="user.athlet.metrics.competition_records.records_held">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </ng-congainer>
-            <h3>{{pageWords['athlet-rewards']?.[lang.slug]}}</h3>
-            <section>
-                <rewards [rewards]="user.athlet.rewards" [errors]="errors['rewards']" [currentLang]="currentLang">
-                </rewards>
-            </section>
-            <div class="r-next"><button type="button" class="btn main"
-                    (click)="onNext('files')"><span>{{pageWords['next']?.[lang.slug]}}</span></button></div>
-        </ng-container>
-        <!-- files -->
-        <ng-container *ngIf="chapter === 'files'">
-            <h2>{{pageWords["menu-files"]?.[lang.slug]}}</h2>
-            <h3>{{pageWords["images"]?.[lang.slug]}}</h3>
-            <section>
-                <files [data]="user.images" type="images" folder="users" [supabase]="true"></files>
-            </section>
-            <h3>{{pageWords["videos"]?.[lang.slug]}}</h3>
-            <section>
-                <files [data]="user.videos" type="videos" folder="users" [supabase]="true"></files>
-            </section>
-            <h3>{{pageWords["others"]?.[lang.slug]}}</h3>
-            <section>
-                <files [data]="user.others" type="others" folder="users" [supabase]="true"></files>
-            </section>
-        </ng-container>
-        <!-- finish -->
-        <div class="r-finish">
-            <div class="rf-agrees">
-                <div class="rf-agree"><input-checkbox [active]="agreePrivacy"
-                        [title]="pageWords['agree-privacy']?.[lang.slug]" skin="light"
-                        (click)="agreePrivacy = !agreePrivacy" [error]="errors['privacy']"></input-checkbox></div>
-                <div class="rf-agree"><input-checkbox [active]="agreeTerms"
-                        [title]="pageWords['agree-terms']?.[lang.slug]" skin="light" (click)="agreeTerms = !agreeTerms"
-                        [error]="errors['terms']"></input-checkbox></div>
-            </div>
-            <div class="rf-btnwrap"><button type="submit" class="btn main save" [class.busy]="sending"
-                    [class.done]="sent"><span>{{pageWords["submit"]?.[lang.slug]}}</span></button></div>
         </div>
+      </section>
+      <ng-congainer *ngIf="user.athlet.sub_type === 'Athlet'">
+        <h3>{{"resume.athlet.sport_Physical_Fitness_Metrics" | translate}}</h3>
+        <section>
+          <div class="md:w-2/4">
+            <div class="grid grid-cols-1 gap-4">
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_40-Yard Dash Time" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="physical_fitnes.fourty_yard_dash_time"
+                      maxlength="255" [(ngModel)]="user.athlet.metrics.physical_fitnes.fourty_yard_dash_time">
+                  </div>
+                </div>
+              </div>
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_Vertical Jump Height" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="physical_fitnes.vertical_jump_height"
+                      maxlength="255" [(ngModel)]="user.athlet.metrics.physical_fitnes.vertical_jump_height">
+                  </div>
+                </div>
+              </div>
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_Bench Press Max" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="physical_fitnes.bench_press_max" maxlength="255"
+                      [(ngModel)]="user.athlet.metrics.physical_fitnes.bench_press_max">
+                  </div>
+                </div>
+              </div>
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_Squat Max" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="physical_fitnes.squat_max" maxlength="255"
+                      [(ngModel)]="user.athlet.metrics.physical_fitnes.squat_max">
+                  </div>
+                </div>
+              </div>
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_Deadlift Max" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="physical_fitnes.deadlift_max" maxlength="255"
+                      [(ngModel)]="user.athlet.metrics.physical_fitnes.deadlift_max">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <h3>{{"resume.athlet.sport_Endurance Metrics" | translate}}</h3>
+        <section>
+          <div class="md:w-2/4">
+            <div class="grid grid-cols-1 gap-4">
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_100m/200m/400m Time" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="endurance.hundred_twoh_fourhm_time" maxlength="255"
+                      [(ngModel)]="user.athlet.metrics.endurance.hundred_twoh_fourhm_time">
+                  </div>
+                </div>
+              </div>
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_5K/10K Run Time" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="endurance.fivek_tenk_run_time" maxlength="255"
+                      [(ngModel)]="user.athlet.metrics.endurance.fivek_tenk_run_time">
+                  </div>
+                </div>
+              </div>
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_Marathon Time" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="endurance.marathon_time" maxlength="255"
+                      [(ngModel)]="user.athlet.metrics.endurance.marathon_time">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <h3>{{"resume.athlet.sport_Team Sports Metrics" | translate}}</h3>
+        <section>
+          <div class="md:w-2/4">
+            <div class="grid grid-cols-1 gap-4">
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_Goals Scored" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="team_sport.goals_scored" maxlength="255"
+                      [(ngModel)]="user.athlet.metrics.team_sport.goals_scored">
+                  </div>
+                </div>
+              </div>
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_Assists" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="team_sport.assists" maxlength="255"
+                      [(ngModel)]="user.athlet.metrics.team_sport.assists">
+                  </div>
+                </div>
+              </div>
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_Shooting Percentage" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="team_sport.shooting_percentage" maxlength="255"
+                      [(ngModel)]="user.athlet.metrics.team_sport.shooting_percentage">
+                  </div>
+                </div>
+              </div>
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_Pass Completion Percentage" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="team_sport.pass_completion_percentage"
+                      maxlength="255" [(ngModel)]="user.athlet.metrics.team_sport.pass_completion_percentage">
+                  </div>
+                </div>
+              </div>
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_Tackles Made" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="team_sport.tackles_made" maxlength="255"
+                      [(ngModel)]="user.athlet.metrics.team_sport.tackles_made">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <h3>{{"resume.athlet.sport_Accuracy Metrics" | translate}}</h3>
+        <section>
+          <div class="md:w-2/4">
+            <div class="grid grid-cols-1 gap-4">
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_Free Throw Percentage" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="accuracy.free_throw_percentage" maxlength="255"
+                      [(ngModel)]="user.athlet.metrics.accuracy.free_throw_percentage">
+                  </div>
+                </div>
+              </div>
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_Field Goal Percentage" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="accuracy.field_goal_percentage" maxlength="255"
+                      [(ngModel)]="user.athlet.metrics.accuracy.field_goal_percentage">
+                  </div>
+                </div>
+              </div>
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_3-Point Percentage" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="accuracy.three_point_percentage" maxlength="255"
+                      [(ngModel)]="user.athlet.metrics.accuracy.three_point_percentage">
+                  </div>
+                </div>
+              </div>
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_Serve Accuracy" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="accuracy.serve_accuracy" maxlength="255"
+                      [(ngModel)]="user.athlet.metrics.accuracy.serve_accuracy">
+                  </div>
+                </div>
+              </div>
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_Pitch Accuracy" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="accuracy.pitch_accuracy" maxlength="255"
+                      [(ngModel)]="user.athlet.metrics.accuracy.pitch_accuracy">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <h3>{{"resume.athlet.sport_Defensive Metrics" | translate}}</h3>
+        <section>
+          <div class="md:w-2/4">
+            <div class="grid grid-cols-1 gap-4">
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_Interceptions" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="defensive.interceptions" maxlength="255"
+                      [(ngModel)]="user.athlet.metrics.defensive.interceptions">
+                  </div>
+                </div>
+              </div>
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_Blocks" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="defensive.blocks" maxlength="255"
+                      [(ngModel)]="user.athlet.metrics.defensive.blocks">
+                  </div>
+                </div>
+              </div>
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_Steals" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="defensive.steals" maxlength="255"
+                      [(ngModel)]="user.athlet.metrics.defensive.steals">
+                  </div>
+                </div>
+              </div>
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_Shutouts" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="defensive.shutouts" maxlength="255"
+                      [(ngModel)]="user.athlet.metrics.defensive.shutouts">
+                  </div>
+                </div>
+              </div>
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_Saves" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="defensive.saves" maxlength="255"
+                      [(ngModel)]="user.athlet.metrics.defensive.saves">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <h3>{{"resume.athlet.sport_Statistics Over Time" | translate}}</h3>
+        <section>
+          <div class="md:w-2/4">
+            <div class="grid grid-cols-1 gap-4">
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_Career Points/Goals/Assists" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="statistics.career_points" maxlength="255"
+                      [(ngModel)]="user.athlet.metrics.statistics.career_points">
+                  </div>
+                </div>
+              </div>
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_Seasonal Averages" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="statistics.seasonal_averages" maxlength="255"
+                      [(ngModel)]="user.athlet.metrics.statistics.seasonal_averages">
+                  </div>
+                </div>
+              </div>
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_Personal Bests" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="statistics.personal_bests" maxlength="255"
+                      [(ngModel)]="user.athlet.metrics.statistics.personal_bests">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <h3>{{"resume.athlet.sport_Competition Records" | translate}}</h3>
+        <section>
+          <div class="md:w-2/4">
+            <div class="grid grid-cols-1 gap-4">
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_Championships Won" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="competition_records.championships_won"
+                      maxlength="255" [(ngModel)]="user.athlet.metrics.competition_records.championships_won">
+                  </div>
+                </div>
+              </div>
+  
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_Top Tournament Finishes" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="competition_records.top_tournament_finishes"
+                      maxlength="255" [(ngModel)]="user.athlet.metrics.competition_records.top_tournament_finishes">
+                  </div>
+                </div>
+              </div>
+  
+              <div class="tf">
+                <div class="tf-title">
+                  <span>{{"resume.athlet.sport_Records Held/Broken" | translate}}</span>
+                </div>
+                <div class="tf-value">
+                  <div class="tf-inputwrap"><input type="text" name="competition_records.records_held" maxlength="255"
+                      [(ngModel)]="user.athlet.metrics.competition_records.records_held">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </ng-congainer>
+      <h3>{{pageWords['athlet-rewards']?.[lang.slug]}}</h3>
+      <section>
+        <rewards [rewards]="user.athlet.rewards" [errors]="errors['rewards']" [currentLang]="currentLang">
+        </rewards>
+      </section>
+      <div class="r-next"><button type="button" class="btn main"
+          (click)="onNext('files')"><span>{{pageWords['next']?.[lang.slug]}}</span></button></div>
     </ng-container>
+    <!-- files -->
+    <ng-container *ngIf="chapter === 'files'">
+      <h2>{{pageWords["menu-files"]?.[lang.slug]}}</h2>
+      <h3>{{pageWords["images"]?.[lang.slug]}}</h3>
+      <section>
+        <files [data]="user.images" type="images" folder="users" [supabase]="true"></files>
+      </section>
+      <h3>{{pageWords["videos"]?.[lang.slug]}}</h3>
+      <section>
+        <files [data]="user.videos" type="videos" folder="users" [supabase]="true"></files>
+      </section>
+      <h3>{{pageWords["others"]?.[lang.slug]}}</h3>
+      <section>
+        <files [data]="user.others" type="others" folder="users" [supabase]="true"></files>
+      </section>
+    </ng-container>
+    <!-- finish -->
+    <div class="r-finish">
+      <div class="rf-agrees">
+        <div class="rf-agree"><input-checkbox [active]="agreePrivacy" [title]="pageWords['agree-privacy']?.[lang.slug]"
+            skin="light" (click)="agreePrivacy = !agreePrivacy" [error]="errors['privacy']"></input-checkbox></div>
+        <div class="rf-agree"><input-checkbox [active]="agreeTerms" [title]="pageWords['agree-terms']?.[lang.slug]"
+            skin="light" (click)="agreeTerms = !agreeTerms" [error]="errors['terms']"></input-checkbox></div>
+      </div>
+      <div class="rf-btnwrap"><button type="submit" class="btn main save" [class.busy]="sending"
+          [class.done]="sent"><span>{{pageWords["submit"]?.[lang.slug]}}</span></button></div>
+    </div>
+  </ng-container>
 </form>
 
 
 <p-dialog [header]="'resume.athlet.other_sport_input_header' | translate" [(visible)]="sportNameInput" [modal]="true"
-    [style]="{ width: '30vw' }" [draggable]="false" [resizable]="false">
-    <div class="flex flex-col items-end">
-        <input class="border-1 rounded-md p-2 w-full" [(ngModel)]="newSport" />
-        <div class="flex gap-2">
-            <button class="bg-main text-white rounded-md px-5 py-2 mt-2" (click)="saveSport()">{{"common.save"
-                | translate}}</button>
-            <button class="bg-gray-700 text-white rounded-md px-5 py-2 mt-2" (click)="closeInput()">{{"common.close" |
-                translate}}</button>
-        </div>
+  [draggable]="false" [resizable]="false">
+  <div class="flex flex-col items-end">
+    <input class="border-1 rounded-md p-2 w-full" [(ngModel)]="newSport" />
+    <div class="flex gap-2">
+      <button class="bg-main text-white rounded-md px-5 py-2 mt-2" (click)="saveSport()">{{"common.save"
+        | translate}}</button>
+      <button class="bg-gray-700 text-white rounded-md px-5 py-2 mt-2" (click)="closeInput()">{{"common.close" |
+        translate}}</button>
     </div>
+  </div>
 </p-dialog>
