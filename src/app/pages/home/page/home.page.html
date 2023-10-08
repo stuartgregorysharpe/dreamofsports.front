@@ -1048,9 +1048,15 @@
   <div class="col-span-2">
     <new-post (onNew)="list.initPosts()"></new-post>
     <div class="flex justify-between pt-4 mx-2">
-      <select class="bg-transparent border-transparent text-white border-b-gray-600">
-        <option>
-          <p>Popular</p>
+      <select class="bg-transparent border-transparent border-b-2 border-gray-600 text-white focus:outline-none">
+        <option class="text-black py-2">
+            Popular
+        </option>
+        <option class="text-black">
+            New
+        </option>
+        <option class="text-black">
+            Recent
         </option>
       </select>
       <select class="bg-transparent border-transparent text-white border-b-gray-600">

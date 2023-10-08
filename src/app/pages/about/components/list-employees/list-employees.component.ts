@@ -26,6 +26,14 @@ export class CListEmployeesComponent implements OnInit {
     private async initEmployees(): Promise<void> {
         try {
             this.employees = await this.employeeRepository.loadAll();
+            const detailDesc = [];
+            const tmp: IEmployee[] = this.employees;
+            tmp.forEach((tp, i) => {
+                console.log(tp.post);
+                if (typeof tp.post === 'string') {
+                    detailDesc[i] = (tp.post as string).split('@');
+                }
+            });
         } catch (err) {
             this.appService.notifyError(err);
         }

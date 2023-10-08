@@ -7,8 +7,8 @@
         <h1 [innerHTML]="h1"></h1>
         <div class="account">
             <div class="a-left">
-                <menu-athlet *ngIf="userType === 'athlet'"></menu-athlet>            
-                <menu-firm *ngIf="userType === 'firm'"></menu-firm>            
+                <menu-athlet *ngIf="userType === 'athlet'"></menu-athlet>
+                <menu-firm *ngIf="userType === 'firm'"></menu-firm>
             </div>
             <div class="a-right">
                 <!--index-->
@@ -20,16 +20,16 @@
                 <ng-container *ngIf="page?.slug === 'resume'">
                     <resume-athlet *ngIf="userType === 'athlet'" [pageWords]="page.words"></resume-athlet>
                     <resume-firm *ngIf="userType === 'firm'" [pageWords]="page.words"></resume-firm>
-                </ng-container>  
+                </ng-container>
                 <!-- post -->
                 <ng-container *ngIf="page?.slug === 'post'">
                     <post-page></post-page>
                 </ng-container>
                 <!--messenger-->
-                <messenger *ngIf="page?.slug === 'messenger'" [chat_id]="itemId"></messenger>          
+                <messenger *ngIf="page?.slug === 'messenger'" [chat_id]="itemId"></messenger>
                 <!--subscription-->
-                <subscription *ngIf="page?.slug === 'subscription'" [pageWords]="page.words"></subscription>          
-            </div>            
+                <subscription *ngIf="page?.slug === 'subscription'" [pageWords]="page.words"></subscription>
+            </div>
         </div>
     </div>
 </div>

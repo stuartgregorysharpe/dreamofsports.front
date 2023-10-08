@@ -1,69 +1,82 @@
-<h2>{{pageWords['params']?.[lang.slug]}}</h2>
-<section>
-    <form class="tf" *ngIf="user" (submit)="onUpdate()">
-        <div class="tf-title">{{pageWords['email']?.[lang.slug]}}:</div>
-        <div class="tf-value">
-            <div class="tf-inputwrap"><input type="text" disabled value="{{user.email}}"></div>
-        </div>
-    
-        <div class="tf-title">{{pageWords['password']?.[lang.slug]}}:</div>
-        <div class="tf-value">
-            <div class="tf-inputwrap"><input-password [(value)]="user.password" [error]="updateErrors['password']" [placeholder]="pageWords['password-ph']?.[lang.slug]" skin="light"></input-password></div>
-            <div *ngIf="updateErrors['password']" class="tf-error">{{words['errors']?.[updateErrors['password']]?.[lang.slug]}}</div>
-        </div>
-    
-        <div class="tf-title">{{pageWords['lang']?.[lang.slug]}}:</div>
-        <div class="tf-value">
-            <div class="tf-inputwrap">
-                <div class="selectwrap {{lang.dir}}">
-                    <select [(ngModel)]="user.lang_id" name="lang">
-                        <option *ngFor="let lang of langs" [ngValue]="lang.id">{{lang.title}}</option>
-                    </select>
+<div class="p-4">
+    <h2>{{pageWords['params']?.[lang.slug]}}</h2>
+    <section>
+        <form class="tf" *ngIf="user" (submit)="onUpdate()">
+            <div class="tf-title">{{pageWords['email']?.[lang.slug]}}:</div>
+            <div class="tf-value">
+                <div class="tf-inputwrap"><input type="text" disabled value="{{user.email}}"></div>
+            </div>
+
+            <div class="tf-title">{{pageWords['password']?.[lang.slug]}}:</div>
+            <div class="tf-value">
+                <div class="tf-inputwrap"><input-password [(value)]="user.password" [error]="updateErrors['password']"
+                        [placeholder]="pageWords['password-ph']?.[lang.slug]" skin="light"></input-password></div>
+                <div *ngIf="updateErrors['password']" class="tf-error">
+                    {{words['errors']?.[updateErrors['password']]?.[lang.slug]}}</div>
+            </div>
+
+            <div class="tf-title">{{pageWords['lang']?.[lang.slug]}}:</div>
+            <div class="tf-value">
+                <div class="tf-inputwrap">
+                    <div class="selectwrap {{lang.dir}}">
+                        <select [(ngModel)]="user.lang_id" name="lang">
+                            <option *ngFor="let lang of langs" [ngValue]="lang.id">{{lang.title}}</option>
+                        </select>
+                    </div>
                 </div>
             </div>
-        </div>
-    
-        <div></div>
-        <div class="tf-value">
-            <div class="tf-btnwrap"><button type="submit" class="btn main save" [class.busy]="updating" [class.done]="updated"><span>{{pageWords['submit']?.[lang.slug]}}</span></button></div>
-        </div>
-    </form>
-</section>
-<h2>{{pageWords['status']?.[lang.slug]}}</h2>
-<section>
-    <div class="tf" *ngIf="user">
-        <!-- <div class="tf-title">{{pageWords['subscription']?.[lang.slug]}}:</div>
+
+            <div></div>
+            <div class="tf-value">
+                <div class="tf-btnwrap"><button type="submit" class="btn main save" [class.busy]="updating"
+                        [class.done]="updated"><span>{{pageWords['submit']?.[lang.slug]}}</span></button></div>
+            </div>
+        </form>
+    </section>
+    <h2>{{pageWords['status']?.[lang.slug]}}</h2>
+    <section>
+        <div class="tf" *ngIf="user">
+            <!-- <div class="tf-title">{{pageWords['subscription']?.[lang.slug]}}:</div>
         <div class="tf-value"> 
             <div class="status" [class.alert]="!user.payed_until"><span *ngIf="isBrowser" [innerHTML]="user.payed_until ? pageWords['until']?.[lang.slug] + ' ' + user.formatDate('payed_until', true) : pageWords['no-subscription']?.[lang.slug]"></span></div>
             &nbsp;
             <a routerLink="/{{lang.slug}}/account/subscription">{{pageWords[user.payed_until ? 'prolong' : 'buy']?.[lang.slug]}}</a>        
         </div> -->
-    
-        <div class="tf-title">{{pageWords['resume']?.[lang.slug]}}:</div>
-        <div class="tf-value">
-            <div class="status" [class.alert]="!user.filled"><span>{{pageWords[user.filled ? 'resume-created' : 'resume-notcreated']?.[lang.slug]}}</span></div>
-            &nbsp;
-            <a routerLink="/{{lang.slug}}/account/resume">{{pageWords[user.filled ? 'resume-edit' : 'resume-create']?.[lang.slug]}}</a>        
-        </div>
-    </div>
-</section>
-<h2>{{pageWords['delete-title']?.[lang.slug]}}</h2>
-<section>
-    <div class="warning mb15">
-        <div class="w-icon"><span></span></div>
-        <div class="w-text">{{pageWords['delete-note']?.[lang.slug]}}</div>  
-    </div>   
-    <form class="tf" *ngIf="user" (submit)="onDelete()">
-        <div class="tf-title">{{pageWords['delete-password']?.[lang.slug]}}:</div>
-        <div class="tf-value">
-            <div class="tf-inputwrap"><input-password [(value)]="deletePassword" [error]="deleteErrors['password']" [placeholder]="pageWords['delete-password-ph']?.[lang.slug]" skin="light"></input-password></div>
-            <div *ngIf="deleteErrors['password']" class="tf-error">{{words['errors']?.[deleteErrors['password']]?.[lang.slug]}}</div>
-        </div>
 
-        <div></div>
-        <div class="tf-value">
-            <div class="tf-btnwrap"><button type="submit" class="btn main delete" [class.busy]="deleting"><span>{{pageWords['delete-btn']?.[lang.slug]}}</span></button></div>
-            <div *ngIf="deleteErrors['form']" class="tf-error right">{{words['errors']?.[deleteErrors['form']]?.[lang.slug]}}</div>
+            <div class="tf-title">{{pageWords['resume']?.[lang.slug]}}:</div>
+            <div class="tf-value">
+                <div class="status" [class.alert]="!user.filled"><span>{{pageWords[user.filled ? 'resume-created' :
+                        'resume-notcreated']?.[lang.slug]}}</span></div>
+                &nbsp;
+                <a routerLink="/{{lang.slug}}/account/resume">{{pageWords[user.filled ? 'resume-edit' :
+                    'resume-create']?.[lang.slug]}}</a>
+            </div>
         </div>
-    </form>
-</section>
+    </section>
+    <h2>{{pageWords['delete-title']?.[lang.slug]}}</h2>
+    <section>
+        <div class="warning mb15">
+            <div class="w-icon"><span></span></div>
+            <div class="w-text">{{pageWords['delete-note']?.[lang.slug]}}</div>
+        </div>
+        <form class="tf" *ngIf="user" (submit)="onDelete()">
+            <div class="tf-title">{{pageWords['delete-password']?.[lang.slug]}}:</div>
+            <div class="tf-value">
+                <div class="tf-inputwrap"><input-password [(value)]="deletePassword" [error]="deleteErrors['password']"
+                        [placeholder]="pageWords['delete-password-ph']?.[lang.slug]" skin="light"></input-password>
+                </div>
+                <div *ngIf="deleteErrors['password']" class="tf-error">
+                    {{words['errors']?.[deleteErrors['password']]?.[lang.slug]}}</div>
+            </div>
+
+            <div></div>
+            <div class="tf-value">
+                <div class="tf-btnwrap"><button type="submit" class="btn main delete"
+                        [class.busy]="deleting"><span>{{pageWords['delete-btn']?.[lang.slug]}}</span></button></div>
+                <div *ngIf="deleteErrors['form']" class="tf-error right">
+                    {{words['errors']?.[deleteErrors['form']]?.[lang.slug]}}</div>
+            </div>
+        </form>
+    </section>
+
+</div>

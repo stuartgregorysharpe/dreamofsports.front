@@ -2,10 +2,11 @@
     <div class="e-item flex flex-col items-center" *ngFor="let e of employees">
         <div class="ei-imgwrap w-full">
             <div class="ei-img w-full flex justify-center">
-                <img src="/images/employees/{{e.img}}" [alt]="e.name[lang.slug]" loading="lazy" class="w-64 h-64 rounded-full">
+                <img src="/images/employees/{{e.img}}" [alt]="e.name[lang.slug]" loading="lazy"
+                    class="w-64 h-64 rounded-full">
             </div>
         </div>
         <div class="ei-name">{{e.name[lang.slug]}}</div>
-        <div class="ei-post">{{e.post[lang.slug]}}</div>
+
     </div>
 </div>
