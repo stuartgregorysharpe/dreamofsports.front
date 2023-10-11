@@ -68,15 +68,18 @@
       <p-menu #menu [model]="items" [popup]="true"></p-menu>
     </div>
   </div>
-  <p class="md:mt-4 md:ml-8 mt-4 ml-2 mr-2 md:mr-8 text-blue-600" >{{ post.content }}</p>
+  <p class="md:mt-4 md:ml-8 mt-4 ml-2 mr-2 md:mr-8 text-blue-600">{{ post.content }}</p>
   <div id="attachment" *ngIf="post.attachment.length != 0">
-    <p-carousel [value]="post.attachment" [numVisible]="1" [numScroll]="1" [circular]="false" [responsiveOptions]="responsiveOptions">
+    <p-carousel [value]="post.attachment" [numVisible]="1" [numScroll]="1" [circular]="false"
+      [responsiveOptions]="responsiveOptions">
       <ng-template let-item pTemplate="attachment">
         <div class="border-1 surface-border border-round text-center">
-          <img [src]="'https://img001.prntscr.com/file/img001/rIHqa6lhRqiOV3FsPgu4Jg.png'" *ngIf="item.type === 'image'" class="w-full object-cover">
+          <img [src]="'https://img001.prntscr.com/file/img001/rIHqa6lhRqiOV3FsPgu4Jg.png'" *ngIf="item.type === 'image'"
+            class="w-full object-cover">
           <!-- <img [src]="getUrl(item)" *ngIf="item.type === 'image'" class="w-full object-cover"> -->
           <!-- <video [src]="getUrl(item)" *ngIf="item.type === 'video' || item.type === 'youtube'" class="w-full"></video> -->
-          <img [src]="'https://img001.prntscr.com/file/img001/e1RM2a9MTyaeUkNsnB_1Vw.png'" *ngIf="item.type === 'video' || item.type === 'youtube'" class="w-full" />
+          <img [src]="'https://img001.prntscr.com/file/img001/e1RM2a9MTyaeUkNsnB_1Vw.png'"
+            *ngIf="item.type === 'video' || item.type === 'youtube'" class="w-full" />
         </div>
       </ng-template>
     </p-carousel>
@@ -122,7 +125,8 @@
     </div>
     <div class="flex flex-col gap-2 pt-2" *ngIf="showComment">
       <div class="flex gap-2" *ngFor="let c of comments">
-        <img class="w-12 h-12 rounded-md flex-none mt-2" [src]="'https://img001.prntscr.com/file/img001/IcOP_2D3RJqJ7-zr4B81Lg.png'" />
+        <img class="w-12 h-12 rounded-md flex-none mt-2"
+          [src]="'https://img001.prntscr.com/file/img001/IcOP_2D3RJqJ7-zr4B81Lg.png'" />
         <!-- <img class="w-12 h-12 rounded-md flex-none mt-2" [src]="commentImage(c)" /> -->
         <div class="rounded-md bg-gray-200 p-2 grow">
           <div class="text-main font-bold text-md">{{ commentUserName(c) }}</div>
@@ -131,7 +135,8 @@
         </div>
       </div>
       <div class="flex gap-2 pt-2 items-center" *ngIf="authorized">
-        <img class="w-12 h-12 rounded-md flex-none" [src]="'https://img001.prntscr.com/file/img001/IcOP_2D3RJqJ7-zr4B81Lg.png'" />
+        <img class="w-12 h-12 rounded-md flex-none"
+          [src]="'https://img001.prntscr.com/file/img001/IcOP_2D3RJqJ7-zr4B81Lg.png'" />
         <!-- <img class="w-12 h-12 rounded-md flex-none" [src]="srcMyImage" /> -->
         <div
           class="flex rounded-3xl bg-white border-black/30 focus:ring-0 focus:border-red-700/50 border-1 grow items-center">
@@ -183,19 +188,23 @@
   </div>
 </div>
 
-<p-dialog [header]="'post.content.share_link_header' | translate" [(visible)]="shareLinkVisible" [modal]="true" [draggable]="false" [resizable]="false">
+<p-dialog [header]="'post.content.share_link_header' | translate" [(visible)]="shareLinkVisible" [modal]="true"
+  [draggable]="false" [resizable]="false">
   <div class="flex flex-col items-end">
     <input class="border-1 rounded-md p-2 w-full" disabled [(ngModel)]="shareLinkValue" />
     <div class="w-full justify-center">
       <div class="grid grid-cols-3 gap-4 mt-4">
         <a class="flex justify-center w-full" [href]='telegramLink'>
-          <img class="w-16 h-16 rounded-full" [src]="'https://img001.prntscr.com/file/img001/1NVT3DXdR5y0pDP280Uiqw.png'" />
+          <img class="w-16 h-16 rounded-full"
+            [src]="'https://img001.prntscr.com/file/img001/1NVT3DXdR5y0pDP280Uiqw.png'" />
         </a>
         <a class="flex justify-center w-full" [href]='facebookLink'>
-          <img class="w-16 h-16 rounded-full" [src]="'https://img001.prntscr.com/file/img001/RkiCzFaxSZyjMFw1ydBUbQ.png'" />
+          <img class="w-16 h-16 rounded-full"
+            [src]="'https://img001.prntscr.com/file/img001/RkiCzFaxSZyjMFw1ydBUbQ.png'" />
         </a>
         <a class="flex justify-center w-full" [href]='whatsappLink'>
-          <img class="w-16 h-16 rounded-full" [src]="'https://img001.prntscr.com/file/img001/r0HIbXvbS9-ch84tt9TW4g.png'" />
+          <img class="w-16 h-16 rounded-full"
+            [src]="'https://img001.prntscr.com/file/img001/r0HIbXvbS9-ch84tt9TW4g.png'" />
         </a>
       </div>
     </div>
@@ -209,13 +218,24 @@
   </div>
 </p-dialog>
 <p-toast></p-toast>
-<p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+<p-confirmDialog style=""></p-confirmDialog>
 <p-dialog header="Register" [(visible)]="authorizeVisible" [modal]="true" [draggable]="false" [resizable]="false">
   <div class="m-0 flex flex-col items-center">
     {{"common.register" | translate}}
     <div class="flex justify-end">
-      <button class="bg-gray-700 text-white rounded-md px-5 py-2 mt-4" (click)="authorizeVisible = false">{{"common.ok" |
+      <button class="bg-gray-700 text-white rounded-md px-5 py-2 mt-4" (click)="authorizeVisible = false">{{"common.ok"
+        |
         translate}}</button>
     </div>
   </div>
 </p-dialog>
+
+
+<style>
+.p-dialog .p-dialog-footer .delete-item {
+  margin: 0 0.5rem 0 0;
+  width: auto;
+  color: #53648d;
+}
+
+</style>

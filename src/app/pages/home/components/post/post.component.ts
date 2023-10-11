@@ -99,6 +99,7 @@ export class CPost implements OnInit {
             this.messageService.add({ severity: 'error', summary: 'Rejected', detail: 'You can\'t delete other\'s post' });
           }
         },
+        styleClass: 'delete-item'
       },
     ];
     this.responsiveOptions = [

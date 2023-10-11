@@ -1050,13 +1050,13 @@
     <div class="flex justify-between pt-4 mx-2">
       <select class="bg-transparent border-transparent border-b-2 border-gray-600 text-white focus:outline-none">
         <option class="text-black py-2">
-            Popular
+          Popular
         </option>
         <option class="text-black">
-            New
+          New
         </option>
         <option class="text-black">
-            Recent
+          Recent
         </option>
       </select>
       <select class="bg-transparent border-transparent text-white border-b-gray-600">
@@ -1496,7 +1496,8 @@
         <div>{{"home.title2" | translate}}</div>
       </div>
       <p class="text-white mt-10 text-center">{{"home.mobile_download" | translate}}</p>
-      <a class="rounded-md bg-main text-white px-4 py-2 mt-16" href="https://play.google.com/store/apps/details?id=com.dreamofsports.app">Get App</a>
+      <a class="rounded-md bg-main text-white px-4 py-2 mt-16"
+        href="https://play.google.com/store/apps/details?id=com.dreamofsports.app">Get App</a>
     </div>
     <div class="w-full h-full flex flex-col items-end justify-between">
       <div class="cursor-pointer relative right-0" (click)="closeMobile()">
@@ -1517,19 +1518,22 @@
   <div>
     <div class="relative h-screen">
       <img [src]="images[currentImage]" class="w-full h-full object-cover" alt="Carousel Image">
-    
+
       <div (click)="previousImage()" class="absolute top-0 left-0 w-1/2 h-full cursor-pointer"></div>
-    
+
       <div (click)="nextImage()" class="absolute top-0 right-0 w-1/2 h-full cursor-pointer"></div>
-    
-      <div class="absolute left-1/2 transform -translate-x-1/2 p-4 text-white text-5xl md:text-7xl font-bold text-center" style="bottom: 200px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">
-        <p><span class="text-red-600" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Connecting</span> Athletes with Opportunities</p>
+
+      <div
+        class="absolute left-1/2 transform -translate-x-1/2 p-4 text-white text-5xl md:text-7xl font-bold text-center"
+        style="bottom: 200px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">
+        <p><span class="text-red-600" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Connecting</span> Athletes
+          with Opportunities</p>
       </div>
     </div>
   </div>
 
   <div>
-    <div class="flex pt-10 md:pt-20 justify-center bg-gray-100 md:px-80 px-4">
+    <div class="flex pt-10 md:pt-20 justify-center bg-gray-100 md:px-40 lg:px-60 xl:px-80 px-4">
       <h3 class="text-3xl md:text-5xl font-bold">
         Here are the top
         <span class="text-red-600">5 reasons</span>
@@ -1538,316 +1542,345 @@
         with Dream of Sports:
       </h3>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:p-40 p-10 pt-10 md:pt-16 bg-gray-100">
-      <div class="md:mx-auto">
-        <img class="rounded-3xl" [src]="'https://img001.prntscr.com/file/img001/npkYsukgReSvnXjkKVHqgg.png'" />
-        <div class="relative z-20">
-          <div class="absolute border-2 border-gray-300 rounded-3xl pt-4 px-2 pb-4 -top-4 bg-gray-100">
-            <div class="flex justify-center text-xl text-red-600 font-bold">
-              <p>Elevate Your Career:</p>
-            </div>
-            <div class="flex justify-center pt-2">
-              <p class="text-center">Unleash hidden opportunities that can take your career to new heights. Our platform
-                connects you with a vast network of elite clubs, scouts, agents, coaches, and more, giving you the
-                exposure you deserve.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="py-20 md:hidden"></div>
-      <div class="md:mx-auto">
-        <img class="rounded-3xl" [src]="'https://img001.prntscr.com/file/img001/KgNyEOl4QmSt6PYuIX51Sg.png'" />
-        <div class="relative z-20">
-          <div class="absolute border-2 border-gray-300 rounded-3xl pt-4 px-2 pb-4 -top-4 bg-gray-100">
-            <div class="flex justify-center text-xl text-red-700 font-bold">
-              <p>Elevate Your Career:</p>
-            </div>
-            <div class="flex justify-center pt-2">
-              <p class="text-center">Unleash hidden opportunities that can take your career to new heights. Our platform
-                connects you with a vast network of elite clubs, scouts, agents, coaches, and more, giving you the
-                exposure you deserve.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:p-20 lg:p-30 xl-40 p-10 pt-10 md:pt-16 bg-gray-100">
+      <div class="flex justify-end items-center mb-48 md:mb-0">
+        <div class="block">
+          <img class="rounded-3xl" [src]="'https://img001.prntscr.com/file/img001/npkYsukgReSvnXjkKVHqgg.png'" />
+          <div class="relative">
+            <div class="absolute border-2 border-gray-300 rounded-3xl pt-4 px-2 pb-4 -top-4 bg-gray-100">
+              <div class="flex justify-center text-xl text-red-600 font-bold">
+                <p>Elevate Your Career:</p>
+              </div>
+              <div class="flex justify-center pt-2 h-36">
+                <p class="text-center text-sm">Unleash hidden opportunities that can take your career to new heights. Our
+                  platform connects you with a vast network of elite clubs, scouts, agents, coaches, and more, giving
+                  you the exposure you deserve.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="py-20 md:hidden"></div>
-      <div class="md:mx-auto">
-        <img class="rounded-3xl" [src]="'https://img001.prntscr.com/file/img001/zFHH2XWlSCGZIKMC6kAfdg.png'" />
-        <div class="relative z-20">
-          <div class="absolute border-2 border-gray-300 rounded-3xl pt-4 px-2 pb-4 -top-4 bg-gray-100">
-            <div class="flex justify-center text-xl text-red-700 font-bold">
-              <p>Elevate Your Career:</p>
-            </div>
-            <div class="flex justify-center pt-2">
-              <p class="text-center">Unleash hidden opportunities that can take your career to new heights. Our platform
-                connects you with a vast network of elite clubs, scouts, agents, coaches, and more, giving you the
-                exposure you deserve.</p>
+
+      <div class="flex justify-center items-center mb-48 md:mb-0">
+        <div class="block">
+          <img class="rounded-3xl" [src]="'https://img001.prntscr.com/file/img001/KgNyEOl4QmSt6PYuIX51Sg.png'" />
+          <div class="relative">
+            <div class="absolute border-2 border-gray-300 rounded-3xl pt-4 px-2 pb-4 -top-4 bg-gray-100">
+              <div class="flex justify-center text-xl text-red-700 font-bold">
+                <p>Elevate Your Career:</p>
+              </div>
+              <div class="flex justify-center pt-2 h-36">
+                <p class="text-center text-sm">Break free from boundaries and connect with the world. Our global reach ensures
+                  that your talent is seen by the right eyes, no matter where you are.</p>
+              </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div class="flex justify-start items-center mb-48 md:mb-0">
+        <div class="block">
+          <img class="rounded-3xl" [src]="'https://img001.prntscr.com/file/img001/zFHH2XWlSCGZIKMC6kAfdg.png'" />
+          <div class="relative">
+            <div class="absolute border-2 border-gray-300 rounded-3xl pt-4 px-2 pb-4 -top-4 bg-gray-100">
+              <div class="flex justify-center text-xl text-red-700 font-bold">
+                <p>Elevate Your Career:</p>
+              </div>
+              <div class="flex justify-center pt-2 h-36">
+                <p class="text-center text-sm">Stand out from the crowd with a stunning athlete profile. Impress the world with
+                  your skills, achievements, and practices through videos, articles, images, and more.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-6 gap-10 lg:p-40 md:p-20 p-10 pt-5 bg-gray-800">
+
+      <div class="md:col-span-1"></div>
+      
+      <div class="flex md:col-span-2 justify-center items-center mb-48 md:mb-0">
+        <div class="block">
+          <img class="rounded-3xl" [src]="'https://img001.prntscr.com/file/img001/XDLHjBS1TtyeVa_0z3BJjQ.png'" />
+          <div class="relative">
+            <div class="absolute border-2 border-gray-300 rounded-3xl pt-4 px-2 pb-4 -top-4 bg-gray-100">
+              <div class="flex justify-center text-xl text-red-600 font-bold">
+                <p>Elevate Your Career:</p>
+              </div>
+              <div class="flex justify-center pt-2 h-36">
+                <p class="text-center text-sm">Let your journey inspire others. Share your experiences, insights, and moments of
+                  triumph through multimedia content, and build your sports legacy.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex md:col-span-2 justify-center items-center mb-48 md:mb-0">
+        <div class="block">
+          <img class="rounded-3xl" [src]="'https://img001.prntscr.com/file/img001/X91twFs7SNCez3K3IriJzg.png'" />
+          <div class="relative">
+            <div class="absolute border-2 border-gray-300 rounded-3xl pt-4 px-2 pb-4 -top-4 bg-gray-100">
+              <div class="flex justify-center text-xl text-red-700 font-bold">
+                <p>Elevate Your Career:</p>
+              </div>
+              <div class="flex justify-center pt-2 h-36">
+                <p class="text-center text-sm">Unleash hidden opportunities that can take your career to new heights. Our platform
+                  connects you with a vast network of elite clubs, scouts, agents, coaches, and more, giving you the
+                  exposure you deserve.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="h-52 bg-gray-800"></div>
+
+    <div class="h-future">
+      <div class="hf-bg"><img [src]="'https://img001.prntscr.com/file/img001/ub-cOs63S36B7vIJfgwFxQ.png'" alt="future"
+          loading="lazy"></div>
+      <div class="hf-content">
+        <div class="hf-txt1" appear-animation [timeout]="100">{{page?.words['future-1']?.[lang.slug]}}</div>
+        <div class="hf-txt2" appear-animation [timeout]="200">{{page?.words['future-2']?.[lang.slug]}}</div>
+        <div class="hf-btnwrap" appear-animation [timeout]="300">
+          <a class="btn wide main"
+            routerLink="/{{lang.slug}}/account/resume">{{page?.words['future-3']?.[lang.slug]}}</a>
         </div>
       </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 md:p-40 p-10 pt-5 bg-gray-800 pb-80">
-      <div class="md:mx-auto"></div>
-      <div class="py-20 md:hidden"></div>
-      <div class="md:mx-auto">
-        <img class="rounded-3xl" [src]="'https://img001.prntscr.com/file/img001/XDLHjBS1TtyeVa_0z3BJjQ.png'" />
-        <div class="relative z-20">
-          <div class="absolute border-2 border-gray-300 rounded-3xl pt-4 px-2 pb-4 -top-4 bg-gray-100">
-            <div class="flex justify-center text-xl text-red-600 font-bold">
-              <p>Elevate Your Career:</p>
-            </div>
-            <div class="flex justify-center pt-2">
-              <p class="text-center">Unleash hidden opportunities that can take your career to new heights. Our platform
-                connects you with a vast network of elite clubs, scouts, agents, coaches, and more, giving you the
-                exposure you deserve.</p>
-            </div>
-          </div>
-        </div>
+    <div class="h-news">
+      <div class="hn-content">
+        <h2>{{page?.words['news-title']?.[lang.slug]}}</h2>
+        <slider-articles [in_gal]="false"></slider-articles>
       </div>
-      <div class="py-20 md:hidden"></div>
-      <div class="md:mx-auto">
-        <img class="rounded-3xl" [src]="'https://img001.prntscr.com/file/img001/X91twFs7SNCez3K3IriJzg.png'" />
-        <div class="relative z-20">
-          <div class="absolute border-2 border-gray-300 rounded-3xl pt-4 px-2 pb-4 -top-4 bg-gray-100">
-            <div class="flex justify-center text-xl text-red-700 font-bold">
-              <p>Elevate Your Career:</p>
-            </div>
-            <div class="flex justify-center pt-2">
-              <p class="text-center">Unleash hidden opportunities that can take your career to new heights. Our platform
-                connects you with a vast network of elite clubs, scouts, agents, coaches, and more, giving you the
-                exposure you deserve.</p>
-            </div>
-          </div>
-        </div>
+      <div class="hn-btnwrap">
+        <a class="btn wide transparent"
+          routerLink="/{{lang.slug}}/articles">{{page?.words['news-btn']?.[lang.slug]}}</a>
       </div>
     </div>
 
-  <div class="h-future">
-    <div class="hf-bg"><img [src]="'https://img001.prntscr.com/file/img001/ub-cOs63S36B7vIJfgwFxQ.png'" alt="future"
-        loading="lazy"></div>
-    <div class="hf-content">
-      <div class="hf-txt1" appear-animation [timeout]="100">{{page?.words['future-1']?.[lang.slug]}}</div>
-      <div class="hf-txt2" appear-animation [timeout]="200">{{page?.words['future-2']?.[lang.slug]}}</div>
-      <div class="hf-btnwrap" appear-animation [timeout]="300">
-        <a class="btn wide main" routerLink="/{{lang.slug}}/account/resume">{{page?.words['future-3']?.[lang.slug]}}</a>
+      <div class="text-center">
+        <p class="text-white font-bold text-3xl">User Testimonials or Success Stories</p>
       </div>
-    </div>
+
+      <div class="container grid grid-cols-1 md:grid-cols-3 gap-8 pr-4 pl-4 pt-16">
+
+        <div class="flex justify-center items-center">
+          <div class="bg-zinc-700 border-1 relative border-gray-600 p-5">
+            <div class="absolute -top-4 right-2">
+              <p>
+                <svg width="52" height="40" viewBox="0 0 52 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M24.1547 29.5495C24.2159 30.9691 23.9614 32.3846 23.4094 33.6953C22.8574 35.006 22.0214 36.1797 20.9609 37.1329L20.9525 37.1395C18.7569 39.0739 15.8974 40.0965 12.9647 39.9962H12.9831C11.2105 40.0914 9.43843 39.7977 7.79292 39.1357C6.1474 38.4738 4.66878 37.4599 3.46209 36.1662L3.45538 36.1595C1.03619 33.3072 -0.197728 29.6459 0.00492902 25.9212L0.0032516 25.9562C-0.109173 22.0882 0.6144 18.2412 2.12519 14.6745L2.05809 14.8529C3.26435 12.0565 4.93797 9.48296 7.00816 7.24121L6.9897 7.26121C8.69998 5.41772 10.6817 3.84259 12.8674 2.58954L12.9882 2.52621C14.6412 1.57868 16.3664 0.761186 18.1479 0.0812109L18.4096 -0.0071224L23.6666 8.80954C21.4821 9.6853 19.5645 11.1109 18.1026 12.9462L18.0808 12.9745C16.6251 14.6974 15.7121 16.8079 15.4556 19.0429L15.4506 19.0962C16.5945 19.1247 17.7195 19.393 18.7518 19.8836C19.7841 20.3741 20.7004 21.0759 21.4407 21.9429L21.4507 21.9545C23.333 24.0369 24.3067 26.7762 24.1581 29.5712L24.1598 29.5462L24.1547 29.5495ZM52.5836 29.5495C52.6441 30.9694 52.3892 32.3851 51.8369 33.696C51.2846 35.0069 50.4486 36.1809 49.3882 37.1345L49.3798 37.1412C47.1846 39.0763 44.3248 40.099 41.3919 39.9979H41.4104C39.6376 40.0936 37.8655 39.8 36.2199 39.138C34.5743 38.4761 33.0957 37.462 31.8893 36.1679L31.8826 36.1595C29.4624 33.3071 28.2284 29.6449 28.4322 25.9195L28.4305 25.9545C28.3181 22.0865 29.0416 18.2395 30.5524 14.6729L30.4853 14.8512C31.691 12.0553 33.3634 9.48185 35.432 7.23954L35.4136 7.25954C37.1245 5.41601 39.1068 3.84089 41.2929 2.58788L41.4137 2.52454C43.0664 1.57635 44.7917 0.758826 46.5734 0.0795443L46.8351 -0.00878906L52.0905 8.80788C49.9056 9.6847 47.9881 11.1115 46.5265 12.9479L46.5047 12.9762C45.049 14.6991 44.136 16.8096 43.8795 19.0445L43.8745 19.0979C45.018 19.1262 46.1425 19.3944 47.1743 19.885C48.206 20.3756 49.1217 21.0775 49.8612 21.9445L49.8713 21.9562C51.7555 24.037 52.7311 26.776 52.5836 29.5712L52.5853 29.5462L52.5836 29.5495Z"
+                    fill="#C10808" />
+                </svg>
+              </p>
+            </div>
+            <div class="flex justify-between">
+              <div>
+                <img class="rounded-full border-gray-300"
+                  [src]="'https://img001.prntscr.com/file/img001/q9KYea3GRzaHjGHXGf0qBg.png'" />
+              </div>
+              <div>
+                <p class="text-white">Name Surname</p>
+                <p class="text-white">Athlet</p>
+                <p class="text-white flex">
+                  <span>
+                    <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10.1609 0.536732C10.5188 -0.17891 11.4812 -0.178911 11.8391 0.536731L14.5433 5.9439C14.6872 6.23171 14.9523 6.4281 15.2556 6.47159L21.1749 7.32039C21.9774 7.43547 22.2863 8.49879 21.6852 9.07704L17.4988 13.104C17.2536 13.3399 17.1408 13.6946 17.201 14.0409L18.2019 19.7999C18.344 20.6177 17.5524 21.2597 16.8508 20.8956L11.4162 18.0761C11.1535 17.9398 10.8465 17.9398 10.5838 18.0761L5.14924 20.8956C4.44762 21.2597 3.65599 20.6177 3.79812 19.7999L4.79904 14.0409C4.85922 13.6946 4.74645 13.3399 4.50118 13.104L0.314836 9.07704C-0.286299 8.49879 0.0225854 7.43547 0.825127 7.32038L6.7444 6.47159C7.04767 6.4281 7.31277 6.23171 7.45671 5.9439L10.1609 0.536732Z"
+                        fill="#F6B100" />
+                    </svg>
+                  </span>
+                  <span>
+                    <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10.1609 0.536732C10.5188 -0.17891 11.4812 -0.178911 11.8391 0.536731L14.5433 5.9439C14.6872 6.23171 14.9523 6.4281 15.2556 6.47159L21.1749 7.32039C21.9774 7.43547 22.2863 8.49879 21.6852 9.07704L17.4988 13.104C17.2536 13.3399 17.1408 13.6946 17.201 14.0409L18.2019 19.7999C18.344 20.6177 17.5524 21.2597 16.8508 20.8956L11.4162 18.0761C11.1535 17.9398 10.8465 17.9398 10.5838 18.0761L5.14924 20.8956C4.44762 21.2597 3.65599 20.6177 3.79812 19.7999L4.79904 14.0409C4.85922 13.6946 4.74645 13.3399 4.50118 13.104L0.314836 9.07704C-0.286299 8.49879 0.0225854 7.43547 0.825127 7.32038L6.7444 6.47159C7.04767 6.4281 7.31277 6.23171 7.45671 5.9439L10.1609 0.536732Z"
+                        fill="#F6B100" />
+                    </svg>
+                  </span>
+                  <span>
+                    <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10.1609 0.536732C10.5188 -0.17891 11.4812 -0.178911 11.8391 0.536731L14.5433 5.9439C14.6872 6.23171 14.9523 6.4281 15.2556 6.47159L21.1749 7.32039C21.9774 7.43547 22.2863 8.49879 21.6852 9.07704L17.4988 13.104C17.2536 13.3399 17.1408 13.6946 17.201 14.0409L18.2019 19.7999C18.344 20.6177 17.5524 21.2597 16.8508 20.8956L11.4162 18.0761C11.1535 17.9398 10.8465 17.9398 10.5838 18.0761L5.14924 20.8956C4.44762 21.2597 3.65599 20.6177 3.79812 19.7999L4.79904 14.0409C4.85922 13.6946 4.74645 13.3399 4.50118 13.104L0.314836 9.07704C-0.286299 8.49879 0.0225854 7.43547 0.825127 7.32038L6.7444 6.47159C7.04767 6.4281 7.31277 6.23171 7.45671 5.9439L10.1609 0.536732Z"
+                        fill="#F6B100" />
+                    </svg>
+                  </span>
+                  <span>
+                    <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10.1609 0.536732C10.5188 -0.17891 11.4812 -0.178911 11.8391 0.536731L14.5433 5.9439C14.6872 6.23171 14.9523 6.4281 15.2556 6.47159L21.1749 7.32039C21.9774 7.43547 22.2863 8.49879 21.6852 9.07704L17.4988 13.104C17.2536 13.3399 17.1408 13.6946 17.201 14.0409L18.2019 19.7999C18.344 20.6177 17.5524 21.2597 16.8508 20.8956L11.4162 18.0761C11.1535 17.9398 10.8465 17.9398 10.5838 18.0761L5.14924 20.8956C4.44762 21.2597 3.65599 20.6177 3.79812 19.7999L4.79904 14.0409C4.85922 13.6946 4.74645 13.3399 4.50118 13.104L0.314836 9.07704C-0.286299 8.49879 0.0225854 7.43547 0.825127 7.32038L6.7444 6.47159C7.04767 6.4281 7.31277 6.23171 7.45671 5.9439L10.1609 0.536732Z"
+                        fill="#F6B100" />
+                    </svg>
+                  </span>
+                  <span>
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M11 1L14.09 7.26L21 8.27L16 13.14L17.18 20.02L11 16.77L4.82 20.02L6 13.14L1 8.27L7.91 7.26L11 1Z"
+                        stroke="#F6B100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="pt-4">
+              <p class="text-white">
+                "I have really enjoyed the Sports Community webinars and found them valuable and informative. "It has
+                captured
+                some real challenges that are faced by the sporting community with some simple yet effective skills to
+                pass
+                onto our clubs."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-center items-center">
+          <div class="bg-zinc-700 border-1 relative border-gray-600 p-5">
+            <div class="absolute -top-4 right-2">
+              <p>
+                <svg width="52" height="40" viewBox="0 0 52 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M24.1547 29.5495C24.2159 30.9691 23.9614 32.3846 23.4094 33.6953C22.8574 35.006 22.0214 36.1797 20.9609 37.1329L20.9525 37.1395C18.7569 39.0739 15.8974 40.0965 12.9647 39.9962H12.9831C11.2105 40.0914 9.43843 39.7977 7.79292 39.1357C6.1474 38.4738 4.66878 37.4599 3.46209 36.1662L3.45538 36.1595C1.03619 33.3072 -0.197728 29.6459 0.00492902 25.9212L0.0032516 25.9562C-0.109173 22.0882 0.6144 18.2412 2.12519 14.6745L2.05809 14.8529C3.26435 12.0565 4.93797 9.48296 7.00816 7.24121L6.9897 7.26121C8.69998 5.41772 10.6817 3.84259 12.8674 2.58954L12.9882 2.52621C14.6412 1.57868 16.3664 0.761186 18.1479 0.0812109L18.4096 -0.0071224L23.6666 8.80954C21.4821 9.6853 19.5645 11.1109 18.1026 12.9462L18.0808 12.9745C16.6251 14.6974 15.7121 16.8079 15.4556 19.0429L15.4506 19.0962C16.5945 19.1247 17.7195 19.393 18.7518 19.8836C19.7841 20.3741 20.7004 21.0759 21.4407 21.9429L21.4507 21.9545C23.333 24.0369 24.3067 26.7762 24.1581 29.5712L24.1598 29.5462L24.1547 29.5495ZM52.5836 29.5495C52.6441 30.9694 52.3892 32.3851 51.8369 33.696C51.2846 35.0069 50.4486 36.1809 49.3882 37.1345L49.3798 37.1412C47.1846 39.0763 44.3248 40.099 41.3919 39.9979H41.4104C39.6376 40.0936 37.8655 39.8 36.2199 39.138C34.5743 38.4761 33.0957 37.462 31.8893 36.1679L31.8826 36.1595C29.4624 33.3071 28.2284 29.6449 28.4322 25.9195L28.4305 25.9545C28.3181 22.0865 29.0416 18.2395 30.5524 14.6729L30.4853 14.8512C31.691 12.0553 33.3634 9.48185 35.432 7.23954L35.4136 7.25954C37.1245 5.41601 39.1068 3.84089 41.2929 2.58788L41.4137 2.52454C43.0664 1.57635 44.7917 0.758826 46.5734 0.0795443L46.8351 -0.00878906L52.0905 8.80788C49.9056 9.6847 47.9881 11.1115 46.5265 12.9479L46.5047 12.9762C45.049 14.6991 44.136 16.8096 43.8795 19.0445L43.8745 19.0979C45.018 19.1262 46.1425 19.3944 47.1743 19.885C48.206 20.3756 49.1217 21.0775 49.8612 21.9445L49.8713 21.9562C51.7555 24.037 52.7311 26.776 52.5836 29.5712L52.5853 29.5462L52.5836 29.5495Z"
+                    fill="#C10808" />
+                </svg>
+              </p>
+            </div>
+            <div class="flex justify-between">
+              <div>
+                <img class="rounded-full border-gray-300"
+                  [src]="'https://img001.prntscr.com/file/img001/AdknbVnkRp218ALW1H0KDg.png'" />
+              </div>
+              <div>
+                <p class="text-white">Name Surname</p>
+                <p class="text-white">Athlet</p>
+                <p class="text-white flex">
+                  <span>
+                    <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10.1609 0.536732C10.5188 -0.17891 11.4812 -0.178911 11.8391 0.536731L14.5433 5.9439C14.6872 6.23171 14.9523 6.4281 15.2556 6.47159L21.1749 7.32039C21.9774 7.43547 22.2863 8.49879 21.6852 9.07704L17.4988 13.104C17.2536 13.3399 17.1408 13.6946 17.201 14.0409L18.2019 19.7999C18.344 20.6177 17.5524 21.2597 16.8508 20.8956L11.4162 18.0761C11.1535 17.9398 10.8465 17.9398 10.5838 18.0761L5.14924 20.8956C4.44762 21.2597 3.65599 20.6177 3.79812 19.7999L4.79904 14.0409C4.85922 13.6946 4.74645 13.3399 4.50118 13.104L0.314836 9.07704C-0.286299 8.49879 0.0225854 7.43547 0.825127 7.32038L6.7444 6.47159C7.04767 6.4281 7.31277 6.23171 7.45671 5.9439L10.1609 0.536732Z"
+                        fill="#F6B100" />
+                    </svg>
+                  </span>
+                  <span>
+                    <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10.1609 0.536732C10.5188 -0.17891 11.4812 -0.178911 11.8391 0.536731L14.5433 5.9439C14.6872 6.23171 14.9523 6.4281 15.2556 6.47159L21.1749 7.32039C21.9774 7.43547 22.2863 8.49879 21.6852 9.07704L17.4988 13.104C17.2536 13.3399 17.1408 13.6946 17.201 14.0409L18.2019 19.7999C18.344 20.6177 17.5524 21.2597 16.8508 20.8956L11.4162 18.0761C11.1535 17.9398 10.8465 17.9398 10.5838 18.0761L5.14924 20.8956C4.44762 21.2597 3.65599 20.6177 3.79812 19.7999L4.79904 14.0409C4.85922 13.6946 4.74645 13.3399 4.50118 13.104L0.314836 9.07704C-0.286299 8.49879 0.0225854 7.43547 0.825127 7.32038L6.7444 6.47159C7.04767 6.4281 7.31277 6.23171 7.45671 5.9439L10.1609 0.536732Z"
+                        fill="#F6B100" />
+                    </svg>
+                  </span>
+                  <span>
+                    <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10.1609 0.536732C10.5188 -0.17891 11.4812 -0.178911 11.8391 0.536731L14.5433 5.9439C14.6872 6.23171 14.9523 6.4281 15.2556 6.47159L21.1749 7.32039C21.9774 7.43547 22.2863 8.49879 21.6852 9.07704L17.4988 13.104C17.2536 13.3399 17.1408 13.6946 17.201 14.0409L18.2019 19.7999C18.344 20.6177 17.5524 21.2597 16.8508 20.8956L11.4162 18.0761C11.1535 17.9398 10.8465 17.9398 10.5838 18.0761L5.14924 20.8956C4.44762 21.2597 3.65599 20.6177 3.79812 19.7999L4.79904 14.0409C4.85922 13.6946 4.74645 13.3399 4.50118 13.104L0.314836 9.07704C-0.286299 8.49879 0.0225854 7.43547 0.825127 7.32038L6.7444 6.47159C7.04767 6.4281 7.31277 6.23171 7.45671 5.9439L10.1609 0.536732Z"
+                        fill="#F6B100" />
+                    </svg>
+                  </span>
+                  <span>
+                    <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10.1609 0.536732C10.5188 -0.17891 11.4812 -0.178911 11.8391 0.536731L14.5433 5.9439C14.6872 6.23171 14.9523 6.4281 15.2556 6.47159L21.1749 7.32039C21.9774 7.43547 22.2863 8.49879 21.6852 9.07704L17.4988 13.104C17.2536 13.3399 17.1408 13.6946 17.201 14.0409L18.2019 19.7999C18.344 20.6177 17.5524 21.2597 16.8508 20.8956L11.4162 18.0761C11.1535 17.9398 10.8465 17.9398 10.5838 18.0761L5.14924 20.8956C4.44762 21.2597 3.65599 20.6177 3.79812 19.7999L4.79904 14.0409C4.85922 13.6946 4.74645 13.3399 4.50118 13.104L0.314836 9.07704C-0.286299 8.49879 0.0225854 7.43547 0.825127 7.32038L6.7444 6.47159C7.04767 6.4281 7.31277 6.23171 7.45671 5.9439L10.1609 0.536732Z"
+                        fill="#F6B100" />
+                    </svg>
+                  </span>
+                  <span>
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M11 1L14.09 7.26L21 8.27L16 13.14L17.18 20.02L11 16.77L4.82 20.02L6 13.14L1 8.27L7.91 7.26L11 1Z"
+                        stroke="#F6B100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="pt-4">
+              <p class="text-white">
+                "I have really enjoyed the Sports Community webinars and found them valuable and informative. "It has
+                captured
+                some real challenges that are faced by the sporting community with some simple yet effective skills to
+                pass
+                onto our clubs."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-center items-center">
+          <div class="bg-zinc-700 border-1 relative border-gray-600 p-5">
+            <div class="absolute -top-4 right-2">
+              <p>
+                <svg width="52" height="40" viewBox="0 0 52 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M24.1547 29.5495C24.2159 30.9691 23.9614 32.3846 23.4094 33.6953C22.8574 35.006 22.0214 36.1797 20.9609 37.1329L20.9525 37.1395C18.7569 39.0739 15.8974 40.0965 12.9647 39.9962H12.9831C11.2105 40.0914 9.43843 39.7977 7.79292 39.1357C6.1474 38.4738 4.66878 37.4599 3.46209 36.1662L3.45538 36.1595C1.03619 33.3072 -0.197728 29.6459 0.00492902 25.9212L0.0032516 25.9562C-0.109173 22.0882 0.6144 18.2412 2.12519 14.6745L2.05809 14.8529C3.26435 12.0565 4.93797 9.48296 7.00816 7.24121L6.9897 7.26121C8.69998 5.41772 10.6817 3.84259 12.8674 2.58954L12.9882 2.52621C14.6412 1.57868 16.3664 0.761186 18.1479 0.0812109L18.4096 -0.0071224L23.6666 8.80954C21.4821 9.6853 19.5645 11.1109 18.1026 12.9462L18.0808 12.9745C16.6251 14.6974 15.7121 16.8079 15.4556 19.0429L15.4506 19.0962C16.5945 19.1247 17.7195 19.393 18.7518 19.8836C19.7841 20.3741 20.7004 21.0759 21.4407 21.9429L21.4507 21.9545C23.333 24.0369 24.3067 26.7762 24.1581 29.5712L24.1598 29.5462L24.1547 29.5495ZM52.5836 29.5495C52.6441 30.9694 52.3892 32.3851 51.8369 33.696C51.2846 35.0069 50.4486 36.1809 49.3882 37.1345L49.3798 37.1412C47.1846 39.0763 44.3248 40.099 41.3919 39.9979H41.4104C39.6376 40.0936 37.8655 39.8 36.2199 39.138C34.5743 38.4761 33.0957 37.462 31.8893 36.1679L31.8826 36.1595C29.4624 33.3071 28.2284 29.6449 28.4322 25.9195L28.4305 25.9545C28.3181 22.0865 29.0416 18.2395 30.5524 14.6729L30.4853 14.8512C31.691 12.0553 33.3634 9.48185 35.432 7.23954L35.4136 7.25954C37.1245 5.41601 39.1068 3.84089 41.2929 2.58788L41.4137 2.52454C43.0664 1.57635 44.7917 0.758826 46.5734 0.0795443L46.8351 -0.00878906L52.0905 8.80788C49.9056 9.6847 47.9881 11.1115 46.5265 12.9479L46.5047 12.9762C45.049 14.6991 44.136 16.8096 43.8795 19.0445L43.8745 19.0979C45.018 19.1262 46.1425 19.3944 47.1743 19.885C48.206 20.3756 49.1217 21.0775 49.8612 21.9445L49.8713 21.9562C51.7555 24.037 52.7311 26.776 52.5836 29.5712L52.5853 29.5462L52.5836 29.5495Z"
+                    fill="#C10808" />
+                </svg>
+              </p>
+            </div>
+            <div class="flex justify-between">
+              <div>
+                <img class="rounded-full border-gray-300"
+                  [src]="'https://img001.prntscr.com/file/img001/1BdM0JcbRVCqkQUBy3bbfA.png'" />
+              </div>
+              <div>
+                <p class="text-white">Name Surname</p>
+                <p class="text-white">Company</p>
+                <p class="text-white flex">
+                  <span>
+                    <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10.1609 0.536732C10.5188 -0.17891 11.4812 -0.178911 11.8391 0.536731L14.5433 5.9439C14.6872 6.23171 14.9523 6.4281 15.2556 6.47159L21.1749 7.32039C21.9774 7.43547 22.2863 8.49879 21.6852 9.07704L17.4988 13.104C17.2536 13.3399 17.1408 13.6946 17.201 14.0409L18.2019 19.7999C18.344 20.6177 17.5524 21.2597 16.8508 20.8956L11.4162 18.0761C11.1535 17.9398 10.8465 17.9398 10.5838 18.0761L5.14924 20.8956C4.44762 21.2597 3.65599 20.6177 3.79812 19.7999L4.79904 14.0409C4.85922 13.6946 4.74645 13.3399 4.50118 13.104L0.314836 9.07704C-0.286299 8.49879 0.0225854 7.43547 0.825127 7.32038L6.7444 6.47159C7.04767 6.4281 7.31277 6.23171 7.45671 5.9439L10.1609 0.536732Z"
+                        fill="#F6B100" />
+                    </svg>
+                  </span>
+                  <span>
+                    <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10.1609 0.536732C10.5188 -0.17891 11.4812 -0.178911 11.8391 0.536731L14.5433 5.9439C14.6872 6.23171 14.9523 6.4281 15.2556 6.47159L21.1749 7.32039C21.9774 7.43547 22.2863 8.49879 21.6852 9.07704L17.4988 13.104C17.2536 13.3399 17.1408 13.6946 17.201 14.0409L18.2019 19.7999C18.344 20.6177 17.5524 21.2597 16.8508 20.8956L11.4162 18.0761C11.1535 17.9398 10.8465 17.9398 10.5838 18.0761L5.14924 20.8956C4.44762 21.2597 3.65599 20.6177 3.79812 19.7999L4.79904 14.0409C4.85922 13.6946 4.74645 13.3399 4.50118 13.104L0.314836 9.07704C-0.286299 8.49879 0.0225854 7.43547 0.825127 7.32038L6.7444 6.47159C7.04767 6.4281 7.31277 6.23171 7.45671 5.9439L10.1609 0.536732Z"
+                        fill="#F6B100" />
+                    </svg>
+                  </span>
+                  <span>
+                    <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10.1609 0.536732C10.5188 -0.17891 11.4812 -0.178911 11.8391 0.536731L14.5433 5.9439C14.6872 6.23171 14.9523 6.4281 15.2556 6.47159L21.1749 7.32039C21.9774 7.43547 22.2863 8.49879 21.6852 9.07704L17.4988 13.104C17.2536 13.3399 17.1408 13.6946 17.201 14.0409L18.2019 19.7999C18.344 20.6177 17.5524 21.2597 16.8508 20.8956L11.4162 18.0761C11.1535 17.9398 10.8465 17.9398 10.5838 18.0761L5.14924 20.8956C4.44762 21.2597 3.65599 20.6177 3.79812 19.7999L4.79904 14.0409C4.85922 13.6946 4.74645 13.3399 4.50118 13.104L0.314836 9.07704C-0.286299 8.49879 0.0225854 7.43547 0.825127 7.32038L6.7444 6.47159C7.04767 6.4281 7.31277 6.23171 7.45671 5.9439L10.1609 0.536732Z"
+                        fill="#F6B100" />
+                    </svg>
+                  </span>
+                  <span>
+                    <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10.1609 0.536732C10.5188 -0.17891 11.4812 -0.178911 11.8391 0.536731L14.5433 5.9439C14.6872 6.23171 14.9523 6.4281 15.2556 6.47159L21.1749 7.32039C21.9774 7.43547 22.2863 8.49879 21.6852 9.07704L17.4988 13.104C17.2536 13.3399 17.1408 13.6946 17.201 14.0409L18.2019 19.7999C18.344 20.6177 17.5524 21.2597 16.8508 20.8956L11.4162 18.0761C11.1535 17.9398 10.8465 17.9398 10.5838 18.0761L5.14924 20.8956C4.44762 21.2597 3.65599 20.6177 3.79812 19.7999L4.79904 14.0409C4.85922 13.6946 4.74645 13.3399 4.50118 13.104L0.314836 9.07704C-0.286299 8.49879 0.0225854 7.43547 0.825127 7.32038L6.7444 6.47159C7.04767 6.4281 7.31277 6.23171 7.45671 5.9439L10.1609 0.536732Z"
+                        fill="#F6B100" />
+                    </svg>
+                  </span>
+                  <span>
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M11 1L14.09 7.26L21 8.27L16 13.14L17.18 20.02L11 16.77L4.82 20.02L6 13.14L1 8.27L7.91 7.26L11 1Z"
+                        stroke="#F6B100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="pt-4">
+              <p class="text-white">
+                "I have really enjoyed the Sports Community webinars and found them valuable and informative. "It has
+                captured
+                some real challenges that are faced by the sporting community with some simple yet effective skills to
+                pass
+                onto our clubs."
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
   </div>
-
-  <div class="h-news">
-    <div class="hn-content">
-      <h2>{{page?.words['news-title']?.[lang.slug]}}</h2>
-      <slider-articles [in_gal]="false"></slider-articles>
-    </div>
-    <div class="hn-btnwrap">
-      <a class="btn wide transparent" routerLink="/{{lang.slug}}/articles">{{page?.words['news-btn']?.[lang.slug]}}</a>
-    </div>
-  </div>
-
-  <div class="md:pl-72 md:pr-72 pt-10 pb-20 bg-zinc-800">
-    <div class="text-center">
-      <p class="text-white font-bold text-3xl">User Testimonials or Success Stories</p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pr-4 pl-4 pt-16">
-
-      <div class="bg-zinc-700 border-1 relative border-gray-600 p-5">
-        <div class="absolute -top-4 right-2">
-          <p>
-            <svg width="52" height="40" viewBox="0 0 52 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M24.1547 29.5495C24.2159 30.9691 23.9614 32.3846 23.4094 33.6953C22.8574 35.006 22.0214 36.1797 20.9609 37.1329L20.9525 37.1395C18.7569 39.0739 15.8974 40.0965 12.9647 39.9962H12.9831C11.2105 40.0914 9.43843 39.7977 7.79292 39.1357C6.1474 38.4738 4.66878 37.4599 3.46209 36.1662L3.45538 36.1595C1.03619 33.3072 -0.197728 29.6459 0.00492902 25.9212L0.0032516 25.9562C-0.109173 22.0882 0.6144 18.2412 2.12519 14.6745L2.05809 14.8529C3.26435 12.0565 4.93797 9.48296 7.00816 7.24121L6.9897 7.26121C8.69998 5.41772 10.6817 3.84259 12.8674 2.58954L12.9882 2.52621C14.6412 1.57868 16.3664 0.761186 18.1479 0.0812109L18.4096 -0.0071224L23.6666 8.80954C21.4821 9.6853 19.5645 11.1109 18.1026 12.9462L18.0808 12.9745C16.6251 14.6974 15.7121 16.8079 15.4556 19.0429L15.4506 19.0962C16.5945 19.1247 17.7195 19.393 18.7518 19.8836C19.7841 20.3741 20.7004 21.0759 21.4407 21.9429L21.4507 21.9545C23.333 24.0369 24.3067 26.7762 24.1581 29.5712L24.1598 29.5462L24.1547 29.5495ZM52.5836 29.5495C52.6441 30.9694 52.3892 32.3851 51.8369 33.696C51.2846 35.0069 50.4486 36.1809 49.3882 37.1345L49.3798 37.1412C47.1846 39.0763 44.3248 40.099 41.3919 39.9979H41.4104C39.6376 40.0936 37.8655 39.8 36.2199 39.138C34.5743 38.4761 33.0957 37.462 31.8893 36.1679L31.8826 36.1595C29.4624 33.3071 28.2284 29.6449 28.4322 25.9195L28.4305 25.9545C28.3181 22.0865 29.0416 18.2395 30.5524 14.6729L30.4853 14.8512C31.691 12.0553 33.3634 9.48185 35.432 7.23954L35.4136 7.25954C37.1245 5.41601 39.1068 3.84089 41.2929 2.58788L41.4137 2.52454C43.0664 1.57635 44.7917 0.758826 46.5734 0.0795443L46.8351 -0.00878906L52.0905 8.80788C49.9056 9.6847 47.9881 11.1115 46.5265 12.9479L46.5047 12.9762C45.049 14.6991 44.136 16.8096 43.8795 19.0445L43.8745 19.0979C45.018 19.1262 46.1425 19.3944 47.1743 19.885C48.206 20.3756 49.1217 21.0775 49.8612 21.9445L49.8713 21.9562C51.7555 24.037 52.7311 26.776 52.5836 29.5712L52.5853 29.5462L52.5836 29.5495Z" fill="#C10808"/>
-            </svg>
-          </p>
-        </div>
-        <div class="flex justify-between">
-          <div>
-            <img class="rounded-full border-gray-300"
-              [src]="'https://img001.prntscr.com/file/img001/q9KYea3GRzaHjGHXGf0qBg.png'" />
-          </div>
-          <div>
-            <p class="text-white">Name Surname</p>
-            <p class="text-white">Athlet</p>
-            <p class="text-white flex">
-              <span>
-                <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10.1609 0.536732C10.5188 -0.17891 11.4812 -0.178911 11.8391 0.536731L14.5433 5.9439C14.6872 6.23171 14.9523 6.4281 15.2556 6.47159L21.1749 7.32039C21.9774 7.43547 22.2863 8.49879 21.6852 9.07704L17.4988 13.104C17.2536 13.3399 17.1408 13.6946 17.201 14.0409L18.2019 19.7999C18.344 20.6177 17.5524 21.2597 16.8508 20.8956L11.4162 18.0761C11.1535 17.9398 10.8465 17.9398 10.5838 18.0761L5.14924 20.8956C4.44762 21.2597 3.65599 20.6177 3.79812 19.7999L4.79904 14.0409C4.85922 13.6946 4.74645 13.3399 4.50118 13.104L0.314836 9.07704C-0.286299 8.49879 0.0225854 7.43547 0.825127 7.32038L6.7444 6.47159C7.04767 6.4281 7.31277 6.23171 7.45671 5.9439L10.1609 0.536732Z"
-                    fill="#F6B100" />
-                </svg>
-              </span>
-              <span>
-                <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10.1609 0.536732C10.5188 -0.17891 11.4812 -0.178911 11.8391 0.536731L14.5433 5.9439C14.6872 6.23171 14.9523 6.4281 15.2556 6.47159L21.1749 7.32039C21.9774 7.43547 22.2863 8.49879 21.6852 9.07704L17.4988 13.104C17.2536 13.3399 17.1408 13.6946 17.201 14.0409L18.2019 19.7999C18.344 20.6177 17.5524 21.2597 16.8508 20.8956L11.4162 18.0761C11.1535 17.9398 10.8465 17.9398 10.5838 18.0761L5.14924 20.8956C4.44762 21.2597 3.65599 20.6177 3.79812 19.7999L4.79904 14.0409C4.85922 13.6946 4.74645 13.3399 4.50118 13.104L0.314836 9.07704C-0.286299 8.49879 0.0225854 7.43547 0.825127 7.32038L6.7444 6.47159C7.04767 6.4281 7.31277 6.23171 7.45671 5.9439L10.1609 0.536732Z"
-                    fill="#F6B100" />
-                </svg>
-              </span>
-              <span>
-                <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10.1609 0.536732C10.5188 -0.17891 11.4812 -0.178911 11.8391 0.536731L14.5433 5.9439C14.6872 6.23171 14.9523 6.4281 15.2556 6.47159L21.1749 7.32039C21.9774 7.43547 22.2863 8.49879 21.6852 9.07704L17.4988 13.104C17.2536 13.3399 17.1408 13.6946 17.201 14.0409L18.2019 19.7999C18.344 20.6177 17.5524 21.2597 16.8508 20.8956L11.4162 18.0761C11.1535 17.9398 10.8465 17.9398 10.5838 18.0761L5.14924 20.8956C4.44762 21.2597 3.65599 20.6177 3.79812 19.7999L4.79904 14.0409C4.85922 13.6946 4.74645 13.3399 4.50118 13.104L0.314836 9.07704C-0.286299 8.49879 0.0225854 7.43547 0.825127 7.32038L6.7444 6.47159C7.04767 6.4281 7.31277 6.23171 7.45671 5.9439L10.1609 0.536732Z"
-                    fill="#F6B100" />
-                </svg>
-              </span>
-              <span>
-                <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10.1609 0.536732C10.5188 -0.17891 11.4812 -0.178911 11.8391 0.536731L14.5433 5.9439C14.6872 6.23171 14.9523 6.4281 15.2556 6.47159L21.1749 7.32039C21.9774 7.43547 22.2863 8.49879 21.6852 9.07704L17.4988 13.104C17.2536 13.3399 17.1408 13.6946 17.201 14.0409L18.2019 19.7999C18.344 20.6177 17.5524 21.2597 16.8508 20.8956L11.4162 18.0761C11.1535 17.9398 10.8465 17.9398 10.5838 18.0761L5.14924 20.8956C4.44762 21.2597 3.65599 20.6177 3.79812 19.7999L4.79904 14.0409C4.85922 13.6946 4.74645 13.3399 4.50118 13.104L0.314836 9.07704C-0.286299 8.49879 0.0225854 7.43547 0.825127 7.32038L6.7444 6.47159C7.04767 6.4281 7.31277 6.23171 7.45671 5.9439L10.1609 0.536732Z"
-                    fill="#F6B100" />
-                </svg>
-              </span>
-              <span>
-                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M11 1L14.09 7.26L21 8.27L16 13.14L17.18 20.02L11 16.77L4.82 20.02L6 13.14L1 8.27L7.91 7.26L11 1Z"
-                    stroke="#F6B100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </span>
-            </p>
-          </div>
-        </div>
-        <div class="pt-4">
-          <p class="text-white">
-            "I have really enjoyed the Sports Community webinars and found them valuable and informative. "It has
-            captured
-            some real challenges that are faced by the sporting community with some simple yet effective skills to pass
-            onto our clubs."
-          </p>
-        </div>
-      </div>
-
-      <div class="bg-zinc-700 border-1 relative border-gray-600 p-5">
-        <div class="absolute -top-4 right-2">
-          <p>
-            <svg width="52" height="40" viewBox="0 0 52 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M24.1547 29.5495C24.2159 30.9691 23.9614 32.3846 23.4094 33.6953C22.8574 35.006 22.0214 36.1797 20.9609 37.1329L20.9525 37.1395C18.7569 39.0739 15.8974 40.0965 12.9647 39.9962H12.9831C11.2105 40.0914 9.43843 39.7977 7.79292 39.1357C6.1474 38.4738 4.66878 37.4599 3.46209 36.1662L3.45538 36.1595C1.03619 33.3072 -0.197728 29.6459 0.00492902 25.9212L0.0032516 25.9562C-0.109173 22.0882 0.6144 18.2412 2.12519 14.6745L2.05809 14.8529C3.26435 12.0565 4.93797 9.48296 7.00816 7.24121L6.9897 7.26121C8.69998 5.41772 10.6817 3.84259 12.8674 2.58954L12.9882 2.52621C14.6412 1.57868 16.3664 0.761186 18.1479 0.0812109L18.4096 -0.0071224L23.6666 8.80954C21.4821 9.6853 19.5645 11.1109 18.1026 12.9462L18.0808 12.9745C16.6251 14.6974 15.7121 16.8079 15.4556 19.0429L15.4506 19.0962C16.5945 19.1247 17.7195 19.393 18.7518 19.8836C19.7841 20.3741 20.7004 21.0759 21.4407 21.9429L21.4507 21.9545C23.333 24.0369 24.3067 26.7762 24.1581 29.5712L24.1598 29.5462L24.1547 29.5495ZM52.5836 29.5495C52.6441 30.9694 52.3892 32.3851 51.8369 33.696C51.2846 35.0069 50.4486 36.1809 49.3882 37.1345L49.3798 37.1412C47.1846 39.0763 44.3248 40.099 41.3919 39.9979H41.4104C39.6376 40.0936 37.8655 39.8 36.2199 39.138C34.5743 38.4761 33.0957 37.462 31.8893 36.1679L31.8826 36.1595C29.4624 33.3071 28.2284 29.6449 28.4322 25.9195L28.4305 25.9545C28.3181 22.0865 29.0416 18.2395 30.5524 14.6729L30.4853 14.8512C31.691 12.0553 33.3634 9.48185 35.432 7.23954L35.4136 7.25954C37.1245 5.41601 39.1068 3.84089 41.2929 2.58788L41.4137 2.52454C43.0664 1.57635 44.7917 0.758826 46.5734 0.0795443L46.8351 -0.00878906L52.0905 8.80788C49.9056 9.6847 47.9881 11.1115 46.5265 12.9479L46.5047 12.9762C45.049 14.6991 44.136 16.8096 43.8795 19.0445L43.8745 19.0979C45.018 19.1262 46.1425 19.3944 47.1743 19.885C48.206 20.3756 49.1217 21.0775 49.8612 21.9445L49.8713 21.9562C51.7555 24.037 52.7311 26.776 52.5836 29.5712L52.5853 29.5462L52.5836 29.5495Z" fill="#C10808"/>
-            </svg>
-          </p>
-        </div>
-        <div class="flex justify-between">
-          <div>
-            <img class="rounded-full border-gray-300"
-              [src]="'https://img001.prntscr.com/file/img001/AdknbVnkRp218ALW1H0KDg.png'" />
-          </div>
-          <div>
-            <p class="text-white">Name Surname</p>
-            <p class="text-white">Athlet</p>
-            <p class="text-white flex">
-              <span>
-                <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10.1609 0.536732C10.5188 -0.17891 11.4812 -0.178911 11.8391 0.536731L14.5433 5.9439C14.6872 6.23171 14.9523 6.4281 15.2556 6.47159L21.1749 7.32039C21.9774 7.43547 22.2863 8.49879 21.6852 9.07704L17.4988 13.104C17.2536 13.3399 17.1408 13.6946 17.201 14.0409L18.2019 19.7999C18.344 20.6177 17.5524 21.2597 16.8508 20.8956L11.4162 18.0761C11.1535 17.9398 10.8465 17.9398 10.5838 18.0761L5.14924 20.8956C4.44762 21.2597 3.65599 20.6177 3.79812 19.7999L4.79904 14.0409C4.85922 13.6946 4.74645 13.3399 4.50118 13.104L0.314836 9.07704C-0.286299 8.49879 0.0225854 7.43547 0.825127 7.32038L6.7444 6.47159C7.04767 6.4281 7.31277 6.23171 7.45671 5.9439L10.1609 0.536732Z"
-                    fill="#F6B100" />
-                </svg>
-              </span>
-              <span>
-                <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10.1609 0.536732C10.5188 -0.17891 11.4812 -0.178911 11.8391 0.536731L14.5433 5.9439C14.6872 6.23171 14.9523 6.4281 15.2556 6.47159L21.1749 7.32039C21.9774 7.43547 22.2863 8.49879 21.6852 9.07704L17.4988 13.104C17.2536 13.3399 17.1408 13.6946 17.201 14.0409L18.2019 19.7999C18.344 20.6177 17.5524 21.2597 16.8508 20.8956L11.4162 18.0761C11.1535 17.9398 10.8465 17.9398 10.5838 18.0761L5.14924 20.8956C4.44762 21.2597 3.65599 20.6177 3.79812 19.7999L4.79904 14.0409C4.85922 13.6946 4.74645 13.3399 4.50118 13.104L0.314836 9.07704C-0.286299 8.49879 0.0225854 7.43547 0.825127 7.32038L6.7444 6.47159C7.04767 6.4281 7.31277 6.23171 7.45671 5.9439L10.1609 0.536732Z"
-                    fill="#F6B100" />
-                </svg>
-              </span>
-              <span>
-                <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10.1609 0.536732C10.5188 -0.17891 11.4812 -0.178911 11.8391 0.536731L14.5433 5.9439C14.6872 6.23171 14.9523 6.4281 15.2556 6.47159L21.1749 7.32039C21.9774 7.43547 22.2863 8.49879 21.6852 9.07704L17.4988 13.104C17.2536 13.3399 17.1408 13.6946 17.201 14.0409L18.2019 19.7999C18.344 20.6177 17.5524 21.2597 16.8508 20.8956L11.4162 18.0761C11.1535 17.9398 10.8465 17.9398 10.5838 18.0761L5.14924 20.8956C4.44762 21.2597 3.65599 20.6177 3.79812 19.7999L4.79904 14.0409C4.85922 13.6946 4.74645 13.3399 4.50118 13.104L0.314836 9.07704C-0.286299 8.49879 0.0225854 7.43547 0.825127 7.32038L6.7444 6.47159C7.04767 6.4281 7.31277 6.23171 7.45671 5.9439L10.1609 0.536732Z"
-                    fill="#F6B100" />
-                </svg>
-              </span>
-              <span>
-                <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10.1609 0.536732C10.5188 -0.17891 11.4812 -0.178911 11.8391 0.536731L14.5433 5.9439C14.6872 6.23171 14.9523 6.4281 15.2556 6.47159L21.1749 7.32039C21.9774 7.43547 22.2863 8.49879 21.6852 9.07704L17.4988 13.104C17.2536 13.3399 17.1408 13.6946 17.201 14.0409L18.2019 19.7999C18.344 20.6177 17.5524 21.2597 16.8508 20.8956L11.4162 18.0761C11.1535 17.9398 10.8465 17.9398 10.5838 18.0761L5.14924 20.8956C4.44762 21.2597 3.65599 20.6177 3.79812 19.7999L4.79904 14.0409C4.85922 13.6946 4.74645 13.3399 4.50118 13.104L0.314836 9.07704C-0.286299 8.49879 0.0225854 7.43547 0.825127 7.32038L6.7444 6.47159C7.04767 6.4281 7.31277 6.23171 7.45671 5.9439L10.1609 0.536732Z"
-                    fill="#F6B100" />
-                </svg>
-              </span>
-              <span>
-                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M11 1L14.09 7.26L21 8.27L16 13.14L17.18 20.02L11 16.77L4.82 20.02L6 13.14L1 8.27L7.91 7.26L11 1Z"
-                    stroke="#F6B100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </span>
-            </p>
-          </div>
-        </div>
-        <div class="pt-4">
-          <p class="text-white">
-            "I have really enjoyed the Sports Community webinars and found them valuable and informative. "It has
-            captured
-            some real challenges that are faced by the sporting community with some simple yet effective skills to pass
-            onto our clubs."
-          </p>
-        </div>
-      </div>
-
-      <div class="bg-zinc-700 border-1 relative border-gray-600 p-5">
-        <div class="absolute -top-4 right-2">
-          <p>
-            <svg width="52" height="40" viewBox="0 0 52 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M24.1547 29.5495C24.2159 30.9691 23.9614 32.3846 23.4094 33.6953C22.8574 35.006 22.0214 36.1797 20.9609 37.1329L20.9525 37.1395C18.7569 39.0739 15.8974 40.0965 12.9647 39.9962H12.9831C11.2105 40.0914 9.43843 39.7977 7.79292 39.1357C6.1474 38.4738 4.66878 37.4599 3.46209 36.1662L3.45538 36.1595C1.03619 33.3072 -0.197728 29.6459 0.00492902 25.9212L0.0032516 25.9562C-0.109173 22.0882 0.6144 18.2412 2.12519 14.6745L2.05809 14.8529C3.26435 12.0565 4.93797 9.48296 7.00816 7.24121L6.9897 7.26121C8.69998 5.41772 10.6817 3.84259 12.8674 2.58954L12.9882 2.52621C14.6412 1.57868 16.3664 0.761186 18.1479 0.0812109L18.4096 -0.0071224L23.6666 8.80954C21.4821 9.6853 19.5645 11.1109 18.1026 12.9462L18.0808 12.9745C16.6251 14.6974 15.7121 16.8079 15.4556 19.0429L15.4506 19.0962C16.5945 19.1247 17.7195 19.393 18.7518 19.8836C19.7841 20.3741 20.7004 21.0759 21.4407 21.9429L21.4507 21.9545C23.333 24.0369 24.3067 26.7762 24.1581 29.5712L24.1598 29.5462L24.1547 29.5495ZM52.5836 29.5495C52.6441 30.9694 52.3892 32.3851 51.8369 33.696C51.2846 35.0069 50.4486 36.1809 49.3882 37.1345L49.3798 37.1412C47.1846 39.0763 44.3248 40.099 41.3919 39.9979H41.4104C39.6376 40.0936 37.8655 39.8 36.2199 39.138C34.5743 38.4761 33.0957 37.462 31.8893 36.1679L31.8826 36.1595C29.4624 33.3071 28.2284 29.6449 28.4322 25.9195L28.4305 25.9545C28.3181 22.0865 29.0416 18.2395 30.5524 14.6729L30.4853 14.8512C31.691 12.0553 33.3634 9.48185 35.432 7.23954L35.4136 7.25954C37.1245 5.41601 39.1068 3.84089 41.2929 2.58788L41.4137 2.52454C43.0664 1.57635 44.7917 0.758826 46.5734 0.0795443L46.8351 -0.00878906L52.0905 8.80788C49.9056 9.6847 47.9881 11.1115 46.5265 12.9479L46.5047 12.9762C45.049 14.6991 44.136 16.8096 43.8795 19.0445L43.8745 19.0979C45.018 19.1262 46.1425 19.3944 47.1743 19.885C48.206 20.3756 49.1217 21.0775 49.8612 21.9445L49.8713 21.9562C51.7555 24.037 52.7311 26.776 52.5836 29.5712L52.5853 29.5462L52.5836 29.5495Z" fill="#C10808"/>
-            </svg>
-          </p>
-        </div>
-        <div class="flex justify-between">
-          <div>
-            <img class="rounded-full border-gray-300"
-              [src]="'https://img001.prntscr.com/file/img001/1BdM0JcbRVCqkQUBy3bbfA.png'" />
-          </div>
-          <div>
-            <p class="text-white">Name Surname</p>
-            <p class="text-white">Company</p>
-            <p class="text-white flex">
-              <span>
-                <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10.1609 0.536732C10.5188 -0.17891 11.4812 -0.178911 11.8391 0.536731L14.5433 5.9439C14.6872 6.23171 14.9523 6.4281 15.2556 6.47159L21.1749 7.32039C21.9774 7.43547 22.2863 8.49879 21.6852 9.07704L17.4988 13.104C17.2536 13.3399 17.1408 13.6946 17.201 14.0409L18.2019 19.7999C18.344 20.6177 17.5524 21.2597 16.8508 20.8956L11.4162 18.0761C11.1535 17.9398 10.8465 17.9398 10.5838 18.0761L5.14924 20.8956C4.44762 21.2597 3.65599 20.6177 3.79812 19.7999L4.79904 14.0409C4.85922 13.6946 4.74645 13.3399 4.50118 13.104L0.314836 9.07704C-0.286299 8.49879 0.0225854 7.43547 0.825127 7.32038L6.7444 6.47159C7.04767 6.4281 7.31277 6.23171 7.45671 5.9439L10.1609 0.536732Z"
-                    fill="#F6B100" />
-                </svg>
-              </span>
-              <span>
-                <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10.1609 0.536732C10.5188 -0.17891 11.4812 -0.178911 11.8391 0.536731L14.5433 5.9439C14.6872 6.23171 14.9523 6.4281 15.2556 6.47159L21.1749 7.32039C21.9774 7.43547 22.2863 8.49879 21.6852 9.07704L17.4988 13.104C17.2536 13.3399 17.1408 13.6946 17.201 14.0409L18.2019 19.7999C18.344 20.6177 17.5524 21.2597 16.8508 20.8956L11.4162 18.0761C11.1535 17.9398 10.8465 17.9398 10.5838 18.0761L5.14924 20.8956C4.44762 21.2597 3.65599 20.6177 3.79812 19.7999L4.79904 14.0409C4.85922 13.6946 4.74645 13.3399 4.50118 13.104L0.314836 9.07704C-0.286299 8.49879 0.0225854 7.43547 0.825127 7.32038L6.7444 6.47159C7.04767 6.4281 7.31277 6.23171 7.45671 5.9439L10.1609 0.536732Z"
-                    fill="#F6B100" />
-                </svg>
-              </span>
-              <span>
-                <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10.1609 0.536732C10.5188 -0.17891 11.4812 -0.178911 11.8391 0.536731L14.5433 5.9439C14.6872 6.23171 14.9523 6.4281 15.2556 6.47159L21.1749 7.32039C21.9774 7.43547 22.2863 8.49879 21.6852 9.07704L17.4988 13.104C17.2536 13.3399 17.1408 13.6946 17.201 14.0409L18.2019 19.7999C18.344 20.6177 17.5524 21.2597 16.8508 20.8956L11.4162 18.0761C11.1535 17.9398 10.8465 17.9398 10.5838 18.0761L5.14924 20.8956C4.44762 21.2597 3.65599 20.6177 3.79812 19.7999L4.79904 14.0409C4.85922 13.6946 4.74645 13.3399 4.50118 13.104L0.314836 9.07704C-0.286299 8.49879 0.0225854 7.43547 0.825127 7.32038L6.7444 6.47159C7.04767 6.4281 7.31277 6.23171 7.45671 5.9439L10.1609 0.536732Z"
-                    fill="#F6B100" />
-                </svg>
-              </span>
-              <span>
-                <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10.1609 0.536732C10.5188 -0.17891 11.4812 -0.178911 11.8391 0.536731L14.5433 5.9439C14.6872 6.23171 14.9523 6.4281 15.2556 6.47159L21.1749 7.32039C21.9774 7.43547 22.2863 8.49879 21.6852 9.07704L17.4988 13.104C17.2536 13.3399 17.1408 13.6946 17.201 14.0409L18.2019 19.7999C18.344 20.6177 17.5524 21.2597 16.8508 20.8956L11.4162 18.0761C11.1535 17.9398 10.8465 17.9398 10.5838 18.0761L5.14924 20.8956C4.44762 21.2597 3.65599 20.6177 3.79812 19.7999L4.79904 14.0409C4.85922 13.6946 4.74645 13.3399 4.50118 13.104L0.314836 9.07704C-0.286299 8.49879 0.0225854 7.43547 0.825127 7.32038L6.7444 6.47159C7.04767 6.4281 7.31277 6.23171 7.45671 5.9439L10.1609 0.536732Z"
-                    fill="#F6B100" />
-                </svg>
-              </span>
-              <span>
-                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M11 1L14.09 7.26L21 8.27L16 13.14L17.18 20.02L11 16.77L4.82 20.02L6 13.14L1 8.27L7.91 7.26L11 1Z"
-                    stroke="#F6B100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </span>
-            </p>
-          </div>
-        </div>
-        <div class="pt-4">
-          <p class="text-white">
-            "I have really enjoyed the Sports Community webinars and found them valuable and informative. "It has
-            captured
-            some real challenges that are faced by the sporting community with some simple yet effective skills to pass
-            onto our clubs."
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
